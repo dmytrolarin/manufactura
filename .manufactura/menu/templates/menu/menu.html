@@ -1,0 +1,10 @@
+{% extends 'menu/base.html' %}
+{% block content %}
+{% for product in products %}
+<p><img src="{{product.photo.url}}" ></p> 
+<p>{{product.name}}</p>
+<p>{{product.price}} ГРН</p>
+<br>
+<hr>
+{% endfor %}
+{% endblock content %}
