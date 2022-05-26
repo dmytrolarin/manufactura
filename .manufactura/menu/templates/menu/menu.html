@@ -1,15 +1,6 @@
 {% extends 'menu/base.html' %}
 {% block content %}
 
-<script language="JavaScript" type="text/javascript">
-    function linklist(what){
-    var selectedopt=what.options[what.selectedIndex]
-    if (document.getElementById && selectedopt.getAttribute("target")=="new")
-    window.open(selectedopt.value)
-    else
-    window.location=selectedopt.value
-    }
-</script>
 
 <!-- Выпадающий список для выбора категории -->
 <form name="menu">
