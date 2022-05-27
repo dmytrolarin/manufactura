@@ -24,11 +24,18 @@
 </form>
 
 <!-- Показываем блюда -->
-{% for product in products %}
-<p><img src="{{product.photo.url}}" ></p> 
-<p>{{product.name}}</p>
-<p>{{product.price}} ГРН</p>
-<br>
-<hr>
-{% endfor %}
+<div class="list">
+    {% for product in products %}
+    <div class="product">
+        <div class="product_photo">
+            <p><img src="{{product.photo.url}}" ></p> 
+        </div>
+        <div class="product_text">
+            <p class="name">{{product.name}}</p>
+            <p class="composition">{{product.composition}}</p>
+            <div class="price"><p>{{product.price}} ГРН</p></div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock content %}

@@ -1,4 +1,97 @@
+/*Обнуление*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/* ------------------------------------------------- */
+
+body{
+    background-color: #f4f5ef;
+}
+
 .selected_category{
     color: red;
 }
 
+.list {	
+    display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.product {	
+
+	/* padding: 20px 0; */
+	flex-basis: 310px;
+	text-align: center;
+    margin: 30px;
+	border: 1px solid rgb(229, 216, 216);
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 1px 1px 10px grey;
+
+
+}
+
+.product .product_photo{
+    margin-top: 25px;   
+}
+
+.product_text p{
+    margin-top: 15px;
+}
+
+
+
+.product_photo img{
+    width: 80%;
+    height: 80%;
+    border-radius: 20px;
+}
+
+.name{
+    font-size: 20px;
+    color: #493e34;
+    font-weight: bold;
+}
+
+.composition{
+    color: #90877e;
+    font-style: italic;
+}
+
+.price{
+    color: white;
+    background-color: #493e34;
+    border-radius: 20px;
+    width: 80%;
+    margin: 0 auto;
+}
