@@ -57,6 +57,7 @@ body{
     border-radius: 20px;
     background-color: white;
     box-shadow: 1px 1px 10px grey;
+    
 
 
 }
@@ -92,6 +93,9 @@ body{
     color: white;
     background-color: #493e34;
     border-radius: 20px;
-    width: 80%;
+    width: 50%;
     margin: 0 auto;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: 10px;
 }
