@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
+
 from .models import*
 # Для показа всех блюд
 class ShowAllMenu(ListView):
@@ -27,3 +28,4 @@ class ShowCategory(ListView):
         context['category_selected'] = c.pk
         context['categories']=Category.objects.all()
         return context
+
