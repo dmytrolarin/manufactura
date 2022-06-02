@@ -1,0 +1,7 @@
+{% extends 'mainpage/base.html' %}
+{% block content %}
+<h1>{{title}}</h1>
+<p><a href="{% url 'all_menu' %}">Меню</a></p>
+<p><a href="{% url 'reservation' %}">Бронювання столику</a></p>
+<p>Тут буде невеличка інформація про ресторан</p>
+{% endblock content %}
