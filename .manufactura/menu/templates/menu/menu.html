@@ -1,7 +1,7 @@
 {% extends 'menu/base.html' %}
 {% block content %}
 
-
+<p><a href="{% url 'reservation' %}">Ваші замовлення</a></p>
 <!-- Выпадающий список для выбора категории -->
 <form name="menu">
     <select name="categories" onChange="linklist(document.menu.categories)">
@@ -17,7 +17,7 @@
     {% if cat.pk != category_selected %}
     <option value="{{cat.get_absolute_url}}">{{cat}}</option>
     {% else %}
-    <option value="#" class="selected_category"></span>{{cat}}</option>
+    <option value="#" class="selected_category">{{cat}}</option>
     {% endif %}
     {% endfor %}
     </select>

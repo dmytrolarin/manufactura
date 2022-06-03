@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from .models import*
@@ -11,4 +12,19 @@ class MakeTableReservation(CreateView):
         #Распаковываем ранее созданый контекст
         context = super().get_context_data(**kwargs)
         context['title'] = 'Бронювання столику'
+        context['selected'] = 'reservation'
         return context 
+
+def show_form_takeaway(request):
+    context = {
+        'title':'Самовивіз',
+        'selected':'takeaway'
+    }
+    return render(request, 'order/takeaway_form.html',context=context)
+
+def show_form_delivery(request):
+    context = {
+        'title':'Доставка',
+        'selected':'delivery'
+    }
+    return render(request, 'order/delivery_form.html',context=context)

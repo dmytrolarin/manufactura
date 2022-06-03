@@ -23,7 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('mainpage.urls')),
     path('menu/', include('menu.urls')),
-    path('order/', include('order.urls'))
+    path('order/', include('order.urls')),
+    path('for_user/',include('for_user.urls'))
 ]
 
 if settings.DEBUG:

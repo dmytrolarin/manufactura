@@ -35,3 +35,9 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 .sidebar{
     text-align: right;
 }
+.select_type_order p{
+	font-size: 20px;
+}
+.selected{
+	color: red;
+}
