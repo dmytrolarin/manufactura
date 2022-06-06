@@ -10,7 +10,6 @@ class TableReservation(models.Model):
     time_reservation = models.TimeField(verbose_name="Час бронювання")
     amount_persons = models.IntegerField(verbose_name="Кількість персон")
     order = models.TextField(blank=True,verbose_name="Замовлення")
-    special_requests = models.TextField(blank=True,verbose_name="Особливі побажання")
     def __str__(self):
         return f"{self.client_name}, {self.time_reservation}"
         
