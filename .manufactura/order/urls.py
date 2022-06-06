@@ -2,6 +2,7 @@ from django.urls import path
 from .views import *
 urlpatterns = [
     path('reservation/',MakeTableReservation.as_view(), name='reservation'),
-    path('takeaway/',show_form_takeaway, name='takeaway'),
-    path('delivery/', show_form_delivery,name='delivery')
+    path('reservation_only/',MakeTableReservation.as_view(), name='reservation_only'),
+    path('takeaway/',MakeTakeAway.as_view(), name='takeaway'),
+    path('delivery/', MakeDelivery.as_view(),name='delivery')
 ]

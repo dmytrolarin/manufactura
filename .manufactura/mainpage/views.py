@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+# Показываем главную страницу
 def show_mainpage(request):
     context = {
         'title':'Ресторан Мануфактура'

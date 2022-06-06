@@ -1,5 +1,9 @@
 {% extends 'order/base.html' %}
 
 {% block content %}
-<h1>Тут буде форма для оформлення замовлення через доставку</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Оформити">
+</form>
 {% endblock content %}
