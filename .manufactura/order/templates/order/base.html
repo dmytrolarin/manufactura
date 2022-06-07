@@ -41,6 +41,15 @@
         </ul>
     </div>  
     {% endif %}
+    {% if messages %}
+        {% for message in messages %}
+            {% if message_type == 'success' %}
+            <p class="success-text">{{ message }}</p>
+            {% else %}
+            <p class="error-text">{{ message }}</p>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
     {% block content %}
 
     {% endblock content %}

@@ -1,8 +1,8 @@
 from django.urls import path
 from .views import *
 urlpatterns = [
-    path('reservation/',MakeTableReservation.as_view(), name='reservation'),
-    path('reservation_only/',MakeTableReservation.as_view(), name='reservation_only'),
-    path('takeaway/',MakeTakeAway.as_view(), name='takeaway'),
-    path('delivery/', MakeDelivery.as_view(),name='delivery')
+    path('reservation/',make_table_reservation, name='reservation'),
+    path('reservation_only/',make_table_reservation, name='reservation_only'),
+    path('takeaway/',make_take_away, name='takeaway'),
+    path('delivery/', make_delivery,name='delivery')
 ]

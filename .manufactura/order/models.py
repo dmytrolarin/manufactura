@@ -13,19 +13,11 @@ class TableReservation(models.Model):
     def __str__(self):
         return f"{self.client_name}, {self.time_reservation}"
 
-    # def save(self, *args, **kwargs):
-    #     send_mail('Оформлене резервування',
-    #     f"""Клієнт: {self.client_name},Номер телефону: {self.client_phone_number}, 
-    #     Час бронвання: {self.time_reservation}, Кількість персон: {self.amount_persons},
-    #     Замовлення: {self.order}""",
-    #     RestaurantInfo.objects.all()[0].rest_email,
-    #     )
-
-    #     return super().save(*args, **kwargs)
+  
         
     class Meta:
         verbose_name = 'Бронювання столу'
-        verbose_name_plural = 'Бронювання столів'
+        verbose_name_plural = 'Бронювання столиків'
 
 class TakeAway(models.Model):
     '''Модель для оформления заказов форматом самовывоза'''
