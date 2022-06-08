@@ -7,16 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'mainpage/css/basestyle.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'mainpage/css/homestyle.css' %}" type="text/css">
+    
     <title>{{title}}</title>
 </head>
 <body>
-    <ul class="sidebar">
-        <li><a href="{% url 'all_menu' %}">Меню</a></li>
-        <li><a href="{% url 'reservation' %}">Бронювання столику</a></li>
-        <li><a href="{% url 'about_us' %}">Про нас</a></li>
-        <li><a href="{% url 'contacts' %}">Контакти</a></li>
-        <li><a href="{% url 'review_form' %}">Ваш відгук</a></li>
-    </ul>
+    <div class="burger-menu">
+        <a href="#" class="burger-menu__button">
+            <span class="burger-menu__lines"></span>
+        </a>
+        <ul class="burger-menu__links">
+            <li><a href="{% url 'all_menu' %}" class="link">Меню</a></li>
+            <li><a href="{% url 'reservation' %}"class="link">Бронювання столику</a></li>
+            <li><a href="{% url 'about_us' %}"class="link">Про нас</a></li>
+            <li><a href="{% url 'contacts' %}"class="link">Контакти</a></li>
+            <li><a href="{% url 'review_form' %}"class="link">Ваш відгук</a></li>
+        </ul>
+        <div class="burger-menu__overlay"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="{% static 'mainpage/js/basescripts.js' %}"></script>
 
     {% block content %}
 
