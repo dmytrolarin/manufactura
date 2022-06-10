@@ -22,4 +22,4 @@ function burgerMenu(selector) {
     }
 }
 
-burgerMenu('.burger-menu');
+burgerMenu('header');
