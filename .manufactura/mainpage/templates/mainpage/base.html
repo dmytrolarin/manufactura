@@ -41,13 +41,67 @@
     </header>
         
     </div>
+    <main>
+        {% block content %}
 
-    {% block content %}
-
-    {% endblock content %}
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="{% static 'mainpage/js/basescripts.js' %}"></script>
+        {% endblock content %}
+    </main>
+    <footer> 
+        <div class="wrapper">
+            <div class="rest-name">Ресторан «Мануфактура»</div>
+            <div class="footer">
+                
+                <div class="footer__info-blocks">
+                    <div class="footer__contacts">
+                        <div class="title">
+                            <span class="title__icon"><ion-icon name="mail-outline"></ion-icon></span>
+                            <span class="title__text">КОНТАКТИ</span>
+                        </div>
+                        <div class="info">
+                            <p><a href="tel:+{{ rest_info.rest_phone_number }}" class="">+{{ rest_info.rest_phone_number }}</a></p>
+                            <p><a href="{% url 'review_form' %}"> Залишити відгук</a></p>
+                        </div>
+                    </div>
+                    <div class="footer__adress">
+                        <div class="title">
+                            <span class="title__icon"><ion-icon name="location-outline"></ion-icon></span>
+                            <span class="title__text">АДРЕСА</span>
+                        </div>
+                        <div class="info">
+                            <p><a href="https://goo.gl/maps/ve2uTqchceLYKTTX6">Дніпро, вулиця М. Грушевського 4А</a></p>
+                        </div>
+                    </div>
+                    <div class="footer__time-working">
+                        <div class="title">
+                            <ion-icon name="time-outline"></ion-icon></span>
+                            <span class="title__text">ЧАС РОБОТИ</span>
+                        </div>
+                        <div class="info">
+                            <p>Ми працюємо {{ rest_info.time_working }}</p>
+                        </div>
+                    </div>
+                    <div class="footer__instagram">
+                        <div class="title">
+                            <span class="title__icon"><ion-icon name="logo-instagram"></ion-icon>
+                            <span class="title__text">НАШ ІНСТАГРАМ</span>
+                        </div>
+                        <div class="info">
+                            <p><a href="https://instagram.com/manufactura.restaurant">Слідкувати</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <p>© 2022 Manufactra Restaurant</p>
+                <p> Весь контент, опублікований на сайті, належить ТОВ Ресторан Мануфактура.
+                    Використання цього контенту в будь-яких цілях заборонено.</p>
+            </div>
+        </div>
+    </footer>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="{% static 'mainpage/js/basescripts.js' %}"></script>
+    
 </body>
 </html>

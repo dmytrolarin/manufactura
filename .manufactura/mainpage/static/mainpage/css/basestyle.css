@@ -34,7 +34,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 /* ------------------------------------------------- */
 
 body{
-	background-color: #b9b9b9
+	background-color: #b9b9b9;
 }
 
 /* Настройка хедера */
@@ -46,7 +46,7 @@ header{
 	
 }
 
-.wrapper{
+header .wrapper{
 	margin: 0 auto;
 }
 
@@ -142,9 +142,71 @@ header{
 	display: block;
 }
 
+
+
 @media (max-width:767px) {
 	.burger-menu_active .burger-menu__links{	
 		width: 100%;
 	}
+}
+
+/* Настройка футера */
+footer{
+	background-color: #3c3c3c;
 	
+}
+footer .wrapper{
+	margin: 0 auto;
+	width: 100%;
+
+}
+
+footer .wrapper .rest-name{
+	font-size: 30px;
+	color: gold;
+	text-align: center;
+	padding: 25px;
+}
+
+.footer__info-blocks{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin: 25px;
+	text-align: center;
+}
+
+.footer__contacts,
+.footer__adress,
+.footer__time-working,
+.footer__instagram{
+	margin: 20px;
+}
+
+.footer__info-blocks .title{
+	color: white;
+	font-size: 16px;
+}
+
+
+.footer__info-blocks p{
+	color: white;
+	margin-top: 5px;
+}
+
+
+
+.footer__info-blocks a{
+	color: orange;
+}
+
+.footer__info-blocks a:hover{
+	color: grey;
+	margin-top: 5px;
+}
+
+.footer__copyright{
+	text-align: center;
+	color:gainsboro;
+	padding-bottom: 20px;
 }
