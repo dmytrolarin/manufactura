@@ -12,12 +12,13 @@
     <title>{{title}}</title>
     {% get_rest_info as rest_info %}
 </head>
+
 <body>
     <header>
         <div class="wrapper">
             <div class="head">
                 <div class="head__logo">
-                    <a href="{% url 'home' %}"><img src="media/photos/template_images/logo.jpg" alt="logo"></a>
+                    <a href="{% url 'home' %}"><img src="media/photos/template_images/logo.png" alt="logo"></a>
                 </div>
                 <ul class="head__buttons">
                     <li><a href="tel:+{{ rest_info.rest_phone_number }}" class=""><ion-icon name="call-outline"></ion-icon></a></li>
@@ -26,10 +27,9 @@
                 </ul>
             </div>
             <div class="burger-menu">
-                
                 <ul class="burger-menu__links">
                     <li><a href="#" class="burger-menu__button"><ion-icon name="close-outline"></ion-icon></a></li>
-                    <li><a href="{% url 'home' %}"><img src="media/photos/template_images/logo.jpg" alt="logo"></a></li>
+                    <li class="li-logo"><a href="{% url 'home' %}"><img src="media/photos/template_images/logo.png" alt="logo"></a></li>
                     <li><a href="{% url 'all_menu' %}" class="link">Меню</a></li>
                     <li><a href="{% url 'reservation' %}"class="link">Бронювання столику</a></li>
                     <li><a href="{% url 'about_us' %}"class="link">Про нас</a></li>
@@ -54,7 +54,7 @@
                 <div class="footer__info-blocks">
                     <div class="footer__contacts">
                         <div class="title">
-                            <span class="title__icon"><ion-icon name="mail-outline"></ion-icon></span>
+                            <span class="title__icon"><img src="media/photos/icons/mail-outline.svg" alt=""></ion-icon></span>
                             <span class="title__text">КОНТАКТИ</span>
                         </div>
                         <div class="info">
@@ -64,7 +64,7 @@
                     </div>
                     <div class="footer__adress">
                         <div class="title">
-                            <span class="title__icon"><ion-icon name="location-outline"></ion-icon></span>
+                            <span class="title__icon"><img src="media/photos/icons/location-outline.svg" alt=""></span>
                             <span class="title__text">АДРЕСА</span>
                         </div>
                         <div class="info">
@@ -73,7 +73,7 @@
                     </div>
                     <div class="footer__time-working">
                         <div class="title">
-                            <ion-icon name="time-outline"></ion-icon></span>
+                            <span class="title__icon"><img  src="media/photos/icons/time-outline.svg" alt=""></ion-icon></span>
                             <span class="title__text">ЧАС РОБОТИ</span>
                         </div>
                         <div class="info">
@@ -82,8 +82,8 @@
                     </div>
                     <div class="footer__instagram">
                         <div class="title">
-                            <span class="title__icon"><ion-icon name="logo-instagram"></ion-icon>
-                            <span class="title__text">НАШ ІНСТАГРАМ</span>
+                            <span class="title__icon"><img src="media/photos/icons/logo-instagram.svg" alt=""></span> 
+                            <span  class="title__text">НАШ Instagram</span>
                         </div>
                         <div class="info">
                             <p><a href="https://instagram.com/manufactura.restaurant">Слідкувати</a></p>
