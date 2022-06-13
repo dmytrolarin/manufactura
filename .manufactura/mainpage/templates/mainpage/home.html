@@ -1,6 +1,9 @@
-{% extends 'mainpage/base.html' %}
+{% extends 'base/base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'mainpage/css/mainpagestyle.css' %}">
+{% endblock links %}
 {% block content %}
-<br><br><br>
 <h1>{{title}}</h1>
 <p><a  href="{% url 'all_menu' %}">Меню</a></p>
 <p><a  href="{% url 'reservation_only' %}">Бронювання столику</a></p>

@@ -1,9 +1,4 @@
 
-
-body{
-    background-color:  #b9b9b9;
-}
-
 .selected_category{
     color: red;
 }
@@ -15,18 +10,13 @@ body{
 }
 
 .product {	
-
-	/* padding: 20px 0; */
 	flex-basis: 310px;
 	text-align: center;
     margin: 30px;
 	border: 1px solid rgb(229, 216, 216);
     border-radius: 20px;
     background-color: white;
-    box-shadow: 1px 1px 10px grey;
-    
-
-
+    box-shadow: 1px 1px 10px grey;  
 }
 
 .product .product_photo{

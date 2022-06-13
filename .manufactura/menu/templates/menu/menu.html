@@ -1,4 +1,9 @@
-{% extends 'menu/base.html' %}
+{% extends 'base/base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'menu/css/menustyle.css' %}">
+{% endblock links %}
+
 {% block content %}
 
 <p><a href="{% url 'reservation' %}">Ваші замовлення</a></p>

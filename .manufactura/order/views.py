@@ -14,6 +14,9 @@ def make_table_reservation(request):
         'form':form,
         'title':'Бронювання столику',
         'selected':'reservation',
+        'path_pref':'../../',
+        'rest_info': RestaurantInfo.objects.all()[0]
+
     }
     if  request.method == 'POST':
         form = MakeTableReservationForm(request.POST)
@@ -49,6 +52,8 @@ def make_take_away(request):
         'form':form,
         'title':'Самовивіз',
         'selected':'takeaway',
+        'path_pref':'../../',
+        'rest_info': RestaurantInfo.objects.all()[0]
     }
     if request.method == 'POST':
         form = MakeTakeAwayForm(request.POST)
@@ -80,6 +85,8 @@ def make_delivery(request):
         'form':form,
         'title':'Доставка',
         'selected':'delivery',
+        'path_pref':'../../',
+        'rest_info': RestaurantInfo.objects.all()[0]
     }
     if request.method == 'POST':
         form = MakeDeliveryForm(request.POST)
