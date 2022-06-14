@@ -81,8 +81,10 @@ header .wrapper{
 
 
 /* Настройка бургер-меню */
+
 .burger-menu__button{
 	font-size: 25px;
+
 }
 
 .burger-menu__links{
@@ -153,6 +155,16 @@ header .wrapper{
 }
 
 /* Настройка контента */
+.main-footer-wrapper{
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+
+}
+
+main{
+	flex: 1 1 auto;
+}
 main .wrapper{
 	padding-top: 80px;
 }
@@ -225,3 +237,5 @@ footer .wrapper .rest-name{
 	border-radius: 5px;
 	width: 17px;
 }
+
+

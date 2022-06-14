@@ -1,4 +1,93 @@
-h1{
-    font-size: 25px;
+
+
+.main-block{
+   background-image: url('/media/photos/template_images/mainpage/bg_mainblock.png');
+   background-repeat:no-repeat;
+   background-position:center;
+   /* filter:brightness(0.5); */
+   background-size: cover;
+   text-align: center;
+   height: 100ch;
+   padding-top: 15ch;
+}
+
+
+.main-block__title{
+    padding: 15px;
+    font-size: 90px;
+    font-weight: bold;
+    color: white;
+}
+
+.main-block__slogan{
+    padding: 5px;
+    font-size: 35px;
+    color: white;
     font-style: italic;
+}
+.main-block .container-buttons{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.main-block__buttons{
+    /* width: 1000px; */
+    display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+
+
+.main-block .to-menu{
+    margin-top: 30px;
+    width:200px;
+    height: 50px;
+    background-color: gold;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: black;
+}
+
+.main-block .to-reservation{
+    margin-top: 30px;
+    width:200px;
+    height: 50px;
+    border: 3px white solid;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    
+}
+
+.main-block .to-menu:hover{
+    background-color: gray;
+}
+
+.main-block .to-reservation:hover{
+    border-color: gray;
+    color: gray;
+}
+
+
+
+@media (max-width:767px) {
+	.main-block__title{	
+		font-size: 45px;
+	}
+
+    .main-block__slogan{
+        font-size: 22.5px;
+    }
+
+    .main-block .container-buttons{
+        max-width: 200px;
+        
+    }
 }

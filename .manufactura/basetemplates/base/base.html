@@ -13,34 +13,34 @@
 </head>
 
 <body>
-    <div class="page">
-        <header>
-            <div class="wrapper">
-                <div class="head">
-                    <div class="head__logo">
-                        <a href="{% url 'home' %}"><img src="{{path_pref}}media/photos/template_images/logo.png" alt="logo"></a>
-                    </div>
-                    <ul class="head__buttons">
-                        <li><a href="tel:+{{ rest_info.rest_phone_number }}" class=""><ion-icon name="call-outline"></ion-icon></a></li>
-                        <li><a href="{% url 'reservation' %}"><ion-icon name="basket-outline"></ion-icon></a></li>
-                        <li><a href="#" class="burger-menu__button"><ion-icon name="menu-outline"></ion-icon></a></li>   
-                    </ul>
+    <header>
+        <div class="wrapper">
+            <div class="head">
+                <div class="head__logo">
+                    <a href="{% url 'home' %}"><img src="{{path_pref}}media/photos/template_images/logo.png" alt="logo"></a>
                 </div>
-                <div class="burger-menu">
-                    <ul class="burger-menu__links">
-                        <li><a href="#" class="burger-menu__button"><ion-icon name="close-outline"></ion-icon></a></li>
-                        <li class="li-logo"><a href="{% url 'home' %}"><img src="{{path_pref}}media/photos/template_images/logo.png" alt="logo"></a></li>
-                        <li><a href="{% url 'all_menu' %}" class="link">Меню</a></li>
-                        <li><a href="{% url 'reservation' %}"class="link">Бронювання столику</a></li>
-                        <li><a href="{% url 'about_us' %}"class="link">Про нас</a></li>
-                        <li><a href="{% url 'contacts' %}"class="link">Контакти</a></li>
-                        <li><a href="{% url 'review_form' %}"class="link">Ваш відгук</a></li>
-                    </ul>
-                    <div class="burger-menu__overlay"></div>
-                </div>
-        </header>
-            
-        </div>
+                <ul class="head__buttons">
+                    <li><a href="tel:+{{ rest_info.rest_phone_number }}" class=""><ion-icon name="call-outline"></ion-icon></a></li>
+                    <li><a href="{% url 'reservation' %}"><ion-icon name="basket-outline"></ion-icon></a></li>
+                    <li><a href="#" class="burger-menu__button"><ion-icon name="menu-outline"></ion-icon></a></li>   
+                </ul>
+            </div>
+            <div class="burger-menu">
+                <ul class="burger-menu__links">
+                    <li><a href="#" class="burger-menu__button"><ion-icon name="close-outline"></ion-icon></a></li>
+                    <li class="li-logo"><a href="{% url 'home' %}"><img src="{{path_pref}}media/photos/template_images/logo.png" alt="logo"></a></li>
+                    <li><a href="{% url 'all_menu' %}" class="link">Меню</a></li>
+                    <li><a href="{% url 'reservation' %}"class="link">Бронювання столику</a></li>
+                    <li><a href="{% url 'about_us' %}"class="link">Про нас</a></li>
+                    <li><a href="{% url 'contacts' %}"class="link">Контакти</a></li>
+                    <li><a href="{% url 'review_form' %}"class="link">Ваш відгук</a></li>
+                </ul>
+                <div class="burger-menu__overlay"></div>
+            </div>
+    </header>
+        
+    </div>
+    <div class="main-footer-wrapper">
         <main>
             <div class="wrapper">
                 {% block content %}
@@ -98,8 +98,8 @@
                     <p> Весь контент, опублікований на сайті, належить ТОВ Ресторан Мануфактура.
                         Використання цього контенту в будь-яких цілях заборонено.</p>
                 </div>
-            </div>
         </footer>
+    </div>
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
