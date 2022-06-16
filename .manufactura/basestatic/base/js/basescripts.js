@@ -1,12 +1,17 @@
-function burgerMenu(selector_menu) {
+function burgerMenu(selector_menu, selector_slider) {
+    
     let menu = $(selector_menu);
     let button = menu.find('.burger-menu__button');
     let links = menu.find('.link');
     let overlay = menu.find('.burger-menu__overlay');
 
+    let slider = $(selector_slider);
+    let slider_ul = slider.find('ul')
+
     button.on('click', (e) =>{
         e.preventDefault();
         toggleMenu();
+       
     });
 
     links.on('click', () => toggleMenu());
@@ -16,10 +21,14 @@ function burgerMenu(selector_menu) {
 
         if (menu.hasClass('burger-menu_active')) {
             $('body').css('overflow', 'hidden');
+            slider_ul.css('position','static')
         } else {
             $('body').css('overflow', 'visible');
+            window.setTimeout(slider_ul.css('position','relative'), 10000)
+            
         }
+        
     }
 }
 
-burgerMenu('header');
+burgerMenu('header','#slider');

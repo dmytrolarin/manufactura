@@ -5,10 +5,22 @@
 {% endblock links %}
 
 {% block content %}
+<div class="h-scroller">
+    <div class="h-scroller__items">
+        
+        {% for cat in categories %}
+            {% if cat.pk != category_selected %}
+                <a href="{{cat.get_absolute_url}}" class="h-scroller__item">{{cat}}</a>
+            {% else %}
+                <a href="#" class="h-scroller__item selected_category">{{cat}}</a>
+            {% endif %}
+        {% endfor %}
+        
+    </div>
 
-<p><a href="{% url 'reservation' %}">Ваші замовлення</a></p>
+</div>
 <!-- Выпадающий список для выбора категории -->
-<form name="menu">
+<!-- <form name="menu">
     <select name="categories" onChange="linklist(document.menu.categories)">
     <option value="#">Оберіть категорію страви</option>
 
@@ -26,7 +38,7 @@
     {% endif %}
     {% endfor %}
     </select>
-</form>
+</form> -->
 
 <!-- Показываем блюда -->
 <div class="list">
@@ -44,3 +56,7 @@
     {% endfor %}
 </div>
 {% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'menu/js/menuscripts.js' %}"></script>
+{% endblock scripts %}

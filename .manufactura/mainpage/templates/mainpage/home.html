@@ -5,7 +5,7 @@
 {% endblock links %}
 {% block content %}
 <div class="main-block">
-    <div class="container">
+    <div class="main-block__container">
         <div class="main-block__title">
             <span>Manufactura</span>
         </div>
@@ -18,12 +18,46 @@
                 <a class="to-reservation" href="{% url 'reservation_only' %}">Бронювання столику</a>
             </div>
         </div>
-       
-        <div class="main-block__slider"></div>
-    </div>
-    
+
+        <div id="slider">
+            <div id="slider__buttons">
+                <a id="slider__prev">&#8810;</a>
+                <a id="slider__next">&#8811;</a>
+            </div>
+            
+                <ul id="slider__content">
+                    {% for slide in slider_images %}
+                        <li><img src="{{slide.photo.url}}" alt="" ></li>
+                    {% endfor %}
+                
+                </ul>    
+        </div> 
+    </div>    
 </div>
 
+<div class="about-block">
+    <div class="about-block__info">
+        <div class="about-block__title">
+            <span>Про ресторан</span>
+        </div>
+        <div class="about-block__text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, minima! Modi, saepe. 
+            Fugit earum vitae doloribus quis, sed unde ipsam, reiciendis quisquam libero aperiam, 
+            quasi facere animi enim optio dicta!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, minima! Modi, saepe. 
+            Fugit earum vitae doloribus quis, sed unde ipsam, reiciendis quisquam libero aperiam, 
+            quasi facere animi enim optio dicta!
+        </div>
+        <div class="about-block__button">
+            <a href="{% url 'about_us' %}">Детальніше</a>
+        </div>
 
-
+    </div>
+    <div class="about-block__image">
+        <img src="media/photos/template_images/mainpage/about.jfif" alt="">
+    </div>
+</div>
 {% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'mainpage/js/sliderscript.js' %}"></script>
+{% endblock scripts %}

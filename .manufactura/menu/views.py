@@ -31,6 +31,6 @@ class ShowCategory(ListView):
         context['category_selected'] = c.pk
         context['categories']=Category.objects.all()
         context['rest_info'] = RestaurantInfo.objects.all()[0]
-        context['path_pref'] = '../'
+        context['path_pref'] = '../../'
         return context
 

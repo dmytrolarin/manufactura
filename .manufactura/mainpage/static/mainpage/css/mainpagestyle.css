@@ -1,13 +1,12 @@
-
+/* Формление главного блока */
 
 .main-block{
    background-image: url('/media/photos/template_images/mainpage/bg_mainblock.png');
    background-repeat:no-repeat;
    background-position:center;
-   /* filter:brightness(0.5); */
    background-size: cover;
    text-align: center;
-   height: 100ch;
+   height: 700px;
    padding-top: 15ch;
 }
 
@@ -31,7 +30,6 @@
 }
 
 .main-block__buttons{
-    /* width: 1000px; */
     display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
@@ -76,6 +74,140 @@
 }
 
 
+/* Формление главного слайдера */
+
+
+#slider{
+    margin-top: 45px;
+    margin-left: 100vh;
+    width:350px;
+    height: 250px;
+    overflow: hidden;
+}
+
+#slider__buttons{
+    z-index: 2;
+    position: relative;
+    top:42%;
+}
+
+#slider__prev{
+    display: inline-block;
+    margin-right: 70%;
+}
+
+
+#slider ul{
+    z-index: 1;
+    position: relative;
+    list-style: none;
+    transition: all 750ms ease;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 10000%;
+    left:0;
+    
+}
+
+#slider ul li{
+    float: left;
+    border-radius: 20px;
+}
+
+#slider img{
+    border-radius: 20px;
+    width: 350px; 
+    height:175px
+}
+
+#slider a{
+    cursor: pointer;
+    font-size: 40px;
+    color: white;
+}   
+
+
+#slider a:hover{
+    color:yellow
+}
+
+
+
+/* Оформление блока о сайте */
+.about-block{
+    margin: 0 auto;
+    margin-top: 50px;
+    display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+    max-width: 200vh;
+}
+
+.about-block__info{
+    max-width: 80vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+}
+
+
+.about-block__title{
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.about-block__text{
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.about-block__button{
+    margin-top: 20px;
+    width:160px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.about-block__button:hover{
+    background-color: grey;
+}
+
+.about-block__button a{
+    color: white;
+}
+
+.about-block__image{
+    max-width: 80vh;
+    margin: 10px;
+
+}
+
+.about-block__image img{
+    width: 80vh;
+    border-radius: 20px;
+}
+
+
+
+
+/* Медиа-запросы */
+@media (max-width:1250px){
+    #slider {
+        margin: 50px auto 0 auto;
+        
+    }
+
+    .about-block__image, .about-block__image img, .about-block__info{
+        max-width: 70vh;
+    }
+}
 
 @media (max-width:767px) {
 	.main-block__title{	
@@ -90,4 +222,14 @@
         max-width: 200px;
         
     }
+   
+    
+}
+@media (max-width:630px){
+    .about-block__image, .about-block__image img, .about-block__info{
+        max-width: 45vh;
+    }
+
+
+
 }
