@@ -74,14 +74,14 @@
 }
 
 
-/* Формление главного слайдера */
+/* Формление слайдера */
 
 
 #slider{
     margin-top: 45px;
     margin-left: 100vh;
-    width:350px;
-    height: 250px;
+    width:45vh;
+    height: 35vh;
     overflow: hidden;
 }
 
@@ -113,12 +113,14 @@
 #slider ul li{
     float: left;
     border-radius: 20px;
+    width:45vh;
+    height: 25vh;
 }
 
 #slider img{
     border-radius: 20px;
-    width: 350px; 
-    height:175px
+    width: 45vh; 
+    height:25vh
 }
 
 #slider a{
@@ -135,16 +137,16 @@
 
 
 /* Оформление блока о сайте */
-.about-block{
+.about-block, .contacts-block{
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 70px;
     display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: space-evenly;
     max-width: 200vh;
 }
 
-.about-block__info{
+.about-block__info, .contacts-block__info{
     max-width: 80vh;
     display: flex;
     justify-content: center;
@@ -153,7 +155,7 @@
 }
 
 
-.about-block__title{
+.about-block__title, .contacts-block__title{
     font-size: 50px;
     font-weight: bold;
 }
@@ -173,7 +175,9 @@
     background-color: black;
     font-size: 18px;
     border-radius: 20px;
+    color: white;
 }
+
 
 .about-block__button:hover{
     background-color: grey;
@@ -183,17 +187,71 @@
     color: white;
 }
 
-.about-block__image{
-    max-width: 80vh;
+.about-block__image, .contacts-block__map-img{
+    width: 80vh;
     margin: 10px;
 
 }
 
-.about-block__image img{
+.about-block__image img, .contacts-block__map-img iframe{
     width: 80vh;
     border-radius: 20px;
+    
+}
+.contacts-block{
+    flex-flow: wrap-reverse;
+    margin-bottom: 50px;
+}
+.contacts-block__map-img iframe, .contacts-block__map-img{
+    height: 60vh;
 }
 
+.contacts-block__address{
+    margin-top: 20px;
+    height: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    background-image: url('/media/photos/icons/location-outline.svg');
+    background-size: 25px;
+    background-repeat: no-repeat;
+}
+.contacts-block__address span{
+    display: inline-block;
+    padding-left: 25px;
+    padding-top: 4px;
+
+
+}
+
+.contacts-block__time-working, .contacts-block__phone-number{
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.contacts-block__phone-number a{
+    font-style: italic;
+    color: #551a8b;
+    font-weight: bold
+}
+
+.contacts-block__instagram{
+    margin-top: 20px;
+    height: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-image: url('/media/photos/icons/logo-instagram.svg');
+    background-size: 20px;
+    background-repeat: no-repeat;
+}
+
+
+.contacts-block__instagram span{
+    display: inline-block;
+    padding-left: 25px;
+    padding-top: 2px;
+
+
+}
 
 
 
@@ -206,6 +264,7 @@
 
     .about-block__image, .about-block__image img, .about-block__info{
         max-width: 70vh;
+        text-align: center;
     }
 }
 
@@ -229,7 +288,13 @@
     .about-block__image, .about-block__image img, .about-block__info{
         max-width: 45vh;
     }
-
-
+    .contacts-block, .contacts-block__map-img, .contacts-block__map-img iframe{
+        max-width: 45vh;
+    }
+    .contacts-block__map-img iframe,  .contacts-block__map-img{
+        max-height: 45vh;
+    }
+    
+    
 
 }

@@ -34,7 +34,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 /* ------------------------------------------------- */
 
 body{
-	background-color: #b9b9b9;
+	background-color: rgb(185, 184, 184);
 }
 
 /* Настройка хедера */

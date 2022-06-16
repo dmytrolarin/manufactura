@@ -24,7 +24,6 @@ function burgerMenu(selector_menu, selector_slider) {
             slider_ul.css('position','static')
         } else {
             $('body').css('overflow', 'visible');
-            window.setTimeout(slider_ul.css('position','relative'), 10000)
             
         }
         
