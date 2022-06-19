@@ -55,13 +55,28 @@
         <div class="product_text">
             <p class="name">{{product.name}}</p>
             <p class="composition">{{product.composition}}</p>
-            <p class="price">{{product.price}} грн</p>
+            <div class="product__bottom">
+                <span class="price">{{product.price}} грн</span>
+                <form id="form-buying-product">
+                    <input type="number" class="product-amount" id='product_amount' value="1"> 
+                    <button class="btn btn-success btn-buy" type="submit" 
+                    data-product-name= "{{product.name}}"
+                    data-product-price= "{{product.price}} грн">
+                    <img src="../media/photos/icons/basket-outline.svg" alt=""></button>
+                </form>    
+            </div>
         </div>
     </div>
     {% endfor %}
 </div>
+<!-- <form action="#" method="post">
+    <input name="test1">
+    <input name="test2">
+    <input type="submit">
+</form> -->
 {% endblock content %}
 
 {% block scripts %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="{% static 'menu/js/menuscripts.js' %}"></script>
 {% endblock scripts %}

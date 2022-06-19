@@ -21,7 +21,6 @@ function burgerMenu(selector_menu, selector_slider) {
 
         if (menu.hasClass('burger-menu_active')) {
             $('body').css('overflow', 'hidden');
-            slider_ul.css('position','static')
         } else {
             $('body').css('overflow', 'visible');
             

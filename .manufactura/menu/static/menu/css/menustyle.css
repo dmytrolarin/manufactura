@@ -1,5 +1,5 @@
 
-
+/* Оформление скроллера */
 
 .h-scroller{
     overflow-y: hidden;
@@ -35,16 +35,16 @@
     text-decoration: none;
 }
 
+
+
+/* Оформление блюд */
 .list {	
     display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 }
-
-
 .product {	
 	flex-basis: 310px;
-	text-align: center;
     margin: 30px;
 	border: 1px solid rgb(229, 216, 216);
     border-radius: 20px;
@@ -53,11 +53,14 @@
 }
 
 .product .product_photo{
-    margin-top: 25px;   
+    margin-top: 25px; 
+    
+    text-align: center;
 }
 
 .product_text p{
     margin-top: 15px;
+    margin-left: 10px;  
 }
 
 
@@ -72,20 +75,59 @@
     font-size: 20px;
     color: #493e34;
     font-weight: bold;
+    margin-left: 10px;  
 }
 
 .composition{
     color: #90877e;
     font-style: italic;
+    margin-left: 10px;  
 }
 
+
+.product__bottom{
+    margin-top: 15px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+
+}
 .price{
-    color: white;
-    background-color: #493e34;
-    border-radius: 20px;
-    width: 50%;
-    margin: 0 auto;
-    display: inline-block;
-    vertical-align: bottom;
+    font-weight: bold;
+    font-size: 20px;
+    color: #493e34;
     margin-bottom: 10px;
+    margin-left: 10px;  
+}
+
+.product__bottom img{
+    width: 30px;
+    margin-right: 20px;
+}
+
+.btn-buy{
+    background: none;
+    padding-top: 15px;
+    
+}
+
+.product-amount{
+    border-radius: 10px;
+    border: 1px black solid;
+    width: 40px;
+    text-align: center;
+    color: #493e34;
+    font-size: 22px;
+   
+  
+    
+}
+
+form{
+    display: block;
+}
+
+.btn-buy img{
+    position: relative;
+    bottom:10px
 }

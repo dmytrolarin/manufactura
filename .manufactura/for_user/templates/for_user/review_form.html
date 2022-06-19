@@ -1,8 +1,27 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block links %}
-    <link rel="stylesheet" href="{% static 'for_user/css/review_form_style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'for_user/css/review_form_style.css' %}" type="text/css" >
 {% endblock links %}
+
+
+
 {% block content %}
-    <h1>Тут буде форма для відгуку</h1>
+    <h1>ЗАЛИШТЕ СВІЙ ВІДГУК!</h1>
+    {% if messages %}
+            {% for message in messages %}
+                {% if message_type == 'success' %}
+                <p class="success-text">{{ message }}</p>
+                {% else %}
+                <p class="error-text">{{ message }}</p>
+                {% endif %}
+            {% endfor %}
+    {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <div><input type="text" name="name_user" placeholder="Ваше ім'я" required></div>
+        <div><input type="email" name="email_user" placeholder="Ваш e-mail" required></div>
+        <div><input type="text" name="review_text" placeholder="Опишіть ваші враження" required></div>
+        <input type="submit" value="Надіслати відгук">
+    </form>
 {% endblock content %}

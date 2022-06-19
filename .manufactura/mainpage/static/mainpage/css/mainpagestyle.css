@@ -78,22 +78,21 @@
 
 
 #slider{
-    margin-top: 45px;
-    margin-left: 100vh;
-    width:45vh;
-    height: 35vh;
+    margin: 50px auto 0 auto;
+    width:65vh;
+    height: 45vh;
     overflow: hidden;
 }
 
 #slider__buttons{
     z-index: 2;
     position: relative;
-    top:42%;
+    top:50%;
 }
 
 #slider__prev{
     display: inline-block;
-    margin-right: 70%;
+    margin-right: 60%;
 }
 
 
@@ -113,13 +112,11 @@
 #slider ul li{
     float: left;
     border-radius: 20px;
-    width:45vh;
-    height: 25vh;
 }
 
 #slider img{
     border-radius: 20px;
-    width: 45vh; 
+    width: 65vh; 
     height:25vh
 }
 
@@ -136,17 +133,17 @@
 
 
 
-/* Оформление блока о сайте */
-.about-block, .contacts-block{
+/* Оформление блока о сайте, инстаграмме и контактах */
+.about-block, .contacts-block, .follow-us-block {
     margin: 0 auto;
-    margin-top: 70px;
+    margin-top: 100px;
     display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
     max-width: 200vh;
 }
 
-.about-block__info, .contacts-block__info{
+.about-block__info, .contacts-block__info, .follow-us-block__info {
     max-width: 80vh;
     display: flex;
     justify-content: center;
@@ -155,17 +152,17 @@
 }
 
 
-.about-block__title, .contacts-block__title{
+.about-block__title, .contacts-block__title, .follow-us-block__title{
     font-size: 50px;
     font-weight: bold;
 }
 
-.about-block__text{
+.about-block__text, .follow-us-block__text{
     margin-top: 20px;
     font-size: 16px;
 }
 
-.about-block__button{
+.about-block__button a, .follow-us-block__button a{
     margin-top: 20px;
     width:160px;
     height: 50px;
@@ -179,13 +176,11 @@
 }
 
 
-.about-block__button:hover{
+.about-block__button a:hover, .follow-us-block__button a:hover{
     background-color: grey;
 }
 
-.about-block__button a{
-    color: white;
-}
+
 
 .about-block__image, .contacts-block__map-img{
     width: 80vh;
@@ -198,6 +193,20 @@
     border-radius: 20px;
     
 }
+
+
+.follow-us-block img{
+    margin-top: 10px;
+    width: 40vh;
+    border-radius: 20px;
+}
+
+
+
+
+
+
+
 .contacts-block{
     flex-flow: wrap-reverse;
     margin-bottom: 50px;
@@ -219,7 +228,7 @@
     display: inline-block;
     padding-left: 25px;
     padding-top: 4px;
-
+    
 
 }
 
@@ -254,21 +263,58 @@
 }
 
 
-
 /* Медиа-запросы */
-@media (max-width:1250px){
-    #slider {
-        margin: 50px auto 0 auto;
-        
+@media (max-width:1023px){
+   
+    #slider{
+        max-width: 55vh;
+        max-height: 35vh; 
+    
+    }
+    #slider img{
+        width: 55vh;
+        height:  17,1vh
+    } 
+
+    #slider__buttons{
+        top:40%;
     }
 
-    .about-block__image, .about-block__image img, .about-block__info{
-        max-width: 70vh;
-        text-align: center;
+    .follow-us-block, .follow-us-block__info{
+        max-width: 55vh;
     }
+    .follow-us-block img{
+        max-width: 24vh;
+    }
+    .about-block__image, .about-block__image img, .about-block__info, .about-block{
+        max-width: 55vh;
+    }
+    .contacts-block, .contacts-block__map-img, .contacts-block__map-img iframe{
+        max-width: 55vh;
+    }
+    .contacts-block__map-img iframe,  .contacts-block__map-img{
+        max-height: 55vh;
+    }
+
+ 
+
 }
 
 @media (max-width:767px) {
+
+    #slider{
+        width: 45vh;
+        height: 31vh;
+    
+    }
+    #slider img{
+        width: 45vh;
+        height: 15,3vh;
+    }  
+
+    #slider__buttons{
+        top:40%;
+    }
 	.main-block__title{	
 		font-size: 45px;
 	}
@@ -281,10 +327,10 @@
         max-width: 200px;
         
     }
-   
-    
-}
-@media (max-width:630px){
+
+    .follow-us-block img, .follow-us-block__info{
+        max-width: 45vh;
+    }
     .about-block__image, .about-block__image img, .about-block__info{
         max-width: 45vh;
     }
@@ -295,6 +341,45 @@
         max-height: 45vh;
     }
     
+
+   
+    
+}
+
+@media (max-width:411px) {
+    /* #slider, #slider img{
+        max-width: 40vh;
+        max-height: 31vh;
+    
+    }
+    #slider img{
+        height: 15,3vh;
+    }  */
+
+    #slider__buttons{
+        top:40%;
+    }
+    .follow-us-block, .follow-us-block__info{
+        max-width: 40vh;
+    }
+    .follow-us-block img{
+        max-width: 40vh;
+    }
+
+    .follow-us-block img, .follow-us-block__info{
+        width: 40vh;
+    }
+    .about-block__image, .about-block__image img, .about-block__info{
+        max-width: 40vh;
+    }
+    .contacts-block, .contacts-block__map-img, .contacts-block__map-img iframe{
+        max-width: 40vh;
+    }
+    .contacts-block__map-img iframe,  .contacts-block__map-img{
+        max-height: 40vh;
+    }
     
 
+   
+    
 }

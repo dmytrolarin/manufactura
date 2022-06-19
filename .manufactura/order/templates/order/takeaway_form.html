@@ -3,7 +3,17 @@
 {% block links %}
 <link rel="stylesheet" href="{% static 'order/css/formstyle.css' %}">
 {% endblock links %}
+
 {% block content %}
+{% if messages %}
+{% for message in messages %}
+    {% if message_type == 'success' %}
+    <p class="success-text">{{ message }}</p>
+    {% else %}
+    <p class="error-text">{{ message }}</p>
+    {% endif %}
+{% endfor %}
+{% endif %}
 <form action="" method="post">
     {% csrf_token %}
     {{form.as_p}}
