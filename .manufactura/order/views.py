@@ -2,10 +2,13 @@ from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
+
+from menu.models import Product
 from .models import*
 from .forms import*
 from django.core.mail import send_mail
 from manufactura import settings
+from django.http import JsonResponse
 
 # Функция для обработки формы для брони столика
 def make_table_reservation(request):
@@ -42,6 +45,20 @@ def make_table_reservation(request):
                 context['message_type'] = 'error'
     if request.path_info.split('/')[-2] == 'reservation_only':
         context['show_format_choice'] = False
+
+    list_products = []
+    for cookie_key in list(request.COOKIES):
+        if cookie_key != 'sessionid' and cookie_key != 'csrftoken':
+            product_info = [Product.objects.get(slug=cookie_key),
+            request.COOKIES[cookie_key].split()[0],
+            request.COOKIES[cookie_key].split()[-1]
+            ]
+
+            list_products.append(product_info)
+
+
+    context['list_products'] = list_products
+
     return render(request, 'order/reservation_form.html', context=context)
     
 
@@ -111,3 +128,13 @@ def make_delivery(request):
                 messages.error(request, 'Сталася помилка при оформленні замовлення. Спробуйте ще раз!')
                 context['message_type'] = 'error'
     return render(request, 'order/delivery_form.html', context=context)
+
+# def add_to_cart(request):
+#     rend = render(request, 'order/reservation_form.html')
+#     if request.POST['product_slug'] not in request.COOKIES:
+#         rend.set_cookie(request.POST['product_slug'],request.POST['product_price']+' '+request.POST['product_amount'])
+#     else:
+#         new_amount = int(request.COOKIES[request.POST['product_slug']].split()[-1]) + int(request.POST['product_amount'])
+#         rend.set_cookie(request.POST['product_slug'],request.POST['product_price']+' '+str(new_amount))
+#     return rend
+    

@@ -1,3 +1,72 @@
-h1{
-    color: red;
+/* Оформление блока о сайте */
+.about-block {
+    margin: 0 auto;
+    margin: 70px 0 70px 0;
+    display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+    max-width: 200vh;
+
+}
+
+.about-block__info {
+    max-width: 80vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+}
+
+
+.about-block__title{
+    font-size: 60px;
+    font-family: 'Caveat';
+}
+
+.about-block__text{
+    margin-top: 20px;
+    font-size: 18px;
+    font-style: italic;
+}
+
+
+
+
+
+.about-block__image{
+    width: 80vh;
+    margin: 10px;
+
+}
+
+.about-block__image img{
+    width: 80vh;
+    border-radius: 20px;
+    
+}
+
+
+
+
+/* Медиа-запросы */
+@media (max-width:1023px){
+    .about-block__image, .about-block__image img, .about-block__info, .about-block{
+        max-width: 55vh;
+    }
+}
+
+@media (max-width:767px) {
+
+    .about-block__image, .about-block__image img, .about-block__info{
+        max-width: 45vh;
+    }
+   
+    
+}
+
+@media (max-width:280px) {
+    .about-block__image img{
+        max-width: 40vh;
+    }
+    
 }

@@ -19,19 +19,13 @@
             </div>
         </div>
 
-        <div id="slider">
-            <div id="slider__buttons">
-                <a id="slider__prev">&#8810;</a>
-                <a id="slider__next">&#8811;</a>
+        <div class="slider">
+            <div class="slider-line">
+                {% for slide in slider_images %}
+                    <img src="{{slide.photo.url}}" alt="">
+                {% endfor %}
             </div>
-            
-                <ul id="slider__content">
-                    {% for slide in slider_images %}
-                        <li><img src="{{slide.photo.url}}" alt="" ></li>
-                    {% endfor %}
-                
-                </ul>    
-        </div> 
+        </div>
     </div>    
 </div>
 
@@ -56,7 +50,7 @@
 
     </div>
     <div class="about-block__image">
-        <img src="media/photos/template_images/mainpage/about.jfif" alt="">
+        <img src="media/photos/template_images/mainpage/about.png" alt="">
     </div>
 </div>
 

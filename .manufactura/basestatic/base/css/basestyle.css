@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 /*Обнуление*/
 *{
 	padding: 0;
@@ -43,7 +45,9 @@ header{
 	height: 80px;
 	position: fixed;
 	width: 100%;
-	
+	border-radius: 0 0 20px 20px;
+	border-bottom: 5px solid #228751;
+
 }
 
 header .wrapper{
@@ -78,6 +82,13 @@ header .wrapper{
 	height: 80px;
 }
 
+.head__slogan{
+	font-size: 30px;
+	display: flex;
+	align-items: center;
+	font-family: 'Pacifico'
+}
+
 
 
 /* Настройка бургер-меню */
@@ -105,25 +116,27 @@ header .wrapper{
 }
 .burger-menu__links li{
 	padding: 30px;
-	font-size: 14px;
+	font-size: 18px;
 	text-decoration: none;
 	text-transform: uppercase;
 	letter-spacing: 5px;
-	color: black;
+	font-family: 'Caveat';
 	
 }
 
-
+.burger-menu__links .li-logo{
+	margin: -30px 0 -30px 0;
+}
 
 .burger-menu__links li img{
-	height: 80px;
+	height: 120px;
 }
 
 .burger-menu__links li .burger-menu__button{
 	font-size: 40px;
 }
 .burger-menu__links li a{
-	color: black;
+	color: #064d27;
 }
 
 .burger-menu__links li a:hover{
@@ -152,6 +165,9 @@ header .wrapper{
 	.burger-menu_active .burger-menu__links{	
 		width: 100%;
 	}
+	.head__slogan{
+		display: none;
+	}	
 }
 
 /* Настройка контента */
@@ -159,21 +175,18 @@ header .wrapper{
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
+	padding-top: 90px;
 
 }
 
 main{
 	flex: 1 1 auto;
 }
-main .wrapper{
-	padding-top: 80px;
-}
 
 /* Настройка футера */
 footer{
 	background-color: #3c3c3c;
 	bottom: 0;
-	/* z-index: 5; */
 	
 }
 footer .wrapper{
@@ -183,10 +196,12 @@ footer .wrapper{
 }
 
 footer .wrapper .rest-name{
-	font-size: 30px;
+	font-size: 40px;
 	color: gold;
 	text-align: center;
 	padding: 25px;
+	font-family: 'Pacifico';
+	
 }
 
 .footer__info-blocks{
@@ -207,6 +222,7 @@ footer .wrapper .rest-name{
 .footer__info-blocks .title{
 	color: white;
 	font-size: 16px;
+	
 }
 
 .footer__info-blocks p{
@@ -229,6 +245,7 @@ footer .wrapper .rest-name{
 	text-align: center;
 	color:white;
 	padding: 18px;
+	font-style: italic;
 }
 
 

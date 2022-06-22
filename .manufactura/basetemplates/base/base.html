@@ -19,9 +19,12 @@
                 <div class="head__logo">
                     <a href="{% url 'home' %}"><img src="{{path_pref}}media/photos/template_images/logo.png" alt="logo"></a>
                 </div>
+                <div class="head__slogan">
+                    <span>Ресторан з історією</span>
+                </div>
                 <ul class="head__buttons">
                     <li><a href="tel:+{{ rest_info.rest_phone_number }}" class=""><ion-icon name="call-outline"></ion-icon></a></li>
-                    <li><a href="{% url 'reservation' %}"><ion-icon name="basket-outline"></ion-icon></a></li>
+                    <li><a href="{% url 'reservation' %}"><ion-icon name="basket-outline"></ion-icon> {{amount_product_in_cart}}</a></li>
                     <li><a href="#" class="burger-menu__button"><ion-icon name="menu-outline"></ion-icon></a></li>   
                 </ul>
             </div>

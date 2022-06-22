@@ -1,3 +1,215 @@
-h1{
-    color: blue;
+/* Оформление блока о инстаграмме и контактах */
+
+.main-footer-wrapper{
+    padding-top: 50px;
+}
+.contacts-block, .follow-us-block {
+    margin: 0 auto;
+    margin-top: 100px;
+    display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+    max-width: 200vh;
+}
+
+.contacts-block__info, .follow-us-block__info {
+    max-width: 80vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+}
+
+
+.contacts-block__title, .follow-us-block__title{
+    font-size: 60px;
+    font-family: 'Caveat';
+}
+
+.follow-us-block__text{
+    margin-top: 20px;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.follow-us-block__button a{
+    margin-top: 20px;
+    width:160px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    font-size: 25px;
+    border-radius: 20px;
+    color: white;
+    font-family: 'Caveat';
+}
+
+
+.follow-us-block__button a:hover{
+    background-color: grey;
+}
+
+
+
+.contacts-block__map-img{
+    width: 80vh;
+    margin: 10px;
+
+}
+
+.contacts-block__map-img iframe{
+    width: 80vh;
+    border-radius: 20px;
+    
+}
+
+
+.follow-us-block img{
+    margin-top: 10px;
+    width: 40vh;
+    border-radius: 20px;
+}
+
+
+
+
+
+
+
+.contacts-block{
+    flex-flow: wrap-reverse;
+    margin-bottom: 70px;
+}
+.contacts-block__map-img iframe, .contacts-block__map-img{
+    height: 60vh;
+}
+
+.contacts-block__address{
+    margin-top: 20px;
+    height: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    background-image: url('/media/photos/icons/location-outline.svg');
+    background-size: 25px;
+    background-repeat: no-repeat;
+}
+.contacts-block__address span{
+    display: inline-block;
+    padding-left: 25px;
+    padding-top: 4px;
+    
+
+}
+
+.contacts-block__time-working, .contacts-block__phone-number{
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.contacts-block__phone-number a{
+    font-style: italic;
+    /* color: #551a8b; */
+    font-weight: bold
+}
+
+.contacts-block__instagram{
+    margin-top: 20px;
+    height: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-image: url('/media/photos/icons/logo-instagram.svg');
+    background-size: 20px;
+    background-repeat: no-repeat;
+
+}
+
+
+.contacts-block__instagram span{
+    display: inline-block;
+    padding-left: 25px;
+    padding-top: 2px;
+    
+
+
+}
+
+
+.contacts-block__instagram a{
+    color: #0000ee;
+}
+
+/* Медиа-запросы */
+@media (max-width:1023px){
+
+    .follow-us-block, .follow-us-block__info{
+        max-width: 55vh;
+    }
+    .follow-us-block img{
+        max-width: 24vh;
+    }
+    .contacts-block, .contacts-block__map-img, .contacts-block__map-img iframe{
+        max-width: 55vh;
+    }
+    .contacts-block__map-img iframe,  .contacts-block__map-img{
+        max-height: 55vh;
+    }
+
+ 
+
+}
+
+@media (max-width:767px) {
+
+    .follow-us-block img, .follow-us-block__info{
+        max-width: 45vh;
+    }
+    .contacts-block, .contacts-block__map-img, .contacts-block__map-img iframe{
+        max-width: 45vh;
+    }
+    .contacts-block__map-img iframe,  .contacts-block__map-img{
+        max-height: 45vh;
+    }
+    
+
+   
+    
+}
+
+@media (max-width:280px) {
+    .slider, .slider img{
+        width:250px;
+        height:100px;
+    }
+    .slider-line{
+        left: 0;
+    }
+    .main-block__title::first-letter{
+        font-size: 60px;
+    }
+   
+    .follow-us-block, .follow-us-block__info{
+        max-width: 40vh;
+    }
+    .follow-us-block img{
+        max-width: 40vh;
+    }
+
+    .follow-us-block img, .follow-us-block__info{
+        width: 40vh;
+    }
+    .about-block__image, .about-block__image img, .about-block__info{
+        max-width: 40vh;
+    }
+    .contacts-block, .contacts-block__map-img, .contacts-block__map-img iframe{
+        max-width: 40vh;
+    }
+    .contacts-block__map-img iframe,  .contacts-block__map-img{
+        max-height: 40vh;
+    }
+    
+
+   
+    
 }

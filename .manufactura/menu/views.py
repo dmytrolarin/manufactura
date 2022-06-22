@@ -3,11 +3,19 @@ from django.views.generic import ListView, CreateView
 from for_user.models import RestaurantInfo
 
 from .models import*
+
+# def get_amount_product(request):
+#     amount_all_products = 0  
+#     for cookie_key in list(request.COOKIES):
+#         if cookie_key != 'sessionid' and cookie_key != 'csrftoken':
+#             amount_all_products += int(request.COOKIES[cookie_key].split()[-1])
+#     return amount_all_products
 # Для показа всех блюд
 class ShowAllMenu(ListView):
     model = Product
     template_name = 'menu/menu.html'
     context_object_name = 'products'
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Меню'
@@ -15,6 +23,7 @@ class ShowAllMenu(ListView):
         context['categories']=Category.objects.all()
         context['rest_info'] = RestaurantInfo.objects.all()[0]
         context['path_pref'] = '../'
+        # context['amount_product_in_cart'] = get_amount_product(self.request)
         return context
 
 # Для показа блюд конкретной категории

@@ -107,11 +107,11 @@
 
 .btn-buy{
     background: none;
-    padding-top: 15px;
+
     
 }
 
-.product-amount{
+/* .product-amount{
     border-radius: 10px;
     border: 1px black solid;
     width: 40px;
@@ -121,13 +121,14 @@
    
   
     
-}
+} */
 
-form{
+/* form{
     display: block;
-}
+} */
+ 
 
-.btn-buy img{
-    position: relative;
-    bottom:10px
+.btn-buy img:active{
+    background-color: gainsboro;
+    border-radius: 50%;
 }

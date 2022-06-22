@@ -24,26 +24,7 @@
     </div>
 
 </div>
-<!-- Выпадающий список для выбора категории -->
-<!-- <form name="menu">
-    <select name="categories" onChange="linklist(document.menu.categories)">
-    <option value="#">Оберіть категорію страви</option>
 
-    {% if category_selected != 0 %}
-    <option value="{% url 'all_menu' %}">Усі страви</option>
-    {% else %}
-    <option value="#" class="selected_category">Усі страви</option>
-    {% endif %}
-    {% for cat in categories %}
-  
-    {% if cat.pk != category_selected %}
-    <option value="{{cat.get_absolute_url}}">{{cat}}</option>
-    {% else %}
-    <option value="#" class="selected_category">{{cat}}</option>
-    {% endif %}
-    {% endfor %}
-    </select>
-</form> -->
 
 <!-- Показываем блюда -->
 <div class="list">
@@ -57,23 +38,23 @@
             <p class="composition">{{product.composition}}</p>
             <div class="product__bottom">
                 <span class="price">{{product.price}} грн</span>
-                <form id="form-buying-product">
-                    <input type="number" class="product-amount" id='product_amount' value="1"> 
-                    <button class="btn btn-success btn-buy" type="submit" 
-                    data-product-name= "{{product.name}}"
-                    data-product-price= "{{product.price}} грн">
-                    <img src="../media/photos/icons/basket-outline.svg" alt=""></button>
-                </form>    
+                <button class="btn btn-success btn-buy" type="submit">
+                <img src="{{path_pref}}media/photos/icons/basket-outline.svg" alt=""></button>
+                <!-- <form id="form-buying-product" class="form-buying-product" >action="/% url 'add_to_cart' %/" -->
+                    <!-- {% csrf_token %} -->
+                    <!-- <input type="number" class="product-amount" id='product_amount' value="1">  -->
+                    <!-- <button class="btn btn-success btn-buy" type="submit"  -->
+                    <!-- data-product-name= "{{product.name}}" -->
+                    <!-- data-product-price= "{{product.price}}" -->
+                    <!-- data-product-slug= "{{product.slug}}"> -->
+                    <!-- <img src="{{path_pref}}media/photos/icons/basket-outline.svg" alt=""></button> -->
+                <!-- </form>     -->
             </div>
         </div>
     </div>
     {% endfor %}
 </div>
-<!-- <form action="#" method="post">
-    <input name="test1">
-    <input name="test2">
-    <input type="submit">
-</form> -->
+
 {% endblock content %}
 
 {% block scripts %}
