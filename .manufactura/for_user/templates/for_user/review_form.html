@@ -7,7 +7,7 @@
 
 
 {% block content %}
-    <h1>ЗАЛИШТЕ СВІЙ ВІДГУК!</h1>
+
     {% if messages %}
             {% for message in messages %}
                 {% if message_type == 'success' %}
@@ -19,9 +19,23 @@
     {% endif %}
     <form action="" method="post">
         {% csrf_token %}
-        <div><input type="text" name="name_user" placeholder="Ваше ім'я" required></div>
-        <div><input type="email" name="email_user" placeholder="Ваш e-mail" required></div>
-        <div><input type="text" name="review_text" placeholder="Опишіть ваші враження" required></div>
-        <input type="submit" value="Надіслати відгук">
+        <div class="form-wrapper">
+            <h1>ВАШ ВІДГУК</h1>
+            <div class="field">
+                <span class="a">Ваше ім'я</span>
+                <input type="text" name="name_user" placeholder="Введіть ваше ім'я" required>
+            </div>
+            <div class="field">
+                <span>Ваш e-mail</span>
+                <input type="email" name="email_user" placeholder="example@example.com" required>
+            </div>
+            <div class="field">
+                <span>Відгук</span>
+                <textarea  class='big-field' name="review_text"  
+                cols="30" rows="10" 
+                placeholder="Опишіть ваші враження" required></textarea>
+            </div>
+            <input class='btn_review' type="submit" value="Надіслати">
+        </div>
     </form>
 {% endblock content %}

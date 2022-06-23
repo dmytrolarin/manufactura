@@ -27,33 +27,44 @@
 
 
 <!-- Показываем блюда -->
-<div class="list">
-    {% for product in products %}
-    <div class="product">
-        <div class="product_photo">
-            <p><img src="{{product.photo.url}}" ></p> 
+<div class="products-container">
+    {% for cat in categories %}
+        {% if showing_all_menu %}
+            <p class="category-title">{{cat}}</p> 
+        {% endif %}
+        <div class="list">
+            {% for product in products %}
+
+                {% if product.cat == cat %}
+                    
+                    <div class="product">
+                        <div class="product_photo">
+                            <p><img src="{{product.photo.url}}" ></p> 
+                        </div>
+                        <div class="product_text">
+                            <p class="name">{{product.name}}</p>
+                            <p class="composition">{{product.composition}}</p>
+                            <div class="product__bottom">
+                                <span class="price">{{product.price}} грн</span>
+                                <button class="btn btn-success btn-buy" type="submit">
+                                <img src="{{path_pref}}media/photos/icons/basket-outline.svg" alt=""></button>
+                                <!-- <form id="form-buying-product" class="form-buying-product" >action="/% url 'add_to_cart' %/" -->
+                                    <!-- {% csrf_token %} -->
+                                    <!-- <input type="number" class="product-amount" id='product_amount' value="1">  -->
+                                    <!-- <button class="btn btn-success btn-buy" type="submit"  -->
+                                    <!-- data-product-name= "{{product.name}}" -->
+                                    <!-- data-product-price= "{{product.price}}" -->
+                                    <!-- data-product-slug= "{{product.slug}}"> -->
+                                    <!-- <img src="{{path_pref}}media/photos/icons/basket-outline.svg" alt=""></button> -->
+                                <!-- </form>     -->
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {%endfor%}
         </div>
-        <div class="product_text">
-            <p class="name">{{product.name}}</p>
-            <p class="composition">{{product.composition}}</p>
-            <div class="product__bottom">
-                <span class="price">{{product.price}} грн</span>
-                <button class="btn btn-success btn-buy" type="submit">
-                <img src="{{path_pref}}media/photos/icons/basket-outline.svg" alt=""></button>
-                <!-- <form id="form-buying-product" class="form-buying-product" >action="/% url 'add_to_cart' %/" -->
-                    <!-- {% csrf_token %} -->
-                    <!-- <input type="number" class="product-amount" id='product_amount' value="1">  -->
-                    <!-- <button class="btn btn-success btn-buy" type="submit"  -->
-                    <!-- data-product-name= "{{product.name}}" -->
-                    <!-- data-product-price= "{{product.price}}" -->
-                    <!-- data-product-slug= "{{product.slug}}"> -->
-                    <!-- <img src="{{path_pref}}media/photos/icons/basket-outline.svg" alt=""></button> -->
-                <!-- </form>     -->
-            </div>
-        </div>
-    </div>
     {% endfor %}
-</div>
+</div>    
 
 {% endblock content %}
 

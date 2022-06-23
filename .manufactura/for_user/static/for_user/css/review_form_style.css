@@ -1,3 +1,83 @@
+
 h1{
-    color: rgb(149, 98, 228);
+    display: block;  
+    padding-top: 30px;
+    color: white;
+    font-size: 40px;
+    font-family: 'Caveat';
+    text-align: center;
 }
+form{
+    margin: 50px auto;
+    background-color: rgb(57, 55, 55);
+    width: 400px;
+    border-radius: 30px;
+    padding-bottom: 10px;
+}
+.form-wrapper{
+    margin: 0 auto;
+    width: 300px;
+}
+.field{
+    margin-top: 30px;
+}
+.field span{
+    display: inline-block;
+    color: rgb(185, 183, 183);
+    font-family:Arial, Helvetica, sans-serif;
+    margin-bottom: 5px;
+}
+input, .big-field{
+    padding: 0 10px;
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(88, 86, 86);
+    color: white;
+    font-size: 18px;
+    
+}
+
+.big-field{
+    min-height: 120px;
+    resize: none;
+}
+.btn_review{
+    display: block;
+    width: 120px;
+    background-color: white;
+    margin: 30px auto 20px auto;
+    color: black;
+    font-family: 'Caveat';
+    font-size: 25px;
+    cursor: pointer;
+  
+}
+
+.btn_review:hover{
+    background-color: gainsboro;
+}
+input::-webkit-input-placeholder, .big-field::-webkit-input-placeholder{
+    padding: 0 3px;
+    font-size: 16px;
+    color: rgb(185, 183, 183);
+}
+
+/* @media (max-width:767px) {
+    form{
+        width: 280px;
+    }
+	input, .big-field{
+        width: 280px;
+    }
+} */
+
+
+input::-webkit-input-placeholder, .big-field::-webkit-input-placeholder {opacity: 1; transition: opacity 0.3s ease;}
+input::-moz-placeholder, .big-field::-webkit-input-placeholder {opacity: 1; transition: opacity 0.3s ease;}
+input:-moz-placeholder, .big-field::-webkit-input-placeholder {opacity: 1; transition: opacity 0.3s ease;}
+input:-ms-input-placeholder, .big-field::-webkit-input-placeholder {opacity: 1; transition: opacity 0.3s ease;}
+input:focus::-webkit-input-placeholder, .big-field:focus::-webkit-input-placeholder {opacity: 0; transition: opacity 0.3s ease;}
+input:focus::-moz-placeholder, .big-field:focus::-webkit-input-placeholder{opacity: 0; transition: opacity 0.3s ease;}
+input:focus:-moz-placeholder, .big-field:focus::-webkit-input-placeholder  {opacity: 0; transition: opacity 0.3s ease;}
+input:focus:-ms-input-placeholder, .big-field:focus::-webkit-input-placeholder  {opacity: 0; transition: opacity 0.3s ease;}

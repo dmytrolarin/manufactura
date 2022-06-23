@@ -1,12 +1,9 @@
 
 /* Оформление скроллера */
-
 .h-scroller{
-    overflow-y: hidden;
-    background-color: #fff;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    position: fixed;
-    width: 100%;
+    overflow: hidden;
+    width: fit-content;
+    margin: 15px auto 0 auto;
 
 }
 
@@ -15,24 +12,35 @@
     flex-wrap: nowrap;
     overflow-x: auto;
     white-space: nowrap;
+    
 }
 .h-scroller__item{
-    color: #424242;
+    font-size: 24px;
+    font-family: 'Caveat';
+    background-color: #424242;
+    color: white;
     display: flex;
     padding: 0.5rem 1.25rem;
     text-decoration: none;
-   
-}
-.h-scroller__item:not(:last-child){
-    border-right: 1px solid #eee;
-}
+    margin: 0 10px 0 10px;
+    border-radius: 20px;
 
+   
+}   
 
 .selected_category{
-    color: red;
+    color: wheat;
     display: flex;
     padding: 0.5rem 1.25rem;
     text-decoration: none;
+}
+
+.h-scroller__item:hover{
+    color: gray;
+}
+
+.selected_category:hover{
+    color: wheat;
 }
 
 
@@ -43,13 +51,30 @@
 	flex-wrap: wrap;
 	justify-content: space-evenly;
 }
+
+.list:last-child{
+    margin-bottom: 50px;
+}
+
+.category-title{
+    font-family: 'Caveat';
+    font-size: 70px;
+    text-align: center;
+    margin-top: 30px;
+}
+
 .product {	
 	flex-basis: 310px;
     margin: 30px;
 	border: 1px solid rgb(229, 216, 216);
     border-radius: 20px;
     background-color: white;
-    box-shadow: 1px 1px 10px grey;  
+    box-shadow:   0 2px grey;  
+    transition: box-shadow 0.5s;
+} 
+
+.product:hover{
+    box-shadow: 0 0  6px 6px grey;  
 }
 
 .product .product_photo{
@@ -72,10 +97,11 @@
 }
 
 .name{
-    font-size: 20px;
+    font-size: 25px;
     color: #493e34;
     font-weight: bold;
     margin-left: 10px;  
+    font-family: 'Caveat';
 }
 
 .composition{
@@ -98,6 +124,7 @@
     color: #493e34;
     margin-bottom: 10px;
     margin-left: 10px;  
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .product__bottom img{
@@ -132,3 +159,11 @@
     background-color: gainsboro;
     border-radius: 50%;
 }
+
+@media (max-width:767px) {
+
+    .h-scroller{
+        width: 100%;
+    }
+
+} 

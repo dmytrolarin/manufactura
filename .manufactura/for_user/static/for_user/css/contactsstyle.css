@@ -12,6 +12,10 @@
     max-width: 200vh;
 }
 
+.follow-us-block{
+    margin-bottom: 70px;
+}
+
 .contacts-block__info, .follow-us-block__info {
     max-width: 80vh;
     display: flex;
@@ -80,7 +84,6 @@
 
 .contacts-block{
     flex-flow: wrap-reverse;
-    margin-bottom: 70px;
 }
 .contacts-block__map-img iframe, .contacts-block__map-img{
     height: 60vh;

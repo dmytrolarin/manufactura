@@ -256,3 +256,9 @@ footer .wrapper .rest-name{
 }
 
 
+@media (max-width:660px){
+
+    footer .wrapper .rest-name{
+        font-size: 30px;
+    }
+}

@@ -3,7 +3,12 @@ from django.views.generic import ListView, CreateView
 from for_user.models import RestaurantInfo
 
 from .models import*
-
+categories = [
+            Category.objects.get(slug='snacks'),
+            Category.objects.get(slug='soups'),
+            Category.objects.get(slug='salads'),
+            Category.objects.get(slug='main_dish')
+        ]
 # def get_amount_product(request):
 #     amount_all_products = 0  
 #     for cookie_key in list(request.COOKIES):
@@ -20,10 +25,13 @@ class ShowAllMenu(ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Меню'
         context['category_selected'] = 0
-        context['categories']=Category.objects.all()
         context['rest_info'] = RestaurantInfo.objects.all()[0]
         context['path_pref'] = '../'
+        context['showing_all_menu'] = True
         # context['amount_product_in_cart'] = get_amount_product(self.request)
+        
+
+        context['categories'] = categories
         return context
 
 # Для показа блюд конкретной категории
@@ -38,7 +46,7 @@ class ShowCategory(ListView):
         c = Category.objects.get(slug = self.kwargs['cat_slug'])
         context['title'] = c.name
         context['category_selected'] = c.pk
-        context['categories']=Category.objects.all()
+        context['categories']= categories
         context['rest_info'] = RestaurantInfo.objects.all()[0]
         context['path_pref'] = '../../'
         return context
