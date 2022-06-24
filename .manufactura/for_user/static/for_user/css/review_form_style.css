@@ -8,28 +8,28 @@ h1{
     text-align: center;
 }
 form{
-    margin: 50px auto;
+    margin: 40px auto 50px auto;
     background-color: rgb(57, 55, 55);
     width: 400px;
     border-radius: 30px;
     padding-bottom: 10px;
 }
-.form-wrapper{
-    margin: 0 auto;
-    width: 300px;
-}
+/* .form-wrapper{
+    background-color: yellow;
+} */
 .field{
-    margin-top: 30px;
+    width: 80%;
+    margin: 30px auto 0 auto;
 }
 .field span{
-    display: inline-block;
+    display: block;
     color: rgb(185, 183, 183);
     font-family:Arial, Helvetica, sans-serif;
     margin-bottom: 5px;
 }
 input, .big-field{
     padding: 0 10px;
-    width: 300px;
+    width: 100%;
     height: 40px;
     border-radius: 10px;
     background-color: rgb(88, 86, 86);
@@ -54,7 +54,7 @@ input, .big-field{
   
 }
 
-.btn_review:hover{
+.btn_review:hover, .to-home:hover{
     background-color: gainsboro;
 }
 input::-webkit-input-placeholder, .big-field::-webkit-input-placeholder{
@@ -63,14 +63,50 @@ input::-webkit-input-placeholder, .big-field::-webkit-input-placeholder{
     color: rgb(185, 183, 183);
 }
 
-/* @media (max-width:767px) {
+.success-text, .error-text{
+    font-style: italic;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.success-text{
+    color: greenyellow;;
+}
+
+.error-text{
+    color: red;
+}
+
+.to-home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    margin:20px auto 0 auto;
+    font-family: 'Caveat';
+    cursor: pointer;
+    background-color: #fff;
+    width: 120px;
+    height: 30px;
+    border-radius: 10px;
+    
+
+}
+
+.to-home a{
+    color: black;
+}
+
+@media (max-width:600px) {
     form{
-        width: 280px;
+        width: 90%;
     }
-	input, .big-field{
-        width: 280px;
+    body{
+        background-color: rgb(57, 55, 55);
     }
-} */
+
+}
 
 
 input::-webkit-input-placeholder, .big-field::-webkit-input-placeholder {opacity: 1; transition: opacity 0.3s ease;}

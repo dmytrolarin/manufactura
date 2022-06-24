@@ -5,18 +5,38 @@
 {% endblock links %}
 
 {% block content %}
-{% if messages %}
-{% for message in messages %}
-    {% if message_type == 'success' %}
-    <p class="success-text">{{ message }}</p>
-    {% else %}
-    <p class="error-text">{{ message }}</p>
+<h1>Ваше замовлення</h1>
+<div class="block-form">
+    {% if show_format_choice !=  False%}
+    <div class="choice-format">
+        <span class="title-list-format">Формат замовлення</span>
+        <ul class="list-format">
+            <li><a href="{% url 'reservation' %}"><span class="list-dot">&#x25CB;</span>Бронювання столику</a></li>
+            <li><a href="{% url 'takeaway' %}"><span class="list-dot">&#x25CB;</span>Самовивіз</a></li>
+            <li><span class="list-dot">&#x25CF;</span>Доставка</li>
+        </ul>
+    </div>
     {% endif %}
-{% endfor %}
+    {% if messages %}
+    {% for message in messages %}
+        {% if message_type == 'success' %}
+        <p class="success-text">{{ message }}</p>
+        <span class="to-home"><a href="{% url 'home' %}">На головну</a></span>
+        {% else %}
+        <p class="error-text">{{ message }}</p>
+        {% endif %}
+    {% endfor %}
 {% endif %}
-<form action="" method="post">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Оформити">
-</form>
+    <form action="" method="post" autocomplete="off">
+        {% csrf_token %}
+        {% for el in form %}
+            
+            <div class="field-block">
+                <span>{{el.label}}</span>
+                <div class="field">{{el}}</div>
+            </div>
+        {% endfor %}
+        <input type="submit" value="Забронювати" class="btn">
+    </form>
+</div>
 {% endblock content %}

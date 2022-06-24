@@ -186,6 +186,8 @@ main{
 /* Настройка футера */
 footer{
 	background-color: #3c3c3c;
+	border-radius: 20px 20px 0 0;
+	border-top: goldenrod 5px solid;
 	bottom: 0;
 	
 }

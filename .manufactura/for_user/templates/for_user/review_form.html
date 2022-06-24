@@ -8,19 +8,20 @@
 
 {% block content %}
 
-    {% if messages %}
-            {% for message in messages %}
-                {% if message_type == 'success' %}
-                <p class="success-text">{{ message }}</p>
-                {% else %}
-                <p class="error-text">{{ message }}</p>
-                {% endif %}
-            {% endfor %}
-    {% endif %}
-    <form action="" method="post">
+    <form action="" method="post" autocomplete="off">
         {% csrf_token %}
         <div class="form-wrapper">
             <h1>ВАШ ВІДГУК</h1>
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message_type == 'success' %}
+                    <p class="success-text">{{ message }}</p>
+                    <span class="to-home"><a href="{% url 'home' %}">На головну</a></span>
+                    {% else %}
+                    <p class="error-text">{{ message }}</p>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
             <div class="field">
                 <span class="a">Ваше ім'я</span>
                 <input type="text" name="name_user" placeholder="Введіть ваше ім'я" required>
@@ -33,7 +34,7 @@
                 <span>Відгук</span>
                 <textarea  class='big-field' name="review_text"  
                 cols="30" rows="10" 
-                placeholder="Опишіть ваші враження" required></textarea>
+                placeholder="Опишіть свої враження нашого закладу" required></textarea>
             </div>
             <input class='btn_review' type="submit" value="Надіслати">
         </div>

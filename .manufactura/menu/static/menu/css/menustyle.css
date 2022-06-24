@@ -59,8 +59,13 @@
 .category-title{
     font-family: 'Caveat';
     font-size: 70px;
-    text-align: center;
-    margin-top: 30px;
+    /* text-align: center; */
+    margin: 30px 0 0 30px;
+
+}
+
+.category-underline{
+    font-weight: bolder;
 }
 
 .product {	
