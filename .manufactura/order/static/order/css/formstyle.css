@@ -1,3 +1,11 @@
+.wrapper-order{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 40px auto 50px auto;
+    max-width: 830px;
+}
+
 .block-form{
     padding-top: 20px;
 }
@@ -45,11 +53,10 @@ h1{
 }
 
 .block-form{
-    margin: 40px auto 50px auto;
-    background-color: rgb(57, 55, 55);
     width: 400px;
     border-radius: 30px;
     padding-bottom: 10px;
+    background-color: rgb(57, 55, 55);
 }
 
 .field-block{
@@ -82,6 +89,27 @@ h1{
     font-family:Arial, Helvetica, sans-serif;
     margin-bottom: 5px;
 }
+
+.block-price{
+    padding-top: 20px;
+}
+
+.price, .total-price{
+    margin-top: 10px;
+    padding: 0 10% 0 10%;
+    font-family: Arial;
+    color: white;
+}
+
+.total-price{
+    font-size: 18px;
+    font-weight: bold;
+}
+/* 
+.price span, .total-price span{
+    margin-left: 10%;
+
+} */
 
 .btn{
     display: block;
@@ -139,12 +167,18 @@ h1{
     color: black;
 }
 
-@media (max-width:600px) {
+@media (max-width:830px) {
+    .wrapper-order{
+        align-items: center;
+        flex-direction: column;
+    
+    }
     h1{
         color: white;
+        text-align: center;
     }
     .block-form{
-        width: 90%;
+        width: 100%;
     }
     body{
         background-color: rgb(57, 55, 55);

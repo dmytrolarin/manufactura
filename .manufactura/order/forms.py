@@ -11,7 +11,7 @@ class MakeTableReservationForm(forms.ModelForm):
             'client_phone_number': forms.NumberInput(attrs={'placeholder':"+380888888888"}),
             'date_reservation': forms.TextInput(attrs={'placeholder':'01.01'}),
             'time_reservation': forms.TimeInput(attrs={'placeholder':'12:00'}),
-            'amount_persons': forms.NumberInput(attrs={'placeholder':'Введіть кілкьість осіб'}),
+            'amount_persons': forms.NumberInput(attrs={'placeholder':'Введіть кілкьість персон'}),
             'order_comment':forms.Textarea(attrs={'placeholder':"Коментар до замовлення (необов'язково)"})
         }
 

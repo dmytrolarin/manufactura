@@ -1,0 +1,58 @@
+.block-cart{
+    background-color: rgb(57, 55, 55);
+    width: 400px;
+    border-radius: 30px;
+    padding-bottom: 10px;
+    padding: 25px 5% 0 5%;
+    height: fit-content;
+}
+
+.product__img{
+    text-align: left;
+}
+.product__img img{
+    width: 100px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.empty-text, .empty-text-red{
+    color: yellow;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 16px;
+}
+.empty-text-red{
+    color: red;
+}
+
+.to-menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    margin:20px auto 0 auto;
+    font-family: 'Caveat';
+    cursor: pointer;
+    background-color: #fff;
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    
+
+}
+
+.to-menu a{
+    color: black;
+}
+
+
+
+
+@media (max-width:830px){
+    .block-cart{
+        width: 100%;
+        border-top: 1px white solid;
+        border-radius: 0;
+    }
+}
