@@ -73,7 +73,15 @@
                       <p class="detail__title"></p>
                       <p class="detail__description"></p>
                       <p class="detail__price"></p>
-                      <p class="detail__bagBtn">Додати у кошик</p>
+                      <div class="switch">
+                        <label for="Quantity">Кількість</label>
+                        <div class="input_group">
+                            <button class="input_group_text decrement_btn">-</button>
+                            <input name="quantity" class="form_control" value="1" type="number">
+                            <button class="input_group_text increment_btn">+</button>
+                        </div>
+                      </div>
+                      <p class="detail__bagBtn">До замовлень</p>
                     </div>
                   </div>
                 </div>
@@ -85,6 +93,7 @@
 {% endblock content %}
 
 {% block scripts %}
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="{% static 'menu/js/menuscripts.js' %}"></script>
+<script src="{% static 'menu/js/jquery-3.6.0.js' %}"></script>
+<script src="{% static 'menu/js/switch.js' %}"></script>
 {% endblock scripts %}

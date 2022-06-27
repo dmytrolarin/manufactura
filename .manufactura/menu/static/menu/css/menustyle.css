@@ -172,17 +172,24 @@
   background-color: #edf7f6;
   visibility: hidden;
   opacity: 0;
-  transform: translateY(-100px);
+  transform: translateY(100px);
   transition: all 250ms ease-in-out;
+  left:50%;
+  transform: translate(-50%,0);
 }
 .modal__content--show {
   transform: translateY(0);
   visibility: visible;
   opacity: 1;
   z-index: 2;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 20px;
 }
 .modal__img {
-  width: 75%;
+  width: 80%;
+  border-radius: 15px;
 }
 .modal__close {
   position: absolute;
@@ -213,10 +220,18 @@
 }
 .detail .detail__title{
     font-weight: bold;
-    font-size: large;
+    font-size: 28px;
+    font-family: 'Caveat';
 }
+
+.detail__description{
+    font-style: italic;
+}
+
 .detail__price {
   font-weight: bold;
+  font-family: 'Arial';
+  font-size: 18px;
 }
 .detail__bagBtn {
   cursor: pointer;
@@ -226,12 +241,48 @@
   padding: 10px 20px;
   font-weight: bold;
   text-transform: uppercase;
-  transition: all 250ms ease-in-out;
+  transition: all 50ms ease-in-out;
+  border-radius: 5px;
+  font-family: 'Caveat';
 }
 .detail__bagBtn:hover {
-  color: #47df5b;
+  color: grey;
+}
+.switch{
+    display: block;
+    text-align: center;
+    justify-content: center;
+    margin-top: 35px;
+}
+.switch label{
+    font-weight: bold;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-style: 16px;
+    position: relative;
+    top:10px
+   
 }
 
+.form_control{
+    width: 30px;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 4px;
+    background-color: #edf7f6;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.increment_btn, .decrement_btn{
+    font-size: 45px;
+    font-weight: bold;
+    background: none;
+    font-family: "Caveat";
+    color: grey;
+}
+
+.increment_btn:hover, .decrement_btn:hover{
+    color:gold
+}
 /* .product-amount{
     border-radius: 10px;
     border: 1px black solid;
@@ -254,10 +305,28 @@
     border-radius: 50%;
 }
 
+@media (max-width:1023px){
+    .modal__img {
+        width: 100%;
+        
+      }
+}
+
 @media (max-width:767px) {
 
     .h-scroller{
         width: 100%;
     }
 
+    .modal__content--show{
+        width: 95%;
+    }
+
 } 
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
