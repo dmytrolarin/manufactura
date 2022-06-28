@@ -31,7 +31,6 @@
     {% for cat in categories %}
         {% if showing_all_menu %}
             <p class="category-title">{{cat}}</p> 
-            <p class="categoty-underline">____________________________________________</p>
         {% endif %}
         <div class="list">
             {% for product in products %}
@@ -77,7 +76,7 @@
                         <label for="Quantity">Кількість</label>
                         <div class="input_group">
                             <button class="input_group_text decrement_btn">-</button>
-                            <input name="quantity" class="form_control" value="1" type="number">
+                            <input name="quantity" class="form_control" value="1" type="number" readonly>
                             <button class="input_group_text increment_btn">+</button>
                         </div>
                       </div>

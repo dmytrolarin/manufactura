@@ -1,47 +1,52 @@
 
+
 /* Оформление скроллера */
 .h-scroller{
     overflow: hidden;
     width: fit-content;
     margin: 15px auto 0 auto;
+    
 
 }
 
 .h-scroller__items{
+    padding: 5px;
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
     white-space: nowrap;
+   
     
 }
 .h-scroller__item{
     font-size: 24px;
-    font-family: 'Caveat';
-    background-color: #424242;
-    color: white;
+    /* background-color: #554441; */
+    border: 1px #554441 solid;
+    color: #554441;
     display: flex;
     padding: 0.5rem 1.25rem;
     text-decoration: none;
     margin: 0 10px 0 10px;
     border-radius: 20px;
+    font-family: 'Roboto Slab', serif;
 
    
 }   
 
 .selected_category{
-    color: wheat;
     display: flex;
     padding: 0.5rem 1.25rem;
     text-decoration: none;
+    box-shadow: 2px 2px 2px grey;
 }
 
 .h-scroller__item:hover{
-    color: gray;
+    box-shadow: 2px 2px 2px grey;
 }
 
-.selected_category:hover{
+/* .selected_category:hover{
     color: wheat;
-}
+} */
 
 
 
@@ -57,10 +62,13 @@
 }
 
 .category-title{
-    font-family: 'Caveat';
-    font-size: 70px;
-    /* text-align: center; */
+    font-family: 'Roboto Slab', serif;
+    font-size: 45px;
+    font-weight: 900;
+    display: inline-block;
+    border-bottom: 2px rgb(3, 67, 3) solid;
     margin: 30px 0 0 30px;
+    color: #554441;
 
 }
 
@@ -76,6 +84,7 @@
     background-color: white;
     box-shadow:   0 2px grey;  
     transition: box-shadow 0.5s;
+    border: 1px #554441 solid;
 } 
 
 .product:hover{
@@ -106,7 +115,7 @@
     color: #493e34;
     font-weight: bold;
     margin-left: 10px;  
-    font-family: 'Caveat';
+    font-family: 'Roboto Slab', serif;
 }
 
 .composition{
@@ -126,7 +135,7 @@
 .price{
     font-weight: bold;
     font-size: 20px;
-    color: #493e34;
+    color: #554441;
     margin-bottom: 10px;
     margin-left: 10px;  
     font-family: Arial, Helvetica, sans-serif;
@@ -169,7 +178,8 @@
   grid-template-columns: repeat(2, 1fr);
   max-height: 540px;
   max-width: 960px;
-  background-color: #edf7f6;
+  background-color: #f4f5f0;
+  color: #554441;
   visibility: hidden;
   opacity: 0;
   transform: translateY(100px);
@@ -190,6 +200,8 @@
 .modal__img {
   width: 80%;
   border-radius: 15px;
+  border: 1px #554441 solid;
+
 }
 .modal__close {
   position: absolute;
@@ -220,8 +232,8 @@
 }
 .detail .detail__title{
     font-weight: bold;
-    font-size: 28px;
-    font-family: 'Caveat';
+    font-size: 24px;
+    font-family: 'Roboto Slab', serif;
 }
 
 .detail__description{
@@ -235,18 +247,19 @@
 }
 .detail__bagBtn {
   cursor: pointer;
-  background: #212527;
-  color: #edf7f6;
+  color: #554441;
+  box-shadow: 1px 1px 2px grey;
+  border: 1px #554441 solid;
   text-align: center;
   padding: 10px 20px;
   font-weight: bold;
   text-transform: uppercase;
   transition: all 50ms ease-in-out;
   border-radius: 5px;
-  font-family: 'Caveat';
+  font-family: 'Roboto Slab', serif;
 }
 .detail__bagBtn:hover {
-  color: grey;
+    background-color: gainsboro;
 }
 .switch{
     display: block;
@@ -268,7 +281,8 @@
     text-align: center;
     font-size: 30px;
     border-radius: 4px;
-    background-color: #edf7f6;
+    background-color: #f4f5f0;
+    color: #554441;
     font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
@@ -277,11 +291,11 @@
     font-weight: bold;
     background: none;
     font-family: "Caveat";
-    color: grey;
+    color: #554441
 }
 
 .increment_btn:hover, .decrement_btn:hover{
-    color:gold
+    color: grey;
 }
 /* .product-amount{
     border-radius: 10px;
@@ -318,11 +332,22 @@
         width: 100%;
     }
 
-    .modal__content--show{
+    .modal__content{
         width: 95%;
+        
+
     }
 
+
 } 
+
+@media (max-width:310px) {
+    footer{
+        width: 110%;
+    }
+} 
+
+
 
 
 input::-webkit-outer-spin-button,

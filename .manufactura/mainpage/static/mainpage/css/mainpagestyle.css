@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Kaushan+Script&family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://allfont.ru/allfont.css?fonts=carolina');
+@import url('mainpage/static/mainpage/fonts/miama/miama.otf');
+@import url('https://fonts.googleapis.com/css2?family=Mr+De+Haviland&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+@font-face {
+    font-family: 'Miama';
+    src: url('mainpage/fonts/miama/miama.otf') format('truetype');
+
+}
 /* Формление главного блока */
 header{
-    display: none
+    display: none;
     
 }
 
@@ -11,12 +20,13 @@ header{
 }
 
 .main-block{
-   background-image: url('/media/photos/template_images/mainpage/block_follow_us/3.png');
+   /* background-image: url('/media/photos/template_images/mainpage/block_follow_us/3.png'); */
+   background-color: darkgreen;
    background-repeat:no-repeat;
    background-position:center;
    background-size: cover;
    text-align: center;
-   height: 100vh;
+   height: 60vh;
    /* padding-top: 15ch; */
   
 }
@@ -24,8 +34,8 @@ header{
 .main-block__container{
     width: 100%;
     position: absolute;               
-    top: 50%;                         
-    transform: translate(0, -50%)
+    top: 5%;                         
+    /* transform: translate(0, 50%) */
 }
 
 
@@ -34,7 +44,13 @@ header{
     font-size: 90px;
     font-weight: bold;
     color: white;
-    font-family: 'Kaushan Script';
+    font-family: 'Marck Script';
+    /* font-family: 'Kaushan Script'; */
+    /* font-family: 'Carolina'; */
+    /* font-family: 'Miama'; */
+    /* font-family: 'Mr De Haviland'; */
+    /* font-style: normal;
+    font-weight: 400; */
     text-shadow: 1px 1px 2px black;
 }
 .main-block__title::first-letter{

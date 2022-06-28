@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&family=Roboto+Slab:wght@200&display=swap');
 /*Обнуление*/
 *{
 	padding: 0;
@@ -36,17 +37,23 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 /* ------------------------------------------------- */
 
 body{
-	background-color: rgb(185, 184, 184);
+	/* background-color: rgb(154, 154, 154); */
+	background-color: #f4f5f0;
 }
+
+/* img{
+	border: 1px #554441 solid;
+
+} */
 
 /* Настройка хедера */
 header{
-	background-color: #f5f5f5;
-	height: 80px;
+	background-color: #f4f5f0;
+	height: 100px;
 	position: fixed;
 	width: 100%;
-	border-radius: 0 0 20px 20px;
-	border-bottom: 5px solid #228751;
+	/* border-radius: 0 0 20px 20px; */
+	/* border-bottom: 5px solid #228751; */
 
 }
 
@@ -67,7 +74,7 @@ header .wrapper{
 
 .head__buttons li a{
 	font-size: 35px;
-	color: black;
+	color: #554441;
 	margin-left: 20px;
 }
 
@@ -79,14 +86,15 @@ header .wrapper{
 	margin-left: 20px;
 }
 .head__logo img{
-	height: 80px;
+	height: 100px;
 }
 
 .head__slogan{
-	font-size: 30px;
+	font-size: 35px;
 	display: flex;
 	align-items: center;
-	font-family: 'Pacifico'
+	font-family: 'Roboto Slab', serif;
+	color: #554441;
 }
 
 
@@ -105,7 +113,7 @@ header .wrapper{
 	display: flex;
 	flex-flow:column;
 	height: 100%;
-	background-color:  wheat;
+	background-color: #f4f5f0;
 	overflow-y: auto;
 	right:-115%;
 	transition: 0.5s;
@@ -118,9 +126,9 @@ header .wrapper{
 	padding: 30px;
 	font-size: 18px;
 	text-decoration: none;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	letter-spacing: 5px;
-	font-family: 'Caveat';
+	font-family: 'Roboto Slab', serif;
 	
 }
 
@@ -136,11 +144,11 @@ header .wrapper{
 	font-size: 40px;
 }
 .burger-menu__links li a{
-	color: #064d27;
+	color: #554441;
 }
 
 .burger-menu__links li a:hover{
-	color: white;
+	color: green;
 }
 
 
@@ -186,8 +194,8 @@ main{
 /* Настройка футера */
 footer{
 	background-color: #3c3c3c;
-	border-radius: 20px 20px 0 0;
-	border-top: goldenrod 5px solid;
+	/* border-radius: 20px 20px 0 0; */
+	/* border-top: goldenrod 5px solid; */
 	bottom: 0;
 	
 }
@@ -199,10 +207,10 @@ footer .wrapper{
 
 footer .wrapper .rest-name{
 	font-size: 40px;
-	color: gold;
+	color: #f4f5f0;
 	text-align: center;
 	padding: 25px;
-	font-family: 'Pacifico';
+	font-family: 'Roboto Slab', serif;
 	
 }
 
