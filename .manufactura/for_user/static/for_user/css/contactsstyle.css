@@ -26,14 +26,15 @@
 
 
 .contacts-block__title, .follow-us-block__title{
-    font-size: 60px;
-    font-family: 'Caveat';
+    font-size: 50px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 900;
 }
 
 .follow-us-block__text{
     margin-top: 20px;
     font-size: 18px;
-    font-style: italic;
+    font-family: 'Roboto Slab', serif;
 }
 
 .follow-us-block__button a{
@@ -43,16 +44,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: black;
-    font-size: 25px;
+    font-size: 20px;
     border-radius: 20px;
-    color: white;
-    font-family: 'Caveat';
+    color: #554441;
+    font-family: 'Roboto Slab', serif;
+    border: 1px #554441 solid;
+    box-shadow: 1px 1px 2px grey;
 }
 
 
 .follow-us-block__button a:hover{
-    background-color: grey;
+    background-color: gainsboro;
 }
 
 
@@ -60,12 +62,13 @@
 .contacts-block__map-img{
     width: 80vh;
     margin: 10px;
-
 }
 
 .contacts-block__map-img iframe{
     width: 80vh;
     border-radius: 20px;
+    border: 1px #554441 solid;
+    box-shadow: 1px 1px 2px grey;
     
 }
 
@@ -74,6 +77,8 @@
     margin-top: 10px;
     width: 40vh;
     border-radius: 20px;
+    border: 1px #554441 solid;
+    box-shadow: 1px 1px 2px grey;
 }
 
 
@@ -87,6 +92,10 @@
 }
 .contacts-block__map-img iframe, .contacts-block__map-img{
     height: 60vh;
+}
+
+.contacts-block__info{
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .contacts-block__address{
@@ -174,7 +183,9 @@
     .contacts-block__map-img iframe,  .contacts-block__map-img{
         max-height: 45vh;
     }
-    
+    .contacts-block__time-working{
+        padding-top: 20px;
+    }
 
    
     

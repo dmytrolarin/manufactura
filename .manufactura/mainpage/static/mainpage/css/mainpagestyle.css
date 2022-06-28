@@ -1,14 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Kaushan+Script&family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://allfont.ru/allfont.css?fonts=carolina');
-@import url('mainpage/static/mainpage/fonts/miama/miama.otf');
 @import url('https://fonts.googleapis.com/css2?family=Mr+De+Haviland&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
-@font-face {
-    font-family: 'Miama';
-    src: url('mainpage/fonts/miama/miama.otf') format('truetype');
-
-}
 /* Формление главного блока */
 header{
     display: none;
@@ -20,7 +14,7 @@ header{
 }
 
 .main-block{
-   /* background-image: url('/media/photos/template_images/mainpage/block_follow_us/3.png'); */
+   background-image: url('/media/photos/template_images/mainpage/main-block-img.png');
    background-color: darkgreen;
    background-repeat:no-repeat;
    background-position:center;
@@ -33,24 +27,20 @@ header{
 
 .main-block__container{
     width: 100%;
-    position: absolute;               
-    top: 5%;                         
-    /* transform: translate(0, 50%) */
+    position:relative;
+    top: 40%;                         
+    transform: translate(0, -40%);
 }
 
 
 .main-block__title{
-    padding: 15px;
+    padding: 0 15px 15px 15px;
     font-size: 90px;
     font-weight: bold;
     color: white;
     font-family: 'Marck Script';
-    /* font-family: 'Kaushan Script'; */
-    /* font-family: 'Carolina'; */
-    /* font-family: 'Miama'; */
-    /* font-family: 'Mr De Haviland'; */
-    /* font-style: normal;
-    font-weight: 400; */
+    
+    
     text-shadow: 1px 1px 2px black;
 }
 .main-block__title::first-letter{
@@ -90,9 +80,6 @@ header{
    
 }
 
-/* .main-block .to-menu a{
-    font-family: 'Kaushan Script'
-} */
 
 .main-block .to-menu{
     
@@ -176,14 +163,19 @@ header{
 
 
 .about-block__title, .contacts-block__title, .follow-us-block__title{
-    font-size: 60px;
-    font-family: 'Caveat';
+    font-size: 50px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 900;
 }
 
 .about-block__text, .follow-us-block__text{
     margin-top: 20px;
     font-size: 18px;
-    font-style: italic;
+    font-family: 'Roboto Slab', serif;
+}
+
+.contacts-block__info{
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .about-block__button a, .follow-us-block__button a{
@@ -193,16 +185,17 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: black;
-    font-size: 25px;
+    font-size: 20px;
     border-radius: 20px;
-    color: white;
-    font-family: 'Caveat';
+    color: #554441;
+    font-family: 'Roboto Slab', serif;
+    border: 1px #554441 solid;
+    box-shadow: 1px 1px 2px grey;
 }
 
 
 .about-block__button a:hover, .follow-us-block__button a:hover{
-    background-color: grey;
+    background-color: gainsboro;
 }
 
 
@@ -294,6 +287,12 @@ header{
     color: #0000ee;
 }
 
+/* Общие Настройки */
+.about-block img, .follow-us-block img, iframe{
+    border: 1px #554441 solid;
+    box-shadow: 1px 1px 2px grey;
+}
+
 /* Медиа-запросы */
 @media (max-width:1023px){
     .slider{
@@ -357,6 +356,9 @@ header{
     }
     .contacts-block__map-img iframe,  .contacts-block__map-img{
         max-height: 45vh;
+    }
+    .contacts-block__time-working{
+        padding-top: 20px;
     }
     
 

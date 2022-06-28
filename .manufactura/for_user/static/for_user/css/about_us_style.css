@@ -19,14 +19,15 @@
 
 
 .about-block__title{
-    font-size: 60px;
-    font-family: 'Caveat';
+    font-size: 50px;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 900;
 }
 
 .about-block__text{
     margin-top: 20px;
     font-size: 18px;
-    font-style: italic;
+    font-family: 'Roboto Slab', serif;
 }
 
 
@@ -42,6 +43,8 @@
 .about-block__image img{
     width: 80vh;
     border-radius: 20px;
+    border: 1px #554441 solid;
+    box-shadow: 1px 1px 2px grey;
     
 }
 

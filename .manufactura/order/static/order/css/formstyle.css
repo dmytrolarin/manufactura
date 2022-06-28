@@ -141,6 +141,10 @@ h1{
   
 }
 
+.btn:hover{
+    background-color: gainsboro;
+}
+
 .list-format li a:hover{
     color: gray;
 }
