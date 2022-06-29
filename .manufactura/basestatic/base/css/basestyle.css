@@ -97,7 +97,21 @@ header .wrapper{
 	color: #554441;
 }
 
+@media (max-width:349px) {
 
+	header{
+		height: 80px;
+	}
+	.head__logo img{
+		height: 80px;
+	}
+	.head__buttons li a{
+		font-size: 25px;
+	}
+	
+
+	
+}
 
 /* Настройка бургер-меню */
 
@@ -115,8 +129,17 @@ header .wrapper{
 	height: 100%;
 	background-color: #f4f5f0;
 	overflow-y: auto;
-	right:-115%;
-	transition: 0.5s;
+	right:-100%;
+	transition: 0.6s;
+	border-left: 1px #554441 solid;
+	box-shadow: -1px 0 2px grey;
+}
+
+@media (max-width:360px) {
+
+	.burger-menu__links{
+		right:-140%
+	}
 }
 
 .burger-menu_active .burger-menu__links{
@@ -124,7 +147,7 @@ header .wrapper{
 }
 .burger-menu__links li{
 	padding: 30px;
-	font-size: 18px;
+	font-size: 20px;
 	text-decoration: none;
 	/* text-transform: uppercase; */
 	letter-spacing: 5px;
@@ -148,7 +171,7 @@ header .wrapper{
 }
 
 .burger-menu__links li a:hover{
-	color: green;
+	color: gainsboro
 }
 
 
@@ -172,11 +195,14 @@ header .wrapper{
 @media (max-width:767px) {
 	.burger-menu_active .burger-menu__links{	
 		width: 100%;
+		border-left: none;
 	}
 	.head__slogan{
 		display: none;
 	}	
 }
+
+
 
 /* Настройка контента */
 .main-footer-wrapper{

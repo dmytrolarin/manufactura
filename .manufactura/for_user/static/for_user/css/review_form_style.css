@@ -2,9 +2,9 @@
 h1{
     display: block;  
     padding-top: 30px;
-    color: white;
+    color: #554441;
     font-size: 40px;
-    font-family: 'Caveat';
+    font-family: 'Roboto Slab', serif;
     text-align: center;
 }
 form{
@@ -39,8 +39,14 @@ input, .big-field{
     color: #554441;
     font-size: 16px;
     font-family: 'Roboto Slab', serif;
+    font-weight: 900;
     
 }
+
+input::placeholder, textarea::placeholder{
+    font-weight: 400;
+}
+
 
 .big-field{
     min-height: 120px;
@@ -48,7 +54,7 @@ input, .big-field{
 }
 .btn_review{
     display: block;
-    width: 270px;
+    max-width: 80%;
     border: 1px #554441 solid;
     margin: 30px auto 20px auto;
     color: #554441;
@@ -72,13 +78,15 @@ input::-webkit-input-placeholder, .big-field::-webkit-input-placeholder{
 
 .success-text, .error-text{
     font-style: italic;
-    font-size: 20px;
+    font-weight: bold;
+    color: #554441;
     text-align: center;
     margin-top: 20px;
+    font-size: 20px;
 }
 
 .success-text{
-    color: greenyellow;;
+    color: green;
 }
 
 .error-text{
@@ -86,23 +94,25 @@ input::-webkit-input-placeholder, .big-field::-webkit-input-placeholder{
 }
 
 .to-home{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 25px;
-    margin:20px auto 0 auto;
-    font-family: 'Caveat';
+    display: block;
+    max-width: 80%;
+    border: 1px #554441 solid;
+    margin: 30px auto 20px auto;
+    color: #554441;
+    box-shadow: 1px 1px 2px grey;
+    font-size: 28px;
     cursor: pointer;
-    background-color: #fff;
-    width: 120px;
-    height: 30px;
+    padding: 5px 0;
     border-radius: 10px;
+    background:white;
+    font-family: 'Roboto Slab', serif;
+    text-align: center;
     
 
 }
 
 .to-home a{
-    color: black;
+    color: #554441;
 }
 
 @media (max-width:600px) {
