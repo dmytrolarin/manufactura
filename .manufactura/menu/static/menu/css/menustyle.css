@@ -63,10 +63,11 @@
 }
 
 .category-title{
+    width:fit-content;
+    padding-bottom: 7px;
     font-family: 'Roboto Slab', serif;
     font-size: 45px;
     font-weight: 900;
-    display: inline-block;
     border-bottom: 2px rgb(3, 67, 3) solid;
     margin: 30px 0 0 30px;
     color: #554441;
@@ -352,14 +353,26 @@
     .list{
         justify-content: center;
     }
+    
 } 
 
+@media (max-width:400px) {
+
+    .category-title{
+        width: min-content;
+    }
+
+    
+}
 
 @media (max-width:360px) {
     .product_photo img{
         width: 189px;
         height: 283px;
         border-radius: 20px;
+    }
+    .category-title{
+        width: min-content;
     }
 
     

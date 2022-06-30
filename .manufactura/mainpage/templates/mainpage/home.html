@@ -6,16 +6,21 @@
 {% block content %}
 <div class="main-block">
     <div class="main-block__container">
-        <div class="main-block__title">
-            <span>Manufactura</span>
+        <div class="main-block__img">
+
+            <!-- <span>Manufactura</span> -->
+            <img src="media/photos/template_images/mainpage/img-mainblock.png" alt="">
+
         </div>
+
+    
         <div class="main-block__slogan">
             <span>Ресторан з історією</span>
         </div>
        <div class="container-buttons">
             <div class="main-block__buttons">
                 <a class="to-menu" href="{% url 'all_menu' %}">Меню</a>
-                <a class="to-reservation" href="{% url 'reservation_only' %}">Бронювання столику</a>
+                <a class="to-reservation" href="{% url 'reservation_only' %}">Бронювання столика</a>
             </div>
         </div>
 
@@ -106,5 +111,5 @@
 {% endblock content %}
 
 {% block scripts %}
-    <script src="{% static 'mainpage/js/sliderscript.js' %}"></script>
+    <!-- <script src="{% static 'mainpage/js/sliderscript.js' %}"></script> -->
 {% endblock scripts %}
