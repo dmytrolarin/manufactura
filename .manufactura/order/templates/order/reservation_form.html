@@ -40,13 +40,13 @@
             {% endfor %}
             <div class="block-price">
                 <p class="price">Вартість бронювання: 
-                    <span class="value">0 ГРН</span>
+                    <span class="value">50 грн</span>
                 </p>
                 <p class="price">Вартість замовлення: 
-                    <span class="value">330 ГРН</span>
+                    <span class="value">{{total_order_price}} грн</span>
                 </p>
                 <p class="total-price">Всього: 
-                    <span class="value">330 ГРН</span>
+                    <span class="value">{{total_order_price|add:50}}</span>
                 </p>
             </div>
             
@@ -55,17 +55,53 @@
     </div>
 
     <div class="block-cart">
-        <div class="block-cart__empty">
-            <span class="empty-text">
-                У вас немає замовлень! Ви можете
-                обрати бажані страви, якщо хочете,
-                щоб ми приготували їх до вашого 
-                приходу.
-            </span>
-            <div class="to-menu">
-                <a href="{% url 'all_menu' %}">Перейти в меню</a>
+        {% if data_products_in_cart == 'empty'%}
+            <div class="block-cart__empty">
+                <span class="empty-text">
+                    У вас немає замовлень! Ви можете
+                    обрати бажані страви, якщо хочете,
+                    щоб ми приготували їх до вашого 
+                    приходу.
+                </span>
+                <div class="to-menu">
+                    <a href="{% url 'all_menu' %}">Перейти в меню</a>
+                </div>
             </div>
-        </div>
+        {% else %}
+            {% for product_data in data_products_in_cart %}
+                <div class="block-cart__product">
+                    <div class="product__img">
+                        <img src="{{ product_data.0.photo.url }}" alt="">
+                    </div>
+                    <div class="product__info">
+                        <div class="product__delete">
+                            <i class="modal__close far fa-times-circle">&times;</i>
+                        </div>
+                        <div class="product__name">
+                            {{ product_data.0.name }}
+                        </div>
+                        <div class="product__price">
+                            {{ product_data.0.price}} грн
+                        </div>
+                        <div class="switch">
+                            <div class="input_group">
+                                <button class="input_group_text decrement_btn">-</button>
+                                <input name="quantity" class="form_control" value="{{ product_data.1 }}" type="number" readonly>
+                                <button class="input_group_text increment_btn">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            {% endfor %}
+            <div class="block-cart__add-product">
+                <span class="add-product__text">
+                    Бажаєте щось додати?
+                </span>
+                <div class="to-menu add-product__to-menu">
+                    <a href="{% url 'all_menu' %}">Перейти в меню</a>
+                </div>
+            </div>
+        {% endif %}
     </div>
 </div>
 <!-- {% for product in list_products %}

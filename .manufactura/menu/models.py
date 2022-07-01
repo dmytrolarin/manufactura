@@ -1,8 +1,9 @@
 from django.db import models
 from django.urls import reverse
 
-# Модель для блюд
+
 class Product(models.Model):
+    '''Модель для блюд'''
     name = models.CharField(max_length=255, verbose_name='Страва')
     slug = models.SlugField(max_length=255,unique=True,db_index=True, verbose_name='URL страви')
     composition = models.TextField(blank=True, verbose_name='Склад')
@@ -17,8 +18,9 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-# Модель для категорий блюд
+
 class Category(models.Model):
+    '''Модель для категорий блюд'''
     name = models.CharField(max_length=255, db_index=True,verbose_name='Категорія страви')
     slug = models.SlugField(max_length=255,unique=True,db_index=True, verbose_name='URL категорії')
 
@@ -33,3 +35,15 @@ class Category(models.Model):
         return reverse('category', kwargs={'cat_slug':self.slug})
 
 
+class ProductInCart(models.Model):
+    '''Модель для блюд в заказах клиента'''
+    session_key = models.CharField(max_length=128, verbose_name='Код клієнта')
+    name = models.CharField(max_length=255, verbose_name='Страва')
+    quantity = models.IntegerField(verbose_name='Кількість страви')
+
+    class Meta:
+        verbose_name = 'Страва в замовленнях'
+        verbose_name_plural = 'Страви в замовленнях'
+
+    def __str__(self):
+        return self.name

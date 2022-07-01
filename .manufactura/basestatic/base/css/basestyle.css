@@ -282,7 +282,8 @@ footer .wrapper .rest-name{
 
 
 .footer__info-blocks a{
-	color: #0000EE;
+	color: #554441;
+	text-decoration: underline;
 }
 
 .footer__info-blocks a:hover{

@@ -264,6 +264,8 @@
   transition: all 50ms ease-in-out;
   border-radius: 5px;
   font-family: 'Roboto Slab', serif;
+  display: block;
+  margin: 0 auto;
 }
 .detail__bagBtn:hover {
     background-color: gainsboro;
@@ -284,7 +286,7 @@
 }
 
 .form_control{
-    width: 30px;
+    width: 35px;
     text-align: center;
     font-size: 30px;
     border-radius: 4px;
@@ -328,7 +330,7 @@
 
 @media (max-width:1023px){
     .modal__img {
-        width: 100%;
+        width: 80%;
         
       }
 }
@@ -353,6 +355,10 @@
     .list{
         justify-content: center;
     }
+    .modal__img {
+        width: 100%;
+        
+      }
     
 } 
 

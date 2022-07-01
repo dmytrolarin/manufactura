@@ -62,28 +62,31 @@
                     </div>
                 {% endif %}
                 <div class="modal"></div>
-                <div class="modal__content">
-                  <i class="modal__close far fa-times-circle">&times;</i>
-                  <div class="modal__left">
-                    <img class="modal__img" src="" alt="">
-                  </div>
-                  <div class="modal__right">
-                    <div class="detail">
-                      <p class="detail__title"></p>
-                      <p class="detail__description"></p>
-                      <p class="detail__price"></p>
-                      <div class="switch">
-                        <label for="Quantity">Кількість</label>
-                        <div class="input_group">
-                            <button class="input_group_text decrement_btn">-</button>
-                            <input name="quantity" class="form_control" value="1" type="number" readonly>
-                            <button class="input_group_text increment_btn">+</button>
-                        </div>
-                      </div>
-                      <p class="detail__bagBtn">До замовлень</p>
+                <form action="{% url 'add_to_cart' %}" id="modal__form" >
+                    {% csrf_token %}
+                    <div class="modal__content">
+                    <i class="modal__close far fa-times-circle">&times;</i>
+                    <div class="modal__left">
+                        <img class="modal__img" src="" alt="">
                     </div>
-                  </div>
-                </div>
+                    <div class="modal__right">
+                        <div class="detail">
+                        <p class="detail__title" id="product-name"></p>
+                        <p class="detail__description"></p>
+                        <p class="detail__price" ></p>
+                        <div class="switch">
+                            <label for="Quantity">Кількість</label>
+                            <div class="input_group">
+                                <button class="input_group_text decrement_btn">-</button>
+                                <input name="quantity" class="form_control" id="product_qty" value="1" type="number" readonly>
+                                <button class="input_group_text increment_btn">+</button>
+                            </div>
+                        </div>
+                        <button class="detail__bagBtn" type="submit">До замовлень</button>
+                        </div>
+                    </div>
+                    </div>
+                </form>
             {%endfor%}
         </div>
     {% endfor %}
@@ -92,7 +95,9 @@
 {% endblock content %}
 
 {% block scripts %}
-<script src="{% static 'menu/js/menuscripts.js' %}"></script>
+<script src="{% static 'menu/js/modal_window_scripts.js' %}"></script>
 <script src="{% static 'menu/js/jquery-3.6.0.js' %}"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 <script src="{% static 'menu/js/switch.js' %}"></script>
+<script src="{% static 'menu/js/make_order_script.js' %}"></script>
 {% endblock scripts %}

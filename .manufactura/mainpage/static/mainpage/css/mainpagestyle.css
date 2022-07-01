@@ -261,9 +261,8 @@ header{
 }
 
 .contacts-block__phone-number a{
-    font-style: italic;
-    /* color: #551a8b; */
-    font-weight: bold
+    color: #554441;
+	text-decoration: underline;
 }
 
 .contacts-block__instagram{
@@ -289,7 +288,8 @@ header{
 
 
 .contacts-block__instagram a{
-    color: #0000ee;
+    color: #554441;
+	text-decoration: underline;
 }
 
 /* Общие Настройки */

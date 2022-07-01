@@ -190,6 +190,10 @@ input::placeholder, textarea::placeholder{
     color: #554441;
 }
 
+.to-home:hover{
+    background: gainsboro;
+}
+
 @media (max-width:830px) {
     .wrapper-order{
         align-items: center;

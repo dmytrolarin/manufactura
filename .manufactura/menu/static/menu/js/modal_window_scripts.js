@@ -6,6 +6,7 @@ const productList = document.querySelectorAll('.product');
 const title = document.querySelector('.detail__title');
 const composition = document.querySelector('.detail__description');
 const cost = document.querySelector('.detail__price');
+const button  =document.querySelector('.detail__bagBtn')
 
 
 productList.forEach((list, index) => {
@@ -30,6 +31,11 @@ productList.forEach((list, index) => {
 });
 
 close.addEventListener('click', () => {
+  modal.classList.remove('modal--bg');
+  modalContent.classList.remove('modal__content--show');
+});
+
+button.addEventListener('click', () => {
   modal.classList.remove('modal--bg');
   modalContent.classList.remove('modal__content--show');
 });

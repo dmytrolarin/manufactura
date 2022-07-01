@@ -2,8 +2,8 @@ from django.db import models
 class TableReservation(models.Model):
     '''Модель для бронирования столиков'''
     client_name = models.CharField(max_length=255,verbose_name="Ім'я клієтна")
-    client_phone_number = models.IntegerField(verbose_name="Номер телефону")
-    date_reservation = models.CharField(verbose_name='Дата бронювання', max_length=255)
+    client_phone_number = models.CharField(verbose_name="Номер телефону",max_length=13)
+    date_reservation = models.DateField(verbose_name='Дата бронювання', max_length=255)
     time_reservation = models.TimeField(verbose_name="Час бронювання", max_length=255)
     amount_persons = models.IntegerField(verbose_name="Кількість персон")
     order_comment = models.TextField(blank=True,verbose_name="Кометнар до замовлення")
@@ -16,7 +16,7 @@ class TableReservation(models.Model):
 class TakeAway(models.Model):
     '''Модель для оформления заказов форматом самовывоза'''
     client_name = models.CharField(max_length=255,verbose_name="Ім'я клієтна")
-    client_phone_number = models.IntegerField(verbose_name="Номер телефону")
+    client_phone_number = models.CharField(verbose_name="Номер телефону",max_length=13)
     time_cooking = models.TimeField(verbose_name="Час приготування")
     order_comment = models.TextField(verbose_name="Коментар до замовлення",blank=True)
 
@@ -32,7 +32,7 @@ class TakeAway(models.Model):
 class Delivery(models.Model):
     '''Модель для оформления заказов форматом доставки'''
     client_name = models.CharField(max_length=255,verbose_name="Ім'я клієтна")
-    client_phone_number = models.IntegerField(verbose_name="Номер телефону")
+    client_phone_number = models.CharField(verbose_name="Номер телефону", max_length=13)
     adress = models.TextField(verbose_name="Адреса доставки")
     time_delivery = models.TimeField(verbose_name="Час доставки")
     order_comment = models.TextField(verbose_name="Коментар до замовлення",blank=True)

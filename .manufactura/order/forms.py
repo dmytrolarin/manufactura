@@ -8,9 +8,9 @@ class MakeTableReservationForm(forms.ModelForm):
         'amount_persons','order_comment')
         widgets = {
             'client_name': forms.TextInput(attrs={'placeholder':"Введіть ваше ім'я"}),
-            'client_phone_number': forms.NumberInput(attrs={'placeholder':"+380888888888"}),
-            'date_reservation': forms.TextInput(attrs={'placeholder':'01.01'}),
-            'time_reservation': forms.TimeInput(attrs={'placeholder':'12:00'}),
+            'client_phone_number': forms.NumberInput(attrs={'placeholder':"+380888888888",'type':'tel'}),
+            'date_reservation': forms.TextInput(attrs={'placeholder':'01.01', 'type':'date'}),
+            'time_reservation': forms.TimeInput(attrs={'placeholder':'12:00','type':'time'}),
             'amount_persons': forms.NumberInput(attrs={'placeholder':'Введіть кілкьість персон'}),
             'order_comment':forms.Textarea(attrs={'placeholder':"Коментар до замовлення (необов'язково)"})
         }
@@ -22,8 +22,8 @@ class MakeTakeAwayForm(forms.ModelForm):
         'order_comment')
         widgets = {
             'client_name': forms.TextInput(attrs={'placeholder':"Введіть ваше ім'я"}),
-            'client_phone_number': forms.NumberInput(attrs={'placeholder':"+380888888888"}),
-            'time_cooking': forms.TimeInput(attrs={'placeholder':'13:00'}),
+            'client_phone_number': forms.NumberInput(attrs={'placeholder':"+380888888888",'type':'tel'}),
+            'time_cooking': forms.TimeInput(attrs={'placeholder':'13:00','type':'time'}),
             'order_comment':forms.Textarea(attrs={'placeholder':"Коментар до замовлення (необов'язково)"})
         }
 
@@ -34,9 +34,8 @@ class MakeDeliveryForm(forms.ModelForm):
         'order_comment')
         widgets = {
             'client_name': forms.TextInput(attrs={'placeholder':"Введіть ваше ім'я"}),
-            'client_phone_number': forms.NumberInput(attrs={'placeholder':"+380888888888"}),
+            'client_phone_number': forms.NumberInput(attrs={'placeholder':"+380888888888",'type':'tel'}),
             'adress':forms.TextInput(attrs={'placeholder':"вул. Шевченка, буд. 3, кв.40"}),
-            'time_delivery': forms.TimeInput(attrs={'placeholder':'13:00'}),
-            
+            'time_delivery': forms.TimeInput(attrs={'placeholder':'13:00','type':'time'}),  
             'order_comment':forms.Textarea(attrs={'placeholder':"Коментар до замовлення (необов'язково)"})
         }
