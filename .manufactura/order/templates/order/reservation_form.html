@@ -16,18 +16,14 @@
                     <ul class="list-format">
                         <li><span class="list-dot">&#x25CF;</span>Бронювання столика</li>
                         <li><a href="{% url 'takeaway' %}"><span class="list-dot">&#x25CB;</span>Самовивіз</a></li>
-                        <li><a href="{% url 'delivery' %}"><span class="list-dot">&#x25CB;</span>Доставка</a></li>
                     </ul>
                 </div>
                 {% endif %}
                 {% if messages %}
                 {% for message in messages %}
-                    {% if message_type == 'success' %}
-                    <p class="success-text">{{ message }}</p>
-                    <span class="to-home"><a href="{% url 'home' %}">На головну</a></span>
-                    {% else %}
-                    <p class="error-text">{{ message }}</p>
-                    {% endif %}
+                    <p class="{{ message.tags }}">{{ message }}</p>
+                    <span class="to-home"><a href="{% url 'home' %}">На головну</a></span> 
+
                 {% endfor %}
             {% endif %}
             <form action="" method="post" autocomplete="off">
@@ -41,8 +37,9 @@
                 {% endfor %}
                 <div class="block-price">
                     
-                    <p class="total-price">Вартість замовлення: 
-                        <span class="value">{{total_order_price}} грн</span>
+                    <p class="total-price">Вартість замовлення:
+
+                        <span class="value total-price-data">{{total_order_price}} грн</span>
                     </p>
                 </div>
                 
@@ -85,6 +82,7 @@
                         <div class="switch">
                             {% csrf_token %}
                             <div class="input_group">
+            
                                 <input type="hidden" value="{%url 'update_cart'%}" class="url_update_cart">
                                 <button class="input_group_text changeQuantity decrement_btn">-</button>
                                 <input name="quantity" class="form_control qty-input" value="{{ product_data.1 }}" type="number" readonly>
@@ -106,14 +104,7 @@
     </div>
     </div>
 </div>
-<!-- {% for product in list_products %}
-    <div class="product_in_cart">
-        <p>{{product.0}}</p>
-        <p>{{product.1}} ГРН</p>
-        <p>{{product.2}} ШТ</p>
-        <img src="{{product.0.photo.url}}" alt="" style="width:150px;height:200px;">
-    </div>
-{% endfor %} -->
+
 {% endblock content %}
 
 {% block scripts %}
