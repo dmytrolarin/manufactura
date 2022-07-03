@@ -69,5 +69,12 @@ def add_to_cart(request):
     data = request.POST
     product_name = data.get('product_name')
     product_qty = data.get('product_qty')
-    ProductInCart.objects.create(session_key=session_key,name=product_name,quantity=product_qty)
+    product_in_cart = ProductInCart.objects.filter(session_key=session_key, name=product_name)
+    if not product_in_cart:
+        ProductInCart.objects.create(session_key=session_key,name=product_name,quantity=product_qty)
+    else:
+        new_quantity = product_in_cart[0].quantity + int(product_qty)
+        product_in_cart.update(quantity = new_quantity)
+        
+        
     return HttpResponse(None)

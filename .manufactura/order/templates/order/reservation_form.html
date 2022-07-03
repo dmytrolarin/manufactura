@@ -9,52 +9,50 @@
 <h1>Оформити замовлення</h1>
 <div class="wrapper-order">
     <div class="block-form">
-        {% if show_format_choice !=  False%}
-            <div class="choice-format">
-                <span class="title-list-format">Формат замовлення</span>
-                <ul class="list-format">
-                    <li><span class="list-dot">&#x25CF;</span>Бронювання столика</li>
-                    <li><a href="{% url 'takeaway' %}"><span class="list-dot">&#x25CB;</span>Самовивіз</a></li>
-                    <li><a href="{% url 'delivery' %}"><span class="list-dot">&#x25CB;</span>Доставка</a></li>
-                </ul>
-            </div>
-            {% endif %}
-            {% if messages %}
-            {% for message in messages %}
-                {% if message_type == 'success' %}
-                <p class="success-text">{{ message }}</p>
-                <span class="to-home"><a href="{% url 'home' %}">На головну</a></span>
-                {% else %}
-                <p class="error-text">{{ message }}</p>
-                {% endif %}
-            {% endfor %}
-        {% endif %}
-        <form action="" method="post" autocomplete="off">
-            {% csrf_token %}
-            {% for el in form %}
-                
-                <div class="field-block">
-                    <span>{{el.label}}</span>
-                    <div class="field">{{el}}</div>
+        <div class="form-data">
+            {% if show_format_choice !=  False%}
+                <div class="choice-format">
+                    <span class="title-list-format">Формат замовлення</span>
+                    <ul class="list-format">
+                        <li><span class="list-dot">&#x25CF;</span>Бронювання столика</li>
+                        <li><a href="{% url 'takeaway' %}"><span class="list-dot">&#x25CB;</span>Самовивіз</a></li>
+                        <li><a href="{% url 'delivery' %}"><span class="list-dot">&#x25CB;</span>Доставка</a></li>
+                    </ul>
                 </div>
-            {% endfor %}
-            <div class="block-price">
-                <p class="price">Вартість бронювання: 
-                    <span class="value">50 грн</span>
-                </p>
-                <p class="price">Вартість замовлення: 
-                    <span class="value">{{total_order_price}} грн</span>
-                </p>
-                <p class="total-price">Всього: 
-                    <span class="value">{{total_order_price|add:50}}</span>
-                </p>
-            </div>
-            
-            <input type="submit" value="Забронювати" class="btn">
-        </form>
+                {% endif %}
+                {% if messages %}
+                {% for message in messages %}
+                    {% if message_type == 'success' %}
+                    <p class="success-text">{{ message }}</p>
+                    <span class="to-home"><a href="{% url 'home' %}">На головну</a></span>
+                    {% else %}
+                    <p class="error-text">{{ message }}</p>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            <form action="" method="post" autocomplete="off">
+                {% csrf_token %}
+                {% for el in form %}
+                    
+                    <div class="field-block">
+                        <span>{{el.label}}</span>
+                        <div class="field">{{el}}</div>
+                    </div>
+                {% endfor %}
+                <div class="block-price">
+                    
+                    <p class="total-price">Вартість замовлення: 
+                        <span class="value">{{total_order_price}} грн</span>
+                    </p>
+                </div>
+                
+                <input type="submit" value="Забронювати" class="btn">
+            </form>
+        </div>
     </div>
 
     <div class="block-cart">
+        <div class="card-data">
         {% if data_products_in_cart == 'empty'%}
             <div class="block-cart__empty">
                 <span class="empty-text">
@@ -63,9 +61,9 @@
                     щоб ми приготували їх до вашого 
                     приходу.
                 </span>
-                <div class="to-menu">
-                    <a href="{% url 'all_menu' %}">Перейти в меню</a>
-                </div>
+                
+                <a href="{% url 'all_menu' %}" class="to-menu">Перейти в меню</a>
+            
             </div>
         {% else %}
             {% for product_data in data_products_in_cart %}
@@ -75,19 +73,22 @@
                     </div>
                     <div class="product__info">
                         <div class="product__delete">
+                            <input type="hidden" value="{%url 'delete_cart'%}" class="url_delete_cart">
                             <i class="modal__close far fa-times-circle">&times;</i>
                         </div>
                         <div class="product__name">
-                            {{ product_data.0.name }}
+                            <span>{{ product_data.0.name }}</span>
                         </div>
                         <div class="product__price">
                             {{ product_data.0.price}} грн
                         </div>
                         <div class="switch">
+                            {% csrf_token %}
                             <div class="input_group">
-                                <button class="input_group_text decrement_btn">-</button>
-                                <input name="quantity" class="form_control" value="{{ product_data.1 }}" type="number" readonly>
-                                <button class="input_group_text increment_btn">+</button>
+                                <input type="hidden" value="{%url 'update_cart'%}" class="url_update_cart">
+                                <button class="input_group_text changeQuantity decrement_btn">-</button>
+                                <input name="quantity" class="form_control qty-input" value="{{ product_data.1 }}" type="number" readonly>
+                                <button class="input_group_text changeQuantity increment_btn">+</button>
                             </div>
                         </div>
                     </div>
@@ -97,11 +98,12 @@
                 <span class="add-product__text">
                     Бажаєте щось додати?
                 </span>
-                <div class="to-menu add-product__to-menu">
-                    <a href="{% url 'all_menu' %}">Перейти в меню</a>
-                </div>
+                
+                <a class="to-menu add-product__to-menu" href="{% url 'all_menu' %}">Перейти в меню</a>
+            
             </div>
         {% endif %}
+    </div>
     </div>
 </div>
 <!-- {% for product in list_products %}
@@ -113,3 +115,8 @@
     </div>
 {% endfor %} -->
 {% endblock content %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="{% static 'order/js/cartsripts.js' %}"></script>
+{% endblock scripts %}

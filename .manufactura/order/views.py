@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
@@ -11,7 +12,7 @@ from manufactura import settings
 from for_user.models import RestaurantInfo
 from menu.models import ProductInCart
 
-
+# Функция возвращает список с продуктами в корзине
 def get_products_in_cart(request):
     session_key = request.session.session_key
     products_in_cart = ProductInCart.objects.filter(session_key = session_key)
@@ -24,18 +25,20 @@ def get_products_in_cart(request):
         data_products_in_cart.append(data_product)
     return data_products_in_cart
 
+# Функция возвращает сумарную стоимость заказа в корзине
 def get_total_order_price(data_products_in_cart):
     total_price = 0
     for data_product in  data_products_in_cart:
         total_price += data_product[1]*data_product[0].price
 
     return total_price
-        
+
+#  Функция возвращает заказ пользователя для отправки на почту 
 def get_order(data_products_in_cart):
     order = ''
     if data_products_in_cart != 'empty': 
         for product_data in data_products_in_cart:
-            order += f'{product_data[0].name} x{product_data[1]},\n'
+            order += f'\n{product_data[0].name} x{product_data[1]};'
     else:
         order = 'в закладі'
     return order
@@ -76,7 +79,7 @@ def make_table_reservation(request):
             \rЧас бронвання: {time_reservation}; 
             \rДата бронювання: {date_reservation};
             \rКількість персон: {amount_persons};
-            \rЗамовлення: {order};
+            \rЗамовлення: {order}
             \rКоментар до замовлення: {order_comment}
             \rВартість замовлення: {context['total_order_price']};"""
             mail = send_mail(subject,message,settings.EMAIL_HOST_USER,[settings.EMAIL_HOST_USER], fail_silently=False)
@@ -101,8 +104,9 @@ def make_table_reservation(request):
         context['show_format_choice'] = False
 
     context['form'] =  form
+
     
-    print(get_products_in_cart(request))
+
     return render(request, 'order/reservation_form.html', context=context)
     
 
@@ -200,12 +204,34 @@ def make_delivery(request):
     context['form'] =  form
     return render(request, 'order/delivery_form.html', context=context)
 
-# def add_to_cart(request):
-#     rend = render(request, 'order/reservation_form.html')
-#     if request.POST['product_slug'] not in request.COOKIES:
-#         rend.set_cookie(request.POST['product_slug'],request.POST['product_price']+' '+request.POST['product_amount'])
-#     else:
-#         new_amount = int(request.COOKIES[request.POST['product_slug']].split()[-1]) + int(request.POST['product_amount'])
-#         rend.set_cookie(request.POST['product_slug'],request.POST['product_price']+' '+str(new_amount))
-#     return rend
+def update_cart(request):
     
+    if request.method == 'POST':
+        session_key = request.session.session_key
+        product_name = request.POST.get('product_name')
+        product_qty = request.POST.get('product_qty')
+
+        product_name =  rf"\n{product_name}".replace(r'\n','')
+        product_name = product_name.split()
+        product_name = ' '.join(product_name)
+
+        product_qty =  rf"\n{product_qty}".replace(r'\n','')
+        
+        prod_in_cart = ProductInCart.objects.get(session_key=session_key,name = product_name)
+        prod_in_cart.quantity = product_qty
+        prod_in_cart.save()
+    return HttpResponse(None)
+
+
+def delete_cart(request):
+    if request.method == 'POST':
+        session_key = request.session.session_key
+        product_name = request.POST.get('product_name')
+
+        product_name =  rf"\n{product_name}".replace(r'\n','')
+        product_name = product_name.split()
+        product_name = ' '.join(product_name)
+
+        prod_in_cart = ProductInCart.objects.get(session_key=session_key,name = product_name)
+        prod_in_cart.delete()
+    return HttpResponse(None)
