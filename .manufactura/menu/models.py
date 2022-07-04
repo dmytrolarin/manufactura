@@ -7,7 +7,7 @@ class Product(models.Model):
     name = models.CharField(max_length=255, verbose_name='Страва')
     slug = models.SlugField(max_length=255,unique=True,db_index=True, verbose_name='URL страви')
     composition = models.TextField(blank=True, verbose_name='Склад')
-    photo = models.ImageField(upload_to = "photos/%Y/%m/%d/",verbose_name='Фото')
+    photo = models.ImageField(upload_to = "photos/menu/",verbose_name='Фото')
     price = models.IntegerField(verbose_name='Ціна')
     cat = models.ForeignKey('Category', on_delete=models.PROTECT,null=True, verbose_name='Категорія страви')
 
