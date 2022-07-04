@@ -380,6 +380,10 @@
     .category-title{
         width: min-content;
     }
+    .modal__img{
+        width: 150%;
+        margin-left: 30px;
+    }
 
     
 } 
