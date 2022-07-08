@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&family=Roboto+Slab:wght@200&display=swap');
+
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto 50px auto;
+    max-width: 830px; 
+}
+.block-form-order, .block-form-reservation{
+    overflow-y: auto;
+    /* margin: 0 100px; */
+    height: 100vh;
+    background-color: rgb(57, 55, 55);
+    width: 400px;
+    border-radius: 30px;
+    background-color: #f4f5f0;
+    border: 1px #554441 solid;
+    box-shadow: grey 2px 2px 10px;
+    font-family: 'Roboto Slab';
+    color: #554441;
+}
+.title{
+    padding-top: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 900;
+
+}
+
+.order{
+    margin-top: 30px;
+    padding: 0 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(3, 67, 3);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.order h3{
+    font-weight: bolder;
+    font-size: 18px;
+    color: black;
+}
+
+.order p{
+    margin-top: 10px;
+}
+@media (max-width:830px){
+    .wrapper{
+        align-items: center;
+        flex-direction: column;
+        
+    }
+    .block-form-order, .block-form-reservation{
+        width: 95%;
+        height: 50vh;
+        margin: 0;
+        
+    }
+}

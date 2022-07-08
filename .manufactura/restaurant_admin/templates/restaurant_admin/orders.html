@@ -1,0 +1,40 @@
+{% extends 'restaurant_admin/base.html' %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'restaurant_admin/css/ordersstyle.css' %}">
+{% endblock links %}
+{% block content %}
+    <div class="wrapper">
+        <div class="block-form-reservation">
+            <h2 class="title">Усі бронювання столиків</h1>
+            {% for order in reservations %}
+                <div class="order">
+                    <h3>Бронювання № {{order.id}}</h3>
+                    <p>Ім'я клієнта: {{ order.client_name }}</p>
+                    <p>Номер телефону: {{ order.client_phone_number }}</p>
+                    <p>Дата бронювання: {{ order.date_reservation }}</p>
+                    <p>Час бронювання: {{ order.time_reservation }}</p>
+                    <p>Кількість персон: {{ order.amount_persons }}</p>
+                    <p>Замовлення: {{ order.order }}</p>
+                    <p>Коментар до замовлення: {{ order.order_comment }}</p>
+                    <p>Вартість замовлення: {{ order.total_price }} грн</p>
+                </div>
+            {% endfor %}
+            
+        </div>
+        <div class="block-form-order">
+            <h2 class="title">Усі самовивози</h1>
+            {% for order in takeaways %}
+                <div class="order">
+                    <h3>Самовивіз № {{order.id}}</h3>
+                    <p>Ім'я клієнта: {{ order.client_name }}</p>
+                    <p>Номер телефону: {{ order.client_phone_number }}</p>
+                    <p>Час приготування: {{ order.time_cooking }}</p>
+                    <p>Замовлення: {{ order.order }}</p>
+                    <p>Коментар до замовлення: {{ order.order_comment }}</p>
+                    <p>Вартість замовлення: {{ order.total_price }} грн</p>
+                </div>
+            {% endfor %}
+        </div> 
+    </div>
+{% endblock content %}

@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'menu.apps.MenuConfig',
     'mainpage.apps.MainpageConfig',
     'order.apps.OrderConfig',
-    'for_user.apps.ForUserConfig'
+    'for_user.apps.ForUserConfig',
+    'restaurant_admin.apps.RestaurantAdminConfig'
 ]
 
 MIDDLEWARE = [
@@ -140,7 +141,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'manufactura.restaurant@gmail.com'
-EMAIL_HOST_PASSWORD = 'yvzzrstdqliowgvx'
+EMAIL_HOST_PASSWORD = 'hzgcjvaghhlyornx'
 
 
 

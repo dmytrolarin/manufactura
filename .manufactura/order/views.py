@@ -33,7 +33,7 @@ def get_total_order_price(data_products_in_cart):
 
     return total_price
 
-#  Функция возвращает заказ пользователя для отправки на почту 
+#  Функция возвращает заказ пользователя для отправки на почту и сохранения в БД
 def get_order(data_products_in_cart):
     order = ''
     if data_products_in_cart != 'empty': 
@@ -70,7 +70,7 @@ def make_table_reservation(request):
             date_reservation = form.cleaned_data.get('date_reservation')
             time_reservation = form.cleaned_data.get('time_reservation')
             amount_persons = form.cleaned_data.get('amount_persons')
-            order_comment = form.cleaned_data.get('order')
+            order_comment = form.cleaned_data.get('order_comment')
             order = get_order(context['data_products_in_cart'])
             
             if order_comment == None:
@@ -87,7 +87,10 @@ def make_table_reservation(request):
             if mail:
                 session_key = request.session.session_key
                 ProductInCart.objects.filter(session_key=session_key).delete()
-                form.save()
+                save_data = form.save(commit=False)
+                save_data.order = order
+                save_data.total_price = context['total_order_price']
+                save_data.save()
                 messages.success(request, "Ваше замовлення оформлено! Ми скоро зв'яжемося з вами!",'success-text')
                 # form = MakeTableReservationForm()
                 return redirect('reservation')
@@ -131,11 +134,11 @@ def make_take_away(request):
         if context['total_order_price']!=0:
             form = MakeTakeAwayForm(request.POST)
             if form.is_valid():
-                subject = 'Бронювання столику'
+                subject = 'Замовлення на самовивіз'
                 client_name = form.cleaned_data.get('client_name')
                 client_phone_number = form.cleaned_data.get('client_phone_number')
                 time_cooking = form.cleaned_data.get('time_cooking')
-                order_comment = form.cleaned_data.get('order')
+                order_comment = form.cleaned_data.get('order_comment')
                 order = get_order(context['data_products_in_cart'])
                 
                 if order_comment == None:
@@ -150,7 +153,10 @@ def make_take_away(request):
                 if mail:
                     session_key = request.session.session_key
                     ProductInCart.objects.filter(session_key=session_key).delete()
-                    form.save()
+                    save_data = form.save(commit=False)
+                    save_data.order = order
+                    save_data.total_price = context['total_order_price']
+                    save_data.save()
                     messages.success(request, "Ваше замовлення оформлено! Ми скоро зв'яжемося з вами!",'success-text')
                     return redirect('reservation')
                     

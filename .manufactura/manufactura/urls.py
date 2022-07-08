@@ -20,7 +20,8 @@ from manufactura import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin_panel/', admin.site.urls),
+    path('restaurant_admin/', include('restaurant_admin.urls')),
     path('',include('mainpage.urls')),
     path('menu/', include('menu.urls')),
     path('order/', include('order.urls')),
