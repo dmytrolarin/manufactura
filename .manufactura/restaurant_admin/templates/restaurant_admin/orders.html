@@ -4,37 +4,55 @@
     <link rel="stylesheet" href="{% static 'restaurant_admin/css/ordersstyle.css' %}">
 {% endblock links %}
 {% block content %}
-    <div class="wrapper">
-        <div class="block-form-reservation">
-            <h2 class="title">Усі бронювання столиків</h1>
-            {% for order in reservations %}
-                <div class="order">
-                    <h3>Бронювання № {{order.id}}</h3>
-                    <p>Ім'я клієнта: {{ order.client_name }}</p>
-                    <p>Номер телефону: {{ order.client_phone_number }}</p>
-                    <p>Дата бронювання: {{ order.date_reservation }}</p>
-                    <p>Час бронювання: {{ order.time_reservation }}</p>
-                    <p>Кількість персон: {{ order.amount_persons }}</p>
-                    <p>Замовлення: {{ order.order }}</p>
-                    <p>Коментар до замовлення: {{ order.order_comment }}</p>
-                    <p>Вартість замовлення: {{ order.total_price }} грн</p>
+    <header>
+        <div class="wrapper-header">
+            <div class="head">
+                <div class="head__logo">
+                    <a href="{% url 'home' %}"><img src="../../media/photos/template_images/logo.png" alt="logo"></a>
                 </div>
-            {% endfor %}
-            
+                <ul class="head__buttons">
+                    <li><a href="#" class=""><img src="../../media/photos/icons/table-26.svg" alt="" class="icon"><div class="circle"><span>3</span></div></a></li>
+                    <li><a href="#"><img src="../../media/photos/icons/basket-outline.svg" alt="" class="icon"><div class="circle"><span>3</span></div></a></li>
+                    <li><a href="#"><img src="../../media/photos/icons/log-out-outline.svg" alt="" class="icon"></a></li>   
+                </ul>
+            </div>
         </div>
-        <div class="block-form-order">
-            <h2 class="title">Усі самовивози</h1>
-            {% for order in takeaways %}
-                <div class="order">
-                    <h3>Самовивіз № {{order.id}}</h3>
-                    <p>Ім'я клієнта: {{ order.client_name }}</p>
-                    <p>Номер телефону: {{ order.client_phone_number }}</p>
-                    <p>Час приготування: {{ order.time_cooking }}</p>
-                    <p>Замовлення: {{ order.order }}</p>
-                    <p>Коментар до замовлення: {{ order.order_comment }}</p>
-                    <p>Вартість замовлення: {{ order.total_price }} грн</p>
-                </div>
-            {% endfor %}
-        </div> 
-    </div>
+    </header>
+    <main>
+        <div class="wrapper-main">
+            <div class="block-form-reservation">
+                <h2 class="title">Усі бронювання столиків</h1>
+                {% for order in reservations %}
+                    <div class="order">
+                        <h3>Бронювання № {{order.id}}</h3>
+                        <p>Ім'я клієнта: {{ order.client_name }}</p>
+                        <p>Номер телефону: {{ order.client_phone_number }}</p>
+                        <p>Дата бронювання: {{ order.date_reservation }}</p>
+                        <p>Час бронювання: {{ order.time_reservation }}</p>
+                        <p>Кількість персон: {{ order.amount_persons }}</p>
+                        <p>Замовлення: {{ order.order }}</p>
+                        <p>Коментар до замовлення: {{ order.order_comment }}</p>
+                        <p>Вартість замовлення: {{ order.total_price }} грн</p>
+                    </div>
+                {% endfor %}
+                
+            </div>
+            <div class="block-form-order">
+                <h2 class="title">Усі самовивози</h1>
+                {% for order in takeaways %}
+                    <div class="order">
+                        <h3>Самовивіз № {{order.id}}</h3>
+                        <p>Ім'я клієнта: {{ order.client_name }}</p>
+                        <p>Номер телефону: {{ order.client_phone_number }}</p>
+                        <p>Час приготування: {{ order.time_cooking }}</p>
+                        <p>Замовлення: {{ order.order }}</p>
+                        <p>Коментар до замовлення: {{ order.order_comment }}</p>
+                        <p>Вартість замовлення: {{ order.total_price }} грн</p>
+                    </div>
+                {% endfor %}
+            </div> 
+        </div>
+    </main>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 {% endblock content %}

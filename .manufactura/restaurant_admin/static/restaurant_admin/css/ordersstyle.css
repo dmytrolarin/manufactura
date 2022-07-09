@@ -1,6 +1,91 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&family=Roboto+Slab:wght@200&display=swap');
+header{
+	background-color: #f4f5f0;
+	height: 100px;
+	position: fixed;
+	width: 100%;
+	/* border-radius: 0 0 20px 20px; */
+	/* border-bottom: 5px solid #228751; */
 
-.wrapper{
+}
+
+header .wrapper-header{
+	margin: 0 auto;
+}
+
+.head{
+	display: flex;
+	justify-content: space-between;
+}
+
+.head__buttons{
+	display: flex;
+	align-items: center;
+	margin-right: 20px;
+}
+
+.head__buttons li a{
+	font-size: 35px;
+	color: #554441;
+	margin-left: 20px;
+    position: relative;
+    padding-right: 30px;
+}
+.icon{
+    height: 35px;
+    position: absolute;
+}
+.circle{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background-color: black;
+    border-radius: 50%;
+    margin-left: 40px;
+}
+.circle span{
+    right: 0;
+    position: absolute;
+    font-size: 20px;
+    color: white;
+    margin-right: 5px;
+}
+.head__buttons li a:hover{
+	color: grey;
+}
+
+.head__logo{
+	margin-left: 20px;
+}
+.head__logo img{
+	height: 100px;
+}
+
+.head__slogan{
+	font-size: 35px;
+	display: flex;
+	align-items: center;
+	font-family: 'Roboto Slab', serif;
+	color: #554441;
+}
+
+@media (max-width:349px) {
+
+	header{
+		height: 80px;
+	}
+	.head__logo img{
+		height: 80px;
+	}
+	.head__buttons li a{
+		font-size: 25px;
+	}
+	
+
+	
+}
+
+.wrapper-main{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -10,7 +95,8 @@
 .block-form-order, .block-form-reservation{
     overflow-y: auto;
     /* margin: 0 100px; */
-    height: 100vh;
+    height: 89.5vh;
+    margin-top: 100px;
     background-color: rgb(57, 55, 55);
     width: 400px;
     border-radius: 30px;
@@ -47,15 +133,19 @@
     margin-top: 10px;
 }
 @media (max-width:830px){
-    .wrapper{
+    .wrapper-main{
         align-items: center;
         flex-direction: column;
         
     }
     .block-form-order, .block-form-reservation{
         width: 95%;
-        height: 50vh;
+        height: 42.5vh;
         margin: 0;
+        
+    }
+    .block-form-reservation{
+        margin-top: 100px;
         
     }
 }
