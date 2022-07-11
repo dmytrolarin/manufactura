@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&family=Roboto+Slab:wght@200&display=swap');
 header{
 	background-color: #f4f5f0;
-	height: 100px;
+	height: 10vh;
 	position: fixed;
 	width: 100%;
 	/* border-radius: 0 0 20px 20px; */
@@ -25,28 +25,29 @@ header .wrapper-header{
 }
 
 .head__buttons li a{
-	font-size: 35px;
+	font-size: 3.5vh;
 	color: #554441;
 	margin-left: 20px;
     position: relative;
     padding-right: 30px;
 }
 .icon{
-    height: 35px;
+    height: 3.5vh;
     position: absolute;
 }
 .circle{
     position: absolute;
-    height: 20px;
+    height: 2vh;
     width: 20px;
     background-color: black;
     border-radius: 50%;
     margin-left: 40px;
 }
 .circle span{
+    font-family: Arial, Helvetica, sans-serif;
     right: 0;
     position: absolute;
-    font-size: 20px;
+    font-size: 2vh;
     color: white;
     margin-right: 5px;
 }
@@ -58,27 +59,27 @@ header .wrapper-header{
 	margin-left: 20px;
 }
 .head__logo img{
-	height: 100px;
+	height: 10vh;
 }
 
-.head__slogan{
+/* .head__slogan{
 	font-size: 35px;
 	display: flex;
 	align-items: center;
 	font-family: 'Roboto Slab', serif;
 	color: #554441;
-}
+} */
 
 @media (max-width:349px) {
 
 	header{
-		height: 80px;
+		height: 8vh;
 	}
 	.head__logo img{
-		height: 80px;
+		height: 8vh;
 	}
 	.head__buttons li a{
-		font-size: 25px;
+		font-size: 2.5vh;
 	}
 	
 
@@ -89,14 +90,14 @@ header .wrapper-header{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 0 auto 50px auto;
+    margin: 0 auto 5vh auto;
     max-width: 830px; 
 }
 .block-form-order, .block-form-reservation{
     overflow-y: auto;
     /* margin: 0 100px; */
-    height: 89.5vh;
-    margin-top: 100px;
+    height: 86vh;
+    margin-top: 12vh;
     background-color: rgb(57, 55, 55);
     width: 400px;
     border-radius: 30px;
@@ -107,30 +108,30 @@ header .wrapper-header{
     color: #554441;
 }
 .title{
-    padding-top: 10px;
+    padding-top: 1vh;
     text-align: center;
-    font-size: 20px;
+    font-size: 2vh;
     font-weight: 900;
 
 }
 
 .order{
-    margin-top: 30px;
+    margin-top: 3vh;
     padding: 0 5px;
-    padding-bottom: 5px;
+    padding-bottom: 0.5vh;
     border-bottom: 1px solid rgb(3, 67, 3);
-    font-size: 16px;
+    font-size: 1.6vh;
     font-weight: 600;
 }
 
 .order h3{
     font-weight: bolder;
-    font-size: 18px;
+    font-size: 1.8vh;
     color: black;
 }
 
 .order p{
-    margin-top: 10px;
+    margin-top: 1vh;
 }
 @media (max-width:830px){
     .wrapper-main{
@@ -145,7 +146,9 @@ header .wrapper-header{
         
     }
     .block-form-reservation{
-        margin-top: 100px;
-        
+        margin-top: 12vh;
+    }
+    .block-form-order{
+        margin-top: 1vh;
     }
 }

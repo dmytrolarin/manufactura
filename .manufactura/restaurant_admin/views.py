@@ -9,7 +9,8 @@ class LoginAdmin(TemplateView):
     template_name = "restaurant_admin/login.html"
     def dispatch(self, request):
         context = {
-            'title':'Вхід для адміністратора'
+            'title':'Вхід для адміністратора',
+            'path_pref':'../../'
         }
         if request.method == 'POST':
 
@@ -30,10 +31,13 @@ def orders_page(request):
     context = {
         'title':'Керування замовленнями',
         'reservations':TableReservation.objects.all(),
-        'takeaways':TakeAway.objects.all()
+        'takeaways':TakeAway.objects.all(),
+        'path_pref':'../../'
     }
     try:
         if AdminAdditionalInfo.objects.get(admin_account=request.user).rights == 'order_management':
             return render(request, 'restaurant_admin/orders.html', context=context)
     except:
         return redirect('login_admin')
+def redir_login(request):
+    return redirect('login_admin')
