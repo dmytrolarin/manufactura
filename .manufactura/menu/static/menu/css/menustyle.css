@@ -33,13 +33,6 @@
    
 }   
 
-.selected_category{
-    display: flex;
-    padding: 0.5rem 1.25rem;
-    text-decoration: none;
-    box-shadow: 2px 2px 2px grey;
-}
-
 .h-scroller__item:hover{
     box-shadow: 2px 2px 2px grey;
 }
