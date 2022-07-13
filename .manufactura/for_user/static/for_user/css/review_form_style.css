@@ -57,12 +57,10 @@ input::placeholder, textarea::placeholder{
     max-width: 80%;
     border: 1px #554441 solid;
     margin: 30px auto 20px auto;
-    color: #554441;
     box-shadow: 1px 1px 2px grey;
     font-size: 28px;
     cursor: pointer;
     border-radius: 10px;
-    background:white;
     font-family: 'Roboto Slab', serif;
   
 }

@@ -165,62 +165,62 @@
     visibility: hidden;
 }
 .modal--bg {
-  visibility: visible;
-  opacity: 1;
-  z-index: 1;
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
 }
 .modal__content{
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  max-height: 540px;
-  max-width: 960px;
-  background-color: #f4f5f0;
-  color: #554441;
-  visibility: hidden;
-  opacity: 0;
-  transform: translateY(100px);
-  transition: all 250ms ease-in-out;
-  left:50%;
-  transform: translate(-50%,0);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-height: 540px;
+    max-width: 960px;
+    background-color: #f4f5f0;
+    color: #554441;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 250ms ease-in-out;
+    left:50%;
+    transform: translate(-50%,0);
 }
 .modal__content--show {
-  transform: translateY(0);
-  visibility: visible;
-  opacity: 1;
-  z-index: 2;
-  top: 50%;
-  left:50%;
-  transform: translate(-50%,-50%);
-  border-radius: 20px;
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+    z-index: 2;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border-radius: 20px;
 }
 .modal__img {
-  width: 80%;
-  border-radius: 15px;
-  border: 1px #554441 solid;
+    width: 80%;
+    border-radius: 15px;
+    border: 1px #554441 solid;
 
 }
 .modal__close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 24px;
-  color: #212527;
-  cursor: pointer;
-  transition: all 250ms ease-in-out;
-  z-index: 3;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #212527;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+    z-index: 3;
 }
 .modal__close:hover {
-  color: #df4747;
+    color: #df4747;
 }
 .modal__left, .modal__right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
 
 .modal__right{

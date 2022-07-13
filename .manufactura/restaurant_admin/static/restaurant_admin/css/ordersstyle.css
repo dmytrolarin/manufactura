@@ -39,7 +39,7 @@ header .wrapper-header{
     position: absolute;
     height: 2vh;
     width: 20px;
-    background-color: brown;
+    background-color: darkgreen;
     border-radius: 50%;
     margin-left: 40px;
 }
@@ -150,9 +150,6 @@ header .wrapper-header{
 .block-form-order::-webkit-scrollbar, .block-form-reservation::-webkit-scrollbar{
     width: 7px;
 }
-.block-form-order::-webkit-scrollbar-thumb, .block-form-reservation::-webkit-scrollbar-thumb{
-    background: gray;  
-}
 .title{
     padding-top: 1vh;
     text-align: center;
@@ -179,14 +176,15 @@ header .wrapper-header{
     z-index: 1;
 }
 .modal__content{
+    overflow: hidden;
     position: fixed;
+    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    max-height: 540px;
-    max-width: 960px;
+    width: 400px;
     background-color: #f4f5f0;
     color: #554441;
     visibility: hidden;
@@ -201,15 +199,10 @@ header .wrapper-header{
     visibility: visible;
     opacity: 1;
     z-index: 2;
-    top: 50%;
+    top:50%;
     left:50%;
     transform: translate(-50%,-50%);
     border-radius: 20px;
-}
-.modal__img {
-    width: 80%;
-    border-radius: 15px;
-    border: 1px #554441 solid;
 }
 .modal__close {
     position: absolute;
@@ -224,52 +217,62 @@ header .wrapper-header{
 .modal__close:hover {
     color: #df4747;
 }
-.modal__left, .modal__right {
+.field{
+    width: 80%;
+    margin: 30px auto 0 auto;
+}
+.buttons_p{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
 }
-
-.modal__right{
-    height: 100%;
+form{
+    margin: 40px auto 50px auto;
+    background-color: rgb(57, 55, 55);
+    width: 400px;
+    padding-bottom: 10px;
+    background-color: #f4f5f0;
 }
-.detail p{
-    margin-top: 50px;
-    text-align: center;
-}
-.detail .detail__title{
-    font-weight: bold;
-    font-size: 24px;
+.big-field{
+    padding: 0 10px;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px #554441 solid;
+    color: #554441;
+    font-size: 16px;
     font-family: 'Roboto Slab', serif;
+    font-weight: 900;
+    min-height: 120px;
+    resize: none;
 }
-
-.detail__description{
-    font-style: italic;
+.btn_review{
+    display: block;
+    max-width: 80%;
+    border: 1px #554441 solid;
+    margin: 30px auto 20px auto;
+    color: #554441;
+    box-shadow: 1px 1px 2px grey;
+    font-size: 28px;
+    cursor: pointer;
+    border-radius: 10px;
+    background:white;
+    font-family: 'Roboto Slab', serif;
+  
 }
-
-.detail__price {
-  font-weight: bold;
-  font-family: 'Arial';
-  font-size: 18px;
+.yes{
+    background-color: darkgreen;
+    color: white;
 }
-.detail__bagBtn {
-  cursor: pointer;
-  color: #554441;
-  box-shadow: 1px 1px 2px grey;
-  border: 1px #554441 solid;
-  text-align: center;
-  padding: 10px 20px;
-  font-weight: bold;
-  text-transform: uppercase;
-  transition: all 50ms ease-in-out;
-  border-radius: 5px;
-  font-family: 'Roboto Slab', serif;
-  display: block;
-  margin: 0 auto;
+.no{
+    background-color: darkred;
+    color: white;
 }
-.detail__bagBtn:hover {
-    background-color: gainsboro;
+.warning{
+    font-weight: bold;
+}
+.detail__title{
+    text-align: center;
+    font-size: 2vh;
+    font-weight: 900;
 }
 .order{
     margin-top: 3vh;
@@ -279,25 +282,27 @@ header .wrapper-header{
     font-size: 1.6vh;
     font-weight: 600;
 }
-
-.order h3{
+.order .label{
+    display: flex;
+}
+.order .label h3{
     font-weight: bolder;
     font-size: 1.8vh;
     color: black;
 }
-.order h3 .status{
+.order .status{
     margin-left: 100px;
 }
-.order h3 .new{
+.order .new{
     color: darkgreen;
 }
-.order h3 .active{
+.order .active{
     color: limegreen;
 }
-.order h3 .canceled{
+.order .canceled{
     color: red;
 }
-.order h3 .completed{
+.order .completed{
     color: grey;
 }
 .order p{

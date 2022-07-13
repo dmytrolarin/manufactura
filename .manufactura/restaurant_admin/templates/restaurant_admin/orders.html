@@ -4,16 +4,6 @@
     <link rel="stylesheet" href="{% static 'restaurant_admin/css/ordersstyle.css' %}">
 {% endblock links %}
 {% block content %}
-    <div class="modal"></div>
-    <div class="modal__content">
-        <i class="modal__close far fa-times-circle">&times;</i>
-        <div class="detail">
-            <form action="" method="post">
-                <span>Ви дійсно хочете скасувати замовлення?</span>
-                <textarea name="reason" id="" cols="30" rows="10"></textarea>
-            </form>
-        </div>
-    </div>
     <header>
         <div class="wrapper-header">
             <div class="head">
@@ -33,23 +23,47 @@
         <div class="h-scroller">
             <div class="h-scroller__items">
                 <a href="#" class="h-scroller__item">Усі замовлення</a>
-                <a href="#" class="h-scroller__item">Бронювання</a>
-                <a href="#" class="h-scroller__item">Самовивози</a>
+                <a href="#" class="h-scroller__item">Нові</a>
+                <a href="#" class="h-scroller__item">Активні</a>
+                <a href="#" class="h-scroller__item">Скасовані</a>
+                <a href="#" class="h-scroller__item">Завершені</a>
             </div>
         </div>
     </header>
     <main>
+        <div class="modal"></div>
+        <div class="modal__content">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="field">
+                    <span class="detail__title"></span>
+                </div>
+                <div class="field">
+                    <span class="warning">Ви дійсно хочете скасувати це замовлення?</span>
+                </div>
+                <div class="field">
+                    <textarea class='big-field' name="review_text"  
+                    cols="30" rows="10" 
+                    placeholder="Вкажіть причину скасування"></textarea>
+                </div>
+                <div class="field buttons_p">
+                    <input type="submit" value="Так" class="btn_review yes">
+                    <input type="button" value="Ні" class="btn_review no">
+                </div>
+            </form>
+        </div> 
         <div class="wrapper-main">
-            <div class="block-form-reservation">
+            <div class="block block-form-reservation">
                 <h2 class="title">Усі бронювання столиків</h1>
                 {% for order in reservations %}
                     <div class="order">
-                        <h3>Бронювання № {{order.id}}
+                        <div class="label">
+                            <h3 class="name">Бронювання № {{order.id}}</h3>
                             <!-- <span class="status new">Нове</span> -->
-                            <span class="status active">Активно</span>
-                            <!-- <span class="status canceled">Скасовано</span> -->
+                            <!-- <span class="status active">Активно</span> -->
+                            <span class="status canceled">Скасовано</span>
                             <!-- <span class="status completed">Завершено</span> -->
-                        </h3>
+                        </div>
                         <p>Ім'я клієнта: {{ order.client_name }}</p>
                         <p>Номер телефону: {{ order.client_phone_number }}</p>
                         <p>Дата бронювання: {{ order.date_reservation }}</p>
@@ -58,23 +72,24 @@
                         <p>Замовлення: {{ order.order }}</p>
                         <p>Коментар до замовлення: {{ order.order_comment }}</p>
                         <p>Вартість замовлення: {{ order.total_price }} грн</p>
+                        <div class="buttons">
+                            <button class="enter">Підвердити</button>
+                            <button class="cancel">Скасувати</button>
+                        </div>                     
                     </div>
                 {% endfor %}
-                <div class="modal"></div>
-                <div class="modal__content">
-                <i class="modal__close far fa-times-circle">&times;</i>
-                </div>
-            </div>
-            <div class="block-form-order">
+            </div>  
+            <div class="block block-form-order">
                 <h2 class="title">Усі самовивози</h1>
                 {% for order in takeaways %}
                     <div class="order">
-                        <h3>Самовивіз № {{order.id}}
+                        <div class="label">
+                            <h3 class="name">Самовивіз № {{order.id}}</h3>
                             <!-- <span class="status new">Нове</span> -->
-                            <!-- <span class="status active">Активно</span> -->
-                            <span class="status canceled">Скасовано</span>
+                            <span class="status active">Активно</span>
+                            <!-- <span class="status canceled">Скасовано</span> -->
                             <!-- <span class="status completed">Завершено</span></h3> -->
-                        </h3>
+                        </div>                        
                         <p>Ім'я клієнта: {{ order.client_name }}</p>
                         <p>Номер телефону: {{ order.client_phone_number }}</p>
                         <p>Час приготування: {{ order.time_cooking }}</p>
@@ -90,5 +105,5 @@
             </div>
         </div>
     </main>
-    <script src="{% static 'restaurant_admin/js/modal.js' %}"></script>
+    <script defer src="{% static 'restaurant_admin/js/modal.js' %}"></script>
 {% endblock content %}
