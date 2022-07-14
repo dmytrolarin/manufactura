@@ -153,9 +153,10 @@ header .wrapper-header{
 .title{
     padding-top: 1vh;
     text-align: center;
-    font-size: 2vh;
-    font-weight: 900;
-
+    font-weight: bolder;
+    font-size: 1.8vh;
+    color: black;
+    font-family: 'Roboto Slab';
 }
 .modal {
     display: flex;
@@ -221,11 +222,6 @@ header .wrapper-header{
     width: 80%;
     margin: 30px auto 0 auto;
 }
-.buttons_p{
-    display: flex;
-}
-
-
 form{
     margin: 40px auto 50px auto;
     background-color: rgb(57, 55, 55);
@@ -251,25 +247,37 @@ form{
     max-width: 80%;
     border: 1px #554441 solid;
     margin: 30px auto 20px auto;
-    color: #554441;
     box-shadow: 1px 1px 2px grey;
     font-size: 28px;
     cursor: pointer;
-    border-radius: 10px;
-    background:white;
+    border-radius: 5px;
     font-family: 'Roboto Slab', serif;
-  
+    text-decoration: underline;
 }
 .yes{
     background-color: darkgreen;
     color: white;
+    border-radius: 20px;
+    font-size: 2.4vh;
+    width: 160px;
 }
 .no{
     background-color: darkred;
     color: white;
+    border-radius: 20px;
+    font-size: 2.4vh;
+    width: 160px;
+}
+.complete{
+    background-color: grey;
+    color: white;
+    border-radius: 20px;
+    font-size: 2.4vh;
+    width: 160px;
 }
 .warning{
-    font-weight: bold;
+    font-weight: 600;
+    font-family: 'Roboto Slab';
 }
 .detail__title{
     text-align: center;
@@ -293,7 +301,8 @@ form{
     color: black;
 }
 .order .status{
-    margin-left: 100px;
+    margin-left: 150px;
+    font-size: 2vh;
 }
 .order .new{
     color: darkgreen;
@@ -313,18 +322,36 @@ form{
 .order .buttons{
     margin: 1vh 0 1vh 0;
     text-align: center;
-    font-size: 2vh;
+    width: 100%;
 }
 .order .buttons .enter{
     background-color: darkgreen;
     color: white;
-    border-radius: 5px;
+    border-radius: 20px;
+    font-size: 2.4vh;
+    width: 160px;
+    font-family: 'Roboto Slab', serif;
+    text-decoration: underline;
 }
 
-.order .buttons .cancel, .to-completed{
+.order .buttons .cancel{
     background-color: darkred;
     color: white;
-    border-radius: 5px;
+    border-radius: 20px;
+    width: 160px;
+    font-size: 2.4vh;
+    margin-left: 50px;
+    font-family: 'Roboto Slab', serif;
+    text-decoration: underline;
+}
+.order .buttons .to-completed{
+    background-color: grey;
+    color: white;
+    border-radius: 20px;
+    font-size: 2.4vh;
+    width: 160px;
+    font-family: 'Roboto Slab', serif;
+    text-decoration: underline;
 }
 @media (max-width:830px){
     .wrapper-main{
