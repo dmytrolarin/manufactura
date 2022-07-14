@@ -1,3 +1,4 @@
+from turtle import mode
 from django.db import models
 class TableReservation(models.Model):
     '''Модель для бронирования столиков'''
@@ -9,6 +10,9 @@ class TableReservation(models.Model):
     order = models.TextField(verbose_name="Замовлення",default='Замовлення в закладі')
     order_comment = models.TextField(blank=True,verbose_name="Кометнар до замовлення",)
     total_price = models.IntegerField(verbose_name='Вартість замовлення',default=0)
+    status = models.CharField(max_length=128,verbose_name='Статус',default='new')
+    visible_for_admin = models.BooleanField(default=True,verbose_name='Видно для адміну')
+    reason_for_cancel = models.TextField(verbose_name='Причина скасування',blank=True,default='-')
     def __str__(self):
         return f"{self.client_name}, {self.date_reservation}, {self.time_reservation}"  
     class Meta:
@@ -23,7 +27,9 @@ class TakeAway(models.Model):
     order = models.TextField(verbose_name="Замовлення")
     order_comment = models.TextField(verbose_name="Коментар до замовлення",blank=True)
     total_price = models.IntegerField(verbose_name='Вартість замовлення')
-
+    status = models.CharField(max_length=128,verbose_name='Статус',default='new')
+    visible_for_admin = models.BooleanField(default=True,verbose_name='Видно для адміну')
+    reason_for_cancel = models.TextField(verbose_name='Причина скасування',blank=True,default='-')
     def __str__(self):
         return f"{self.client_name}, {self.time_cooking}"
 

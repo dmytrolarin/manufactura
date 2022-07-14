@@ -14,19 +14,39 @@
                     <span>Керування замовленнями</span>
                 </div>
                 <ul class="head__buttons">
-                    <li><a href="#" class=""><img src="{{path_pref}}media/photos/icons/table-26.svg" alt="" class="icon"><div class="circle"><span>3</span></div></a></li>
-                    <li><a href="#"><img src="{{path_pref}}media/photos/icons/basket-outline.svg" alt="" class="icon"><div class="circle"><span>3</span></div></a></li>
+                    <li><a href="#" class=""><img src="{{path_pref}}media/photos/icons/table-26.svg" alt="" class="icon"><div class="circle"><span>{{new_reservations}}</span></div></a></li>
+                    <li><a href="#"><img src="{{path_pref}}media/photos/icons/basket-outline.svg" alt="" class="icon"><div class="circle"><span>{{new_takeaways}}</span></div></a></li>
                     <li><a href="#"><img src="{{path_pref}}media/photos/icons/log-out-outline.svg" alt="" class="icon"></a></li>   
                 </ul>
             </div>
         </div>
         <div class="h-scroller">
             <div class="h-scroller__items">
-                <a href="#" class="h-scroller__item">Усі замовлення</a>
-                <a href="#" class="h-scroller__item">Нові</a>
-                <a href="#" class="h-scroller__item">Активні</a>
-                <a href="#" class="h-scroller__item">Скасовані</a>
-                <a href="#" class="h-scroller__item">Завершені</a>
+                {% if selected_status == 'all' %}
+                    <a href="{% url 'orders' %}" class="h-scroller__item h-scroller__item-selected">Усі замовлення</a>
+                {% else %}
+                    <a href="{% url 'orders' %}" class="h-scroller__item ">Усі замовлення</a>
+                {% endif %}
+                {% if selected_status == 'new' %}
+                    <a href="{% url 'orders' %}new" class="h-scroller__item h-scroller__item-selected">Нові</a>
+                {% else %}
+                    <a href="{% url 'orders' %}new" class="h-scroller__item">Нові</a>
+                {% endif %}
+                {% if selected_status == 'active' %}
+                    <a href="{% url 'orders' %}active" class="h-scroller__item h-scroller__item-selected">Активні</a>
+                {% else %}
+                    <a href="{% url 'orders' %}active" class="h-scroller__item">Активні</a>
+                {% endif %}
+                {% if selected_status == 'canceled' %}
+                    <a href="{% url 'orders' %}canceled" class="h-scroller__item h-scroller__item-selected">Скасовані</a>
+                {% else %}
+                    <a href="{% url 'orders' %}canceled" class="h-scroller__item">Скасовані</a>
+                {% endif %}
+                {% if selected_status == 'completed' %}
+                    <a href="{% url 'orders' %}completed" class="h-scroller__item h-scroller__item-selected">Завершені</a>
+                {% else %}
+                    <a href="{% url 'orders' %}completed" class="h-scroller__item">Завершені</a>
+                {% endif %}
             </div>
         </div>
     </header>
@@ -47,8 +67,7 @@
                     placeholder="Вкажіть причину скасування"></textarea>
                 </div>
                 <div class="field buttons_p">
-                    <input type="submit" value="Так" class="btn_review yes">
-                    <input type="button" value="Ні" class="btn_review no">
+                    <input type="submit" value="Скасувати" class="btn_review no">
                 </div>
             </form>
         </div> 
@@ -59,10 +78,15 @@
                     <div class="order">
                         <div class="label">
                             <h3 class="name">Бронювання № {{order.id}}</h3>
-                            <!-- <span class="status new">Нове</span> -->
-                            <!-- <span class="status active">Активно</span> -->
-                            <span class="status canceled">Скасовано</span>
-                            <!-- <span class="status completed">Завершено</span> -->
+                            {% if order.status == 'new' %}
+                                <span class="status new">Нове</span>
+                            {% elif order.status == 'active' %}
+                                <span class="status active">Активне</span>
+                            {% elif order.status == 'canceled' %}
+                                <span class="status canceled">Скасоване</span>
+                            {% elif order.status == 'completed' %}
+                                <span class="status completed">Завершене</span>
+                            {% endif %}
                         </div>
                         <p>Ім'я клієнта: {{ order.client_name }}</p>
                         <p>Номер телефону: {{ order.client_phone_number }}</p>
@@ -73,22 +97,36 @@
                         <p>Коментар до замовлення: {{ order.order_comment }}</p>
                         <p>Вартість замовлення: {{ order.total_price }} грн</p>
                         <div class="buttons">
-                            <button class="enter">Підвердити</button>
-                            <button class="cancel">Скасувати</button>
-                        </div>                     
+                            {% if order.status == 'new' %}
+                                <button class="enter">Підтвердити</button>
+                                <button class="cancel">Скасувати</button>
+                            {% elif order.status == 'active' %}
+                                <button class="to-completed">У завершені</button>
+                            {% endif %} 
+                            <button class="enter" hidden></button>
+                            <button class="cancel" hidden></button>
+                            <button class="to-completed" hidden>У завершені</button>
+                        </div>                 
                     </div>
                 {% endfor %}
             </div>  
+
+
             <div class="block block-form-order">
                 <h2 class="title">Усі самовивози</h1>
                 {% for order in takeaways %}
                     <div class="order">
                         <div class="label">
                             <h3 class="name">Самовивіз № {{order.id}}</h3>
-                            <!-- <span class="status new">Нове</span> -->
-                            <span class="status active">Активно</span>
-                            <!-- <span class="status canceled">Скасовано</span> -->
-                            <!-- <span class="status completed">Завершено</span></h3> -->
+                            {% if order.status == 'new' %}
+                                <span class="status new">Нове</span>
+                            {% elif order.status == 'active' %}
+                                <span class="status active">Активне</span>
+                            {% elif order.status == 'canceled' %}
+                                <span class="status canceled">Скасоване</span>
+                            {% elif order.status == 'completed' %}
+                                <span class="status completed">Завершене</span>
+                            {% endif %}
                         </div>                        
                         <p>Ім'я клієнта: {{ order.client_name }}</p>
                         <p>Номер телефону: {{ order.client_phone_number }}</p>
@@ -96,14 +134,25 @@
                         <p>Замовлення: {{ order.order }}</p>
                         <p>Коментар до замовлення: {{ order.order_comment }}</p>
                         <p>Вартість замовлення: {{ order.total_price }} грн</p>
-                        <div class="buttons">
-                            <button class="enter">Підвердити</button>
-                            <button class="cancel">Скасувати</button>
-                        </div>
+                        
+                            <div class="buttons">
+                                {% if order.status == 'new' %}
+                                    <button class="enter">Підтвердити</button>
+                                    <button class="cancel">Скасувати</button>   
+                                {% elif order.status == 'active' %}
+                                    <button class="to-completed">У завершені</button>
+                                {% endif %} 
+                                <button class="to-completed" hidden>У завершені</button>
+                                <button class="enter" hidden></button>
+                                <button class="cancel" hidden></button>
+                            </div>          
+                           
                     </div>
                 {% endfor %}
             </div>
         </div>
     </main>
     <script defer src="{% static 'restaurant_admin/js/modal.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script defer src="{% static 'restaurant_admin/js/orders_scripts.js' %}"></script>
 {% endblock content %}

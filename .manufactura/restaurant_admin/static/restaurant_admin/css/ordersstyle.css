@@ -123,7 +123,7 @@ header .wrapper-header{
     box-shadow: 2px 2px 2px grey;
 }
 
-.h-scroller__item:hover{
+.h-scroller__item:hover, .h-scroller__item-selected{
     box-shadow: 2px 2px 2px grey;
 }
 .wrapper-main{
@@ -224,6 +224,8 @@ header .wrapper-header{
 .buttons_p{
     display: flex;
 }
+
+
 form{
     margin: 40px auto 50px auto;
     background-color: rgb(57, 55, 55);
@@ -318,7 +320,8 @@ form{
     color: white;
     border-radius: 5px;
 }
-.order .buttons .cancel{
+
+.order .buttons .cancel, .to-completed{
     background-color: darkred;
     color: white;
     border-radius: 5px;
