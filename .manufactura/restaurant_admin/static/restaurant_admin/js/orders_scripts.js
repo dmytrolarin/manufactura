@@ -1,33 +1,31 @@
-// $(document).ready(function(){
+$(document).ready(function(){
     
-//     $(document).on('click','.enter', function(e){
-
-//         e.preventDefault();
-//         var order_pk = $(this).closest('.form_enter').find('.order_pk').val();
-//         var order_format = $(this).closest('.form_enter').find('.order_format').val();
+    $(document).on('click','.btn_modal', function(e){
         
-//         var csrf_token = $('input[name=csrfmiddlewaretoken]').val();
+        var order_pk = document.getElementById('order_pk').value;
+        var order_format = document.getElementById('order_format').value;
+        var new_status = document.getElementById('new_status').value;
+        var func_abs_url = document.getElementById('func_abs_url').innerText;
+        var csrf_token = $('input[name=csrfmiddlewaretoken]').val();
+        
        
-//         var data = {};
-//         data.order_pk = order_pk;
-//         data.order_format = order_format;
-//         data['csrfmiddlewaretoken'] = csrf_token;
-        
-//         var url = $(this).closest('.form_enter').find('.set_order_active_status').val();
+        var data = {};
+        data.order_pk = order_pk;
+        data.order_format = order_format;
+        data.new_status = new_status;
+        data['csrfmiddlewaretoken'] = csrf_token;
+        var url = func_abs_url;
 
-//         console.log(url)
-//         $.ajax({
-//             url:url,
-//             type:'POST',
-//             data:data,
-//             cache:true,
-//             success: function(){
+        console.log(url)
+        $.ajax({
+            url:url,
+            type:'POST',
+            data:data,
+            cache:true,
 
-//                $(this).closest('.block-form-reservation').load(location.href + '  block-form-reservation')
-//             }
-//         })
+        })
      
-//     });
+    });
    
     
-// });
+});

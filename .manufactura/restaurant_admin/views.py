@@ -59,15 +59,16 @@ def redir_login(request):
     return redirect('login_admin')
 
 
-# def set_order_active_status(request):
-#     data = request.POST
-#     order_pk = data.get('order_pk')
-#     order_format = data.get('order_format')
-#     if order_format == 'reservation':
-#         order = TableReservation.objects.get(pk=order_pk)
-#     elif order_format == 'takeaway':
-#         order = TakeAway.objects.get(pk=order_pk)
-#     order.status = 'active'
-#     order.save()
+def set_order_status(request):
+    data = request.POST
+    order_pk = data.get('order_pk')
+    order_format = data.get('order_format')
+    new_order_status = data.get('new_status')
+    if order_format == 'reservation':
+        order = TableReservation.objects.get(pk=order_pk)
+    elif order_format == 'takeaway':
+        order = TakeAway.objects.get(pk=order_pk)
+    order.status = new_order_status
+    order.save()
 
-#     return HttpResponse(None)
+    return HttpResponse(None)

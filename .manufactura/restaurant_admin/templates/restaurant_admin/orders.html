@@ -56,6 +56,10 @@
             <i class="modal__close far fa-times-circle">&times;</i>
             <form action="" method="post">
                 {% csrf_token %}
+                <input type="text" id="order_pk" value="" hidden>
+                <input type="text" id="order_format" value="" hidden>
+                <input type="text" id="new_status" value="" hidden>
+                <span id="func_abs_url" class="func_abs_url"style="display:none">{% url 'set_order_status' %}</span>
                 <div class="field">
                     <span class="title"></span>
                 </div>
@@ -66,7 +70,9 @@
                     <span class="reason-cancel"></span>
                 </div>
                 <div class="field">
-                    <span class="but"></span>
+                    <span class="but">
+                        
+                    </span>
                 </div>
             </form>
         </div> 
@@ -82,11 +88,13 @@
                             {% elif order.status == 'active' %}
                                 <span class="status active">Активне</span>
                             {% elif order.status == 'canceled' %}
-                                <span class="status canceled">Відхилене</span>
+                                <span class="status canceled">Відхилине</span>
                             {% elif order.status == 'completed' %}
                                 <span class="status completed">Завершене</span>
                             {% endif %}
                         </div>
+                        <div class="pk" style="display: none">{{order.pk}}</div>
+                        <div class="format" style="display: none">reservation</div>   
                         <p>Ім'я клієнта: {{ order.client_name }}</p>
                         <p>Номер телефону: {{ order.client_phone_number }}</p>
                         <p>Дата бронювання: {{ order.date_reservation }}</p>
@@ -122,11 +130,13 @@
                             {% elif order.status == 'active' %}
                                 <span class="status active">Активне</span>
                             {% elif order.status == 'canceled' %}
-                                <span class="status canceled">Відхилене</span>
+                                <span class="status canceled">Відхилине</span>
                             {% elif order.status == 'completed' %}
                                 <span class="status completed">Завершене</span>
                             {% endif %}
-                        </div>                        
+                        </div>   
+                        <div class="pk" style="display: none">{{order.pk}}</div>
+                        <div class="format" style="display: none">takeaway</div>                     
                         <p>Ім'я клієнта: {{ order.client_name }}</p>
                         <p>Номер телефону: {{ order.client_phone_number }}</p>
                         <p>Час приготування: {{ order.time_cooking }}</p>
