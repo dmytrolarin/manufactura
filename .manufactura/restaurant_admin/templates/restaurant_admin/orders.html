@@ -103,6 +103,9 @@
                         <p><ion-icon name="reader-outline" class="icon_order"></ion-icon>Замовлення: {{ order.order }}</p>
                         <p><ion-icon name="pencil-outline" class="icon_order"></ion-icon>Коментар до замовлення: {{ order.order_comment }}</p>
                         <p><ion-icon name="cash-outline" class="icon_order"></ion-icon>Вартість замовлення: {{ order.total_price }} грн</p>
+                        {% if order.status == 'canceled' %}
+                            <p><ion-icon name="pencil-outline" class="icon_order"></ion-icon>Причина відхилення: {{ order.reason_for_cancel }}</p>
+                        {% endif %}
                         <div class="buttons">
                             {% if order.status == 'new' %}
                                 <button class="enter">Підтвердити</button>
@@ -143,7 +146,9 @@
                         <p><ion-icon name="reader-outline" class="icon_order"></ion-icon>Замовлення: {{ order.order }}</p>
                         <p><ion-icon name="pencil-outline" class="icon_order"></ion-icon>Коментар до замовлення: {{ order.order_comment }}</p>
                         <p><ion-icon name="cash-outline" class="icon_order"></ion-icon>Вартість замовлення: {{ order.total_price }} грн</p>
-                        
+                        {% if order.status == 'canceled' %}
+                            <p><ion-icon name="pencil-outline" class="icon_order"></ion-icon>Причина відхилення: {{ order.reason_for_cancel }}</p>
+                        {% endif %}
                             <div class="buttons">
                                 {% if order.status == 'new' %}
                                     <button class="enter">Підтвердити</button>

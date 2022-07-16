@@ -27,21 +27,21 @@ productList.forEach((list, index) => {
         modal_open(name_main,order_pk,order_format);
         warning.innerText = "Ви дійсно хочече відхилити це замовлення?";
         document.getElementById('new_status').value = 'canceled';
-        reason_cancel.innerHTML = "<textarea class='big-field' name='review_text'  cols='30' rows='10' placeholder='Вкажіть причину відхилення(необов`язково)'></textarea>";
+        reason_cancel.innerHTML = "<textarea class='big-field' name='review_text' id='cancel-reason'  cols='30' rows='10' placeholder='Вкажіть причину відхилення'></textarea>";
         but.innerHTML = "<input type='submit' value='Відхилити' class='btn_review to-cancel btn_modal'>";
     });
     enter.addEventListener('click', () => {
         modal_open(name_main,order_pk,order_format);
         warning.innerText = "Ви дійсно хочете підвердити це замовлення?";
         document.getElementById('new_status').value = 'active';
-        reason_cancel.innerHTML = "";
+        reason_cancel.innerHTML = "<textarea hidden id='cancel-reason'></textarea>";
         but.innerHTML = "<input type='submit' value='Підвердити' class='btn_review to-active btn_modal'>";
     });
     to_completed.addEventListener('click', () => {
         modal_open(name_main,order_pk,order_format);
         warning.innerText = "Ви дійсно хочете додати замовлення у завершені?";
         document.getElementById('new_status').value = 'completed';
-        reason_cancel.innerHTML = "";
+        reason_cancel.innerHTML = "<textarea hidden id='cancel-reason'></textarea>";
         but.innerHTML = "<input type='submit' value='У завершені' class='btn_review to-complete btn_modal'>";
     })
 });

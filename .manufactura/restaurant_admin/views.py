@@ -62,12 +62,17 @@ def redir_login(request):
 def set_order_status(request):
     data = request.POST
     order_pk = data.get('order_pk')
+    cancel_reason = data.get('cancel_reason')
     order_format = data.get('order_format')
     new_order_status = data.get('new_status')
     if order_format == 'reservation':
         order = TableReservation.objects.get(pk=order_pk)
     elif order_format == 'takeaway':
         order = TakeAway.objects.get(pk=order_pk)
+    if new_order_status == 'canceled':
+        if not cancel_reason:
+            cancel_reason = 'не вказано'
+        order.reason_for_cancel = cancel_reason
     order.status = new_order_status
     order.save()
 
