@@ -42,7 +42,19 @@
 } */
 
 
-
+.scrollup{
+    position: fixed;
+    right: 5%;
+    /* bottom: 0px;
+    padding: 4px 10px; */
+    font-size: 35px;
+    cursor: pointer;
+    display: none;
+    text-align: center;
+}
+.scrollup:hover{
+    color: grey;
+}
 /* Оформление блюд */
 .list {	
     display: flex;

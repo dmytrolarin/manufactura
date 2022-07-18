@@ -178,7 +178,9 @@ header{
     font-size: 18px;
     font-family: 'Roboto Slab', serif;
 }
-
+.about-block__text span span{
+    margin-left: 20px;
+}
 .contacts-block__info{
     font-family: Arial, Helvetica, sans-serif;
 }

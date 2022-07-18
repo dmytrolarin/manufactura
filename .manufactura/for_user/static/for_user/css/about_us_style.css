@@ -34,7 +34,9 @@
     font-family: 'Roboto Slab', serif;
 }
 
-
+.about-block__text p span{
+    margin-left: 20px;
+}
 
 
 
