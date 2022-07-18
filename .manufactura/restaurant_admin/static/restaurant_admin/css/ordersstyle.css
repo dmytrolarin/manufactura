@@ -33,10 +33,10 @@ header .wrapper-header{
 }
 .icon{
     height: 3.5vh;
-    position: absolute;
+    position: fixed;
 }
 .circle{
-    position: absolute;
+    position: fixed;
     height: 2vh;
     width: 20px;
     background-color: darkgreen;
@@ -140,7 +140,7 @@ header .wrapper-header{
     padding-top: 1vh;
     text-align: center;
     font-weight: bolder;
-    font-size: 1.8vh;
+    font-size: 2.5vh;
     color: black;
     font-family: 'Roboto Slab';
 }
@@ -287,10 +287,11 @@ form{
     font-weight: bolder;
     font-size: 1.8vh;
     color: black;
+    border-bottom: 1px solid rgb(3, 67, 3);
 }
 .order .status{
-    margin-left: 150px;
-    font-size: 2vh;
+    margin-left: 40%;
+    font-size: 1.6vh;
 }
 .order .new{
     color: darkgreen;
@@ -315,7 +316,7 @@ form{
 .order .buttons .enter{
     border: 1px #554441 solid;
     background-color: #f4f5f0;
-    color: green;
+    color: #554441;
     border-radius: 20px;
     font-size: 120%;
     width: 37%;
@@ -326,7 +327,7 @@ form{
 .order .buttons .cancel{
     border: 1px #554441 solid;
     background-color: #f4f5f0;
-    color: red;
+    color: #554441;
     border-radius: 20px;
     width: 37%;
     font-size: 120%;
@@ -337,7 +338,7 @@ form{
 .order .buttons .to-completed{
     border: 1px #554441 solid;
     background-color: #f4f5f0;
-    color: grey;
+    color: #554441;
     border-radius: 20px;
     width: 37%;
     font-size: 120%;
@@ -345,13 +346,13 @@ form{
     text-decoration: underline;
 }
 .to-active{
-    color: green;
+    color: #554441;
 }
 .to-cancel{
-    color: red;
+    color: #554441;
 }
 .to-complete{
-    color: grey;
+    color: #554441;
 }
 .ic-title{
     height: 3.5vh;

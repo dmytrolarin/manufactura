@@ -78,7 +78,7 @@
         </div> 
         <div class="wrapper-main">
             <div class="block block-form-reservation">
-                <img src="{{path_pref}}media/photos/icons/table-26.svg" alt="" class="ic-title"><h1 class="title">Усі бронювання столиків</h1>
+                <h1 class="title">Усі бронювання столиків</h1>
                 {% for order in reservations %}
                     <div class="order">
                         <div class="label">
@@ -95,16 +95,16 @@
                         </div>
                         <div class="pk" style="display: none">{{order.pk}}</div>
                         <div class="format" style="display: none">reservation</div>   
-                        <p><ion-icon name="person-outline" class="icon_order"></ion-icon>Ім'я клієнта: {{ order.client_name }}</p>
-                        <p><ion-icon name="call-outline" class="icon_order"></ion-icon>Номер телефону: {{ order.client_phone_number }}</p>
-                        <p><ion-icon name="calendar-outline" class="icon_order"></ion-icon>Дата бронювання: {{ order.date_reservation }}</p>
-                        <p><ion-icon name="time-outline" class="icon_order"></ion-icon>Час бронювання: {{ order.time_reservation }}</p>
-                        <p><ion-icon name="people-outline" class="icon_order"></ion-icon>Кількість персон: {{ order.amount_persons }}</p>
-                        <p><ion-icon name="reader-outline" class="icon_order"></ion-icon>Замовлення: {{ order.order }}</p>
-                        <p><ion-icon name="pencil-outline" class="icon_order"></ion-icon>Коментар до замовлення: {{ order.order_comment }}</p>
-                        <p><ion-icon name="cash-outline" class="icon_order"></ion-icon>Вартість замовлення: {{ order.total_price }} грн</p>
+                        <p>Ім'я клієнта: {{ order.client_name }}</p>
+                        <p>Номер телефону: {{ order.client_phone_number }}</p>
+                        <p>Дата бронювання: {{ order.date_reservation }}</p>
+                        <p>Час бронювання: {{ order.time_reservation }}</p>
+                        <p>Кількість персон: {{ order.amount_persons }}</p>
+                        <p>Замовлення: {{ order.order }}</p>
+                        <p>Коментар до замовлення: {{ order.order_comment }}</p>
+                        <p>Вартість замовлення: {{ order.total_price }} грн</p>
                         {% if order.status == 'canceled' %}
-                            <p><ion-icon name="pencil-outline" class="icon_order"></ion-icon>Причина відхилення: {{ order.reason_for_cancel }}</p>
+                            <p>Причина відхилення: {{ order.reason_for_cancel }}</p>
                         {% endif %}
                         <div class="buttons">
                             {% if order.status == 'new' %}
@@ -115,7 +115,7 @@
                             {% endif %} 
                             <button class="enter" hidden></button>
                             <button class="cancel" hidden></button>
-                            <button class="to-completed" hidden>У завершені</button>
+                            <button class="to-completed" hidden></button>
                         </div>                 
                     </div>
                 {% endfor %}
@@ -123,7 +123,7 @@
 
 
             <div class="block block-form-order">
-                <img src="{{path_pref}}media/photos/icons/basket-outline.svg" alt="" class="ic-title"><h1 class="title">Усі самовивози</h1>
+                <h1 class="title">Усі самовивози</h1>
                 {% for order in takeaways %}
                     <div class="order">
                         <div class="label">
@@ -140,14 +140,14 @@
                         </div>   
                         <div class="pk" style="display: none">{{order.pk}}</div>
                         <div class="format" style="display: none">takeaway</div>                     
-                        <p><ion-icon name="person-outline" class="icon_order"></ion-icon>Ім'я клієнта: {{ order.client_name }}</p>
-                        <p><ion-icon name="call-outline" class="icon_order"></ion-icon>Номер телефону: {{ order.client_phone_number }}</p>
-                        <p><ion-icon name="time-outline" class="icon_order"></ion-icon>Час приготування: {{ order.time_cooking }}</p>
-                        <p><ion-icon name="reader-outline" class="icon_order"></ion-icon>Замовлення: {{ order.order }}</p>
-                        <p><ion-icon name="pencil-outline" class="icon_order"></ion-icon>Коментар до замовлення: {{ order.order_comment }}</p>
-                        <p><ion-icon name="cash-outline" class="icon_order"></ion-icon>Вартість замовлення: {{ order.total_price }} грн</p>
+                        <p>Ім'я клієнта: {{ order.client_name }}</p>
+                        <p>Номер телефону: {{ order.client_phone_number }}</p>
+                        <p>Час приготування: {{ order.time_cooking }}</p>
+                        <p>Замовлення: {{ order.order }}</p>
+                        <p>Коментар до замовлення: {{ order.order_comment }}</p>
+                        <p>Вартість замовлення: {{ order.total_price }} грн</p>
                         {% if order.status == 'canceled' %}
-                            <p><ion-icon name="pencil-outline" class="icon_order"></ion-icon>Причина відхилення: {{ order.reason_for_cancel }}</p>
+                            <p>Причина відхилення: {{ order.reason_for_cancel }}</p>
                         {% endif %}
                             <div class="buttons">
                                 {% if order.status == 'new' %}
@@ -156,7 +156,7 @@
                                 {% elif order.status == 'active' %}
                                     <button class="to-completed">У завершені</button>
                                 {% endif %} 
-                                <button class="to-completed" hidden>У завершені</button>
+                                <button class="to-completed" hidden></button>
                                 <button class="enter" hidden></button>
                                 <button class="cancel" hidden></button>
                             </div>          
