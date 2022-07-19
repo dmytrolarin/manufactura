@@ -1,9 +1,10 @@
 from django.http import HttpResponse
 from .models import AdminAdditionalInfo
 from django.shortcuts import redirect, render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from django.contrib.auth import authenticate, login
 from order.models import*
+from menu.models import*
 
 class LoginAdmin(TemplateView):
     template_name = "restaurant_admin/login.html"
@@ -53,7 +54,57 @@ def orders_page(request,status_slug=None):
         
         return redirect('login_admin')
         
+class ShowAllMenu(ListView):
+    '''Для показа всех блюд'''
+    model = Product
+    template_name = 'restaurant_admin/menu.html'
+    context_object_name = 'products'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Меню'
+        context['category_selected'] = 0
+        context['path_pref'] = '../../'
+        context['showing_all_menu'] = True
 
+        session_key = self.request.session.session_key
+        if not session_key:
+            self.request.session.cycle_key()
+        
+
+        context['categories'] = categories
+        return context
+
+
+
+# Список с категориями, расположеными в правильном порядке
+categories = [
+            Category.objects.get(slug='snacks'),
+            Category.objects.get(slug='soups'),
+            Category.objects.get(slug='salads'),
+            Category.objects.get(slug='main_dish')
+        ]
+class ShowCategoryOfDish(ListView):
+    '''Для показа блюд конкретной категории'''
+    model = Product
+    template_name = 'restaurant_admin/menu.html'
+    context_object_name = 'products'
+    
+    def get_queryset(self):
+        return Product.objects.filter(cat__slug = self.kwargs['cat_slug'])
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c = Category.objects.get(slug = self.kwargs['cat_slug'])
+        context['title'] = c.name
+        context['category_selected'] = c.pk
+        context['categories']= categories
+        context['path_pref'] = '../../../'
+
+
+        session_key = self.request.session.session_key
+        if not session_key:
+            self.request.session.cycle_key()
+        return context
 
 def redir_login(request):
     return redirect('login_admin')

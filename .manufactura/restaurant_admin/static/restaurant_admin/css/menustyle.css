@@ -1,5 +1,6 @@
 
-
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&family=Roboto+Slab:wght@200&display=swap');
 /* Оформление скроллера */
 .h-scroller{
     overflow: hidden;
@@ -158,10 +159,29 @@
     margin-right: 20px;
 }
 
-.btn-buy{
+.btn-edit{
     background: none;
 
     
+}
+
+.btn-edit-cat img{
+    width: 25px;
+    margin-right: 20px;
+
+    
+}
+
+.add-product-symb{
+    display: block;
+    position: relative;
+    font-size: 150px;
+    background: none;
+    margin:  0 auto;
+    top: 50%;
+    transform: translate(0, -50%);
+    color:#554441;
+    width: 170px;
 }
 .modal {
     display: flex;
@@ -328,9 +348,10 @@
 } */
  
 
-.btn-buy img:active{
+.btn-edit img:active, .add-product-symb:active{
     background-color: gainsboro;
     border-radius: 50%;
+
 }
 
 @media (max-width:1023px){

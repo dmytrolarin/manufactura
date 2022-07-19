@@ -34,6 +34,10 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('category', kwargs={'cat_slug':self.slug})
 
+    def get_absolute_url_for_editing(self):
+        return reverse('category_for_editing', kwargs={'cat_slug':self.slug})
+
+
 
 class ProductInCart(models.Model):
     '''Модель для блюд в заказах клиента'''

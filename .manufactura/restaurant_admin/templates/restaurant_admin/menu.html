@@ -1,0 +1,101 @@
+{% extends 'restaurant_admin/base.html' %}
+{% load  static %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'restaurant_admin/css/menustyle.css' %}">
+{% endblock links %}
+    
+
+{% block content %}
+<div class="h-scroller">
+    <div class="h-scroller__items">
+        {% if category_selected != 0 %}
+            <a href="{% url 'all_menu_for_editing' %}" class="h-scroller__item">Усі страви</a>
+        {% else %}
+            <a href="#" class="h-scroller__item selected_category">Усі страви</a>
+        {% endif %}
+        
+        {% for cat in categories %}
+            {% if cat.pk != category_selected %}
+                <a href="{{cat.get_absolute_url_for_editing}}" class="h-scroller__item">{{cat}}</a>  
+                <button class="btn-edit-cat btn-edit "><img src="{{path_pref}}media/photos/icons/pencil-outline.svg" alt=""></button> 
+            {% else %}
+                <a href="#" class="h-scroller__item selected_category">{{cat}} </a>
+                <button class="btn-edit-cat btn-edit "><img src="{{path_pref}}media/photos/icons/pencil-outline.svg" alt=""></button>
+            {% endif %}
+            
+        {% endfor %}
+        <a href="#" class="h-scroller__item">+</a>
+        
+    </div>
+
+</div>
+
+<div class="scrollup">
+    <ion-icon name="arrow-up-circle-outline"></ion-icon>
+</div>
+<!-- Показываем блюда -->
+<div class="products-container">
+    {% for cat in categories %}
+        {% if showing_all_menu %}
+            <p class="category-title">{{cat}}</p> 
+        {% endif %}
+        <div class="list">
+            {% for product in products %}
+
+                {% if product.cat == cat %}
+                    
+                    <div class="product">
+                        <div class="product_photo">
+                            <p><img src="{{product.photo.url}}" class="product__img"></p> 
+                        </div>
+                        <div class="product_text">
+                            <p class="name">{{product.name}}</p>
+                            <p class="composition">{{product.composition}}</p>
+                            <div class="product__bottom">
+                                <span class="price">{{product.price}} грн</span>
+                                <button class="btn-edit-dish btn-edit" type="submit">
+                                <img src="{{path_pref}}media/photos/icons/pencil-outline.svg" alt=""></button>
+                            
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                
+                <!-- <div class="modal"></div>
+                <form action="{% url 'add_to_cart' %}" id="modal__form" >
+                    {% csrf_token %}
+                    <div class="modal__content">
+                    <i class="modal__close far fa-times-circle">&times;</i>
+                    <div class="modal__left">
+                        <img class="modal__img" src="" alt="">
+                    </div>
+                    <div class="modal__right">
+                        <div class="detail">
+                        <p class="detail__title" id="product-name"></p>
+                        <p class="detail__description"></p>
+                        <p class="detail__price" ></p>
+                        <div class="switch">
+                            <label for="Quantity">Кількість</label>
+                            <div class="input_group">
+                                <button class="input_group_text decrement_btn">-</button>
+                                <input name="quantity" class="form_control" id="product_qty" value="1" type="number" readonly>
+                                <button class="input_group_text increment_btn">+</button>
+                            </div>
+                        </div>
+                        <button class="detail__bagBtn" type="submit">До замовлень</button>
+                        </div>
+                    </div>
+                    </div>
+                </form> -->
+            {%endfor%}
+            <div class="product">
+                <button class="add-product-symb">
+                +
+                </button>
+            </div>
+        </div>
+    {% endfor %}
+</div>    
+
+{% endblock content %}
+
