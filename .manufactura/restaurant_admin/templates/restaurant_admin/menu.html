@@ -6,96 +6,129 @@
     
 
 {% block content %}
-<div class="h-scroller">
-    <div class="h-scroller__items">
-        {% if category_selected != 0 %}
-            <a href="{% url 'all_menu_for_editing' %}" class="h-scroller__item">Усі страви</a>
-        {% else %}
-            <a href="#" class="h-scroller__item selected_category">Усі страви</a>
-        {% endif %}
-        
-        {% for cat in categories %}
-            {% if cat.pk != category_selected %}
-                <a href="{{cat.get_absolute_url_for_editing}}" class="h-scroller__item">{{cat}}</a>  
-                <button class="btn-edit-cat btn-edit "><img src="{{path_pref}}media/photos/icons/pencil-outline.svg" alt=""></button> 
-            {% else %}
-                <a href="#" class="h-scroller__item selected_category">{{cat}} </a>
-                <button class="btn-edit-cat btn-edit "><img src="{{path_pref}}media/photos/icons/pencil-outline.svg" alt=""></button>
-            {% endif %}
-            
-        {% endfor %}
-        <a href="#" class="h-scroller__item">+</a>
-        
-    </div>
-
-</div>
-
-<div class="scrollup">
-    <ion-icon name="arrow-up-circle-outline"></ion-icon>
-</div>
-<!-- Показываем блюда -->
-<div class="products-container">
-    {% for cat in categories %}
-        {% if showing_all_menu %}
-            <p class="category-title">{{cat}}</p> 
-        {% endif %}
-        <div class="list">
-            {% for product in products %}
-
-                {% if product.cat == cat %}
-                    
-                    <div class="product">
-                        <div class="product_photo">
-                            <p><img src="{{product.photo.url}}" class="product__img"></p> 
-                        </div>
-                        <div class="product_text">
-                            <p class="name">{{product.name}}</p>
-                            <p class="composition">{{product.composition}}</p>
-                            <div class="product__bottom">
-                                <span class="price">{{product.price}} грн</span>
-                                <button class="btn-edit-dish btn-edit" type="submit">
-                                <img src="{{path_pref}}media/photos/icons/pencil-outline.svg" alt=""></button>
-                            
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-                
-                <!-- <div class="modal"></div>
-                <form action="{% url 'add_to_cart' %}" id="modal__form" >
-                    {% csrf_token %}
-                    <div class="modal__content">
-                    <i class="modal__close far fa-times-circle">&times;</i>
-                    <div class="modal__left">
-                        <img class="modal__img" src="" alt="">
-                    </div>
-                    <div class="modal__right">
-                        <div class="detail">
-                        <p class="detail__title" id="product-name"></p>
-                        <p class="detail__description"></p>
-                        <p class="detail__price" ></p>
-                        <div class="switch">
-                            <label for="Quantity">Кількість</label>
-                            <div class="input_group">
-                                <button class="input_group_text decrement_btn">-</button>
-                                <input name="quantity" class="form_control" id="product_qty" value="1" type="number" readonly>
-                                <button class="input_group_text increment_btn">+</button>
-                            </div>
-                        </div>
-                        <button class="detail__bagBtn" type="submit">До замовлень</button>
-                        </div>
-                    </div>
-                    </div>
-                </form> -->
-            {%endfor%}
-            <div class="product">
-                <button class="add-product-symb">
-                +
-                </button>
+    <header>
+        <div class="wrapper">
+            <div class="head">
+                <div class="head__logo">
+                    <a href="#"><img src="{{path_pref}}media/photos/template_images/logo.png" alt="logo"></a>
+                </div>
+                <div class="head__slogan">
+                    <span>Редагування меню</span>
+                </div>
+                <ul class="head__buttons">
+                    <li><a href="#"><img src="{{path_pref}}media/photos/icons/log-out-outline.svg" alt="" class="icon"></a></li>   
+                </ul>
             </div>
         </div>
-    {% endfor %}
-</div>    
+    </header>
+    <main>
+    <div class="h-scroller">
+        <div class="h-scroller__items">
+            {% if category_selected != 0 %}
+                <a href="{% url 'all_menu_for_editing' %}" class="h-scroller__item">Усі страви</a>
+            {% else %}
+                <a href="#" class="h-scroller__item selected_category">Усі страви</a>
+            {% endif %}
+            {% for cat in categories %}
+                {% if cat.pk != category_selected %}
+                    <div class="edit_cat">
+                        <a href="{{cat.get_absolute_url_for_editing}}" class="h-scroller__item cat-sp">{{cat}}</a>  
+                        <button class="btn-edit-cat btn-edit "><img src="{{path_pref}}media/photos/icons/pencil-outline.svg" alt=""></button>
+                    </div>
+                {% else %}
+                    <div class="edit_cat">
+                        <a href="#" class="h-scroller__item selected_category cat-sp">{{cat}}</a>
+                        <button class="btn-edit-cat btn-edit "><img src="{{path_pref}}media/photos/icons/pencil-outline.svg" alt=""></button>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <div class="add_cat"><a href="#" class="h-scroller__item">+</a></div>
+        </div>
+    </div>
+    <div class="modal-category"></div>
+    <div class="modal__content-category">
+        <i class="modal__close-category far fa-times-circle">&times;</i>
+        <form action="" method="post" class="cat_form">
+            {% csrf_token %}
+            <span class="title-modal-category"></span>
+            <div class="field">
+                <span class="cat_name"><input type="text" placeholder="Ім'я категорії"></span>
+            </div>
+            <div class="field">
+                <span class="cat_number"><input type="number" placeholder="Номер"></span>
+            </div>
+            <div class="field">
+                <span class="but">
+                    <button class="detail__bagBtn delete-category" type="submit" id="del-category">Видалити</button>
+                    <button class="detail__bagBtn other-category" type="submit"></button>
+                </span>
+            </div>
+        </form>
+    </div>  
+    <!-- Показываем блюда -->
+    <div class="products-container">
+        {% for cat in categories %}
+            {% if showing_all_menu %}
+                <p class="category-title">{{cat}}</p> 
+            {% endif %}
+            <div class="list">
+                {% for product in products %}
 
+                    {% if product.cat == cat %}
+
+                        <div class="product">
+                            <div class="product_photo">
+                                <p><img src="{{product.photo.url}}" class="product__img"></p> 
+                            </div>
+                            <div class="product_text">
+                                <p class="name">{{product.name}}</p>
+                                <p class="composition">{{product.composition}}</p>
+                                <div class="product__bottom">
+                                    <span class="price"><span class="price num">{{product.price}}</span> грн</span>
+                                    <button class="btn-edit-dish btn-edit" type="submit">
+                                    <img src="{{path_pref}}media/photos/icons/pencil-outline.svg" alt=""></button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="modal-menu"></div>
+                    <form action="" id="modal__form">
+                        {% csrf_token %}
+                        <div class="modal__content-menu">
+                            <i class="modal__close-menu far fa-times-circle">&times;</i>
+                            <div class="modal__left">
+                                <img src="" alt="" id="image_id" class="load-img">
+                                <label class="b"><input type="file" id="file_id">Обрати файл</label>
+                            </div>
+                            <div class="modal__right">
+                                <div class="detail">
+                                    <span class="title-modal-menu"></span>
+                                    <p class="detail__title" id="product-name"><input type="text" placeholder="Ім'я страви"></p>
+                                    <p class="detail__description"><textarea name="description" id="" cols="30" rows="10" placeholder="Склад страви"></textarea></p>
+                                    <p class="detail__price"><input type="number" placeholder="Ціна"> грн</p>
+                                    <div class="buttons">
+                                        <button class="detail__bagBtn delete-menu" type="submit" id="del-menu">Видалити</button>
+                                        <button class="detail__bagBtn other-menu" type="submit"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                {%endfor%}
+                <div class="modal_pr">
+                    <button class="add-product-symb">
+                    +
+                    </button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>  
+    </main> 
+<script src="{% static 'restaurant_admin/js/modal_add_dish.js' %}"></script>
+<script src="{% static 'restaurant_admin/js/modal_edit_dish.js' %}"></script>
+<script src="{% static 'restaurant_admin/js/modal_add_category.js' %}"></script>
+<script src="{% static 'restaurant_admin/js/modal_edit_category.js' %}"></script>
+<script src="{% static 'restaurant_admin/js/load_image.js' %}"></script>
 {% endblock content %}
 

@@ -10,24 +10,24 @@ const button  = document.querySelector('.detail__bagBtn');
 
 
 productList.forEach((list, index) => {
-  const view = list.querySelector('.btn');
-  const productImg = list.querySelector('.product__img').getAttribute('src');
-  const name_not_main = list.querySelectorAll(".name");
-  const name_main = Array.from(name_not_main).map(el => el.textContent);
-  const composition_not_main = list.querySelectorAll(".composition");
-  const composition_main = Array.from(composition_not_main).map(el => el.textContent);
-  const price_not_main = list.querySelectorAll(".price");
-  const price_main = Array.from(price_not_main).map(el => el.textContent);
-
-
-  view.addEventListener('click', () => {
-    modal.classList.add('modal--bg');
-    modalContent.classList.add('modal__content--show');
-    modalImg.setAttribute('src', productImg);
-    title.innerText = name_main;
-    composition.innerText = composition_main;
-    cost.innerText = price_main;
-  });
+    const view = list.querySelector('.btn');
+    const productImg = list.querySelector('.product__img').getAttribute('src');
+    const name_not_main = list.querySelectorAll(".name");
+    const name_main = Array.from(name_not_main).map(el => el.textContent);
+    const composition_not_main = list.querySelectorAll(".composition");
+    const composition_main = Array.from(composition_not_main).map(el => el.textContent);
+    const price_not_main = list.querySelectorAll(".price");
+    const price_main = Array.from(price_not_main).map(el => el.textContent);
+  
+  
+    view.addEventListener('click', () => {
+      modal.classList.add('modal--bg');
+      modalContent.classList.add('modal__content--show');
+      modalImg.setAttribute('src', productImg);
+      title.innerText = name_main;
+      composition.innerText = composition_main;
+      cost.innerText = price_main;
+    });
 });
 
 closer.addEventListener('click', () => {
