@@ -24,7 +24,7 @@ modalPrList.forEach((list, index) => {
         cost_add.setAttribute('value', "");
         document.getElementById('del-menu').style.display = "none";
         button_add_menu.innerText = "Створити";
-        button_add_menu.setAttribute("value",'add')
+        button_add_menu.setAttribute("value",'dish_add')
 
         
     });

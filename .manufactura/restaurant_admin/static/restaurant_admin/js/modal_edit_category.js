@@ -5,7 +5,6 @@ const editList = document.querySelectorAll('.edit_cat');
 const title_modal_edit_category = document.querySelector('.title-modal-category');
 const button_edit_category = document.querySelector('.other-category');
 const name_edit = document.querySelector('.cat_name input');
-const number_edit = document.querySelector('.cat_number input');
 editList.forEach((list, index) => {
     const edit_category = list.querySelector('.btn-edit-cat');
     const name_nt_main = list.querySelectorAll(".cat-sp");

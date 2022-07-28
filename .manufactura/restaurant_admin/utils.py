@@ -1,14 +1,18 @@
-from menu.models import Product
+from unicodedata import name
+
+from django.db import IntegrityError
+from menu.models import Category, Product
+from transliterate import translit
 class MenuMixin:
     # Функция для внесения изменений в меню
     def change_menu(self, request):
         product_pk = request.POST.get('chosen-pk')
         # product_name = request.POST.get("product-name")
-        if request.POST.get("modal-button") == "del":
+        if request.POST.get("modal-button") == "dish_del":
             product_object = Product.objects.get(pk=product_pk)
             product_object.delete()
         
-        elif request.POST.get("modal-button") == "edit":
+        elif request.POST.get("modal-button") == "dish_edit":
             product_object = Product.objects.get(pk=product_pk)
             product_object.name = request.POST.get('product-name')
             product_object.composition = request.POST.get('product-description')
@@ -17,7 +21,7 @@ class MenuMixin:
                 product_object.photo = request.FILES['product-image']
             product_object.save()
 
-        elif request.POST.get("modal-button") == "add":
+        elif request.POST.get("modal-button") == "dish_add":
             product_object = Product(
                 name = request.POST.get('product-name'),
                 composition = request.POST.get('product-description'),
@@ -30,3 +34,16 @@ class MenuMixin:
             else:
                 product_object.photo = 'empty'
             product_object.save()    
+
+        elif request.POST.get("modal-button") == "cat_add":
+            cat_name = request.POST.get("cat_name")
+            cat_slug = translit(request.POST.get("cat_name"), 'uk',reversed=True).replace(' ','-')
+            serial_number = len(Category.objects.all())
+            
+            cat_is_created = False
+            while not cat_is_created:
+                try:
+                    Category.objects.create(name = cat_name, slug = cat_slug, serial_number=serial_number)
+                    cat_is_created = True
+                except IntegrityError:
+                    cat_slug += '_'

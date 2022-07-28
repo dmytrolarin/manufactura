@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login
 from order.models import*
 from menu.models import*
 from .utils import MenuMixin
-
+from transliterate import translit
 class LoginAdmin(TemplateView):
     template_name = "restaurant_admin/login.html"
     def dispatch(self, request):
@@ -66,7 +66,7 @@ class ShowAllMenu(TemplateView, MenuMixin):
             'category_selected':0,
             'path_pref':'../../',
             'showing_all_menu':True,
-            'categories':categories
+            'categories':Category.objects.order_by('serial_number')
         }
     
         if request.method == 'POST':
@@ -75,13 +75,9 @@ class ShowAllMenu(TemplateView, MenuMixin):
         return render(request, self.template_name, context=context)
 
 
-# Список с категориями, расположеными в правильном порядке
-categories = [
-            Category.objects.get(slug='snacks'),
-            Category.objects.get(slug='soups'),
-            Category.objects.get(slug='salads'),
-            Category.objects.get(slug='main_dish')
-        ]
+
+
+print(Category.objects.all())
 class ShowCategoryOfDish(TemplateView, MenuMixin):
     '''Для показа блюд конкретной категории'''
     template_name = 'restaurant_admin/menu.html'
@@ -92,7 +88,7 @@ class ShowCategoryOfDish(TemplateView, MenuMixin):
             'category_selected':cat.pk,
             'title':f'Редагування меню ({cat.name})',
             'path_pref':'../../../',
-            'categories':categories
+            'categories':Category.objects.order_by('serial_number')
         }
     
         if request.method == 'POST':

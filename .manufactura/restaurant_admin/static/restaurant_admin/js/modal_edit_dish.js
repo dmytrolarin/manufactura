@@ -30,7 +30,7 @@ productList.forEach((list, index) => {
         cost_edit.setAttribute('value', price_main);
         document.getElementById('del-menu').style.display = "flex";
         button_edit_menu.innerText = "Зберегти";
-        button_edit_menu.setAttribute("value",'edit');
+        button_edit_menu.setAttribute("value",'dish_edit');
     });
 });
 closer_edit_menu.addEventListener('click', () => {

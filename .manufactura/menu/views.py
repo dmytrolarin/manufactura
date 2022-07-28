@@ -4,16 +4,6 @@ from for_user.models import RestaurantInfo
 from django.http import HttpResponse
 
 from .models import*
-# Список с категориями, расположеными в правильном порядке
-categories = [
-            Category.objects.get(slug='snacks'),
-            Category.objects.get(slug='soups'),
-            Category.objects.get(slug='salads'),
-            Category.objects.get(slug='main_dish')
-        ]
-
-
-
 class ShowAllMenu(ListView):
     '''Для показа всех блюд'''
     model = Product
@@ -34,7 +24,7 @@ class ShowAllMenu(ListView):
         # context['amount_product_in_cart'] = get_amount_product(self.request)
         
 
-        context['categories'] = categories
+        context['categories'] = Category.objects.order_by('serial_number')
         return context
 
 
@@ -51,7 +41,7 @@ class ShowCategory(ListView):
         c = Category.objects.get(slug = self.kwargs['cat_slug'])
         context['title'] = c.name
         context['category_selected'] = c.pk
-        context['categories']= categories
+        context['categories']= Category.objects.order_by('serial_number')
         context['rest_info'] = RestaurantInfo.objects.all()[0]
         context['path_pref'] = '../../'
 

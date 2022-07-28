@@ -22,6 +22,7 @@ class Category(models.Model):
     '''Модель для категорий блюд'''
     name = models.CharField(max_length=255, db_index=True,verbose_name='Категорія страви')
     slug = models.SlugField(max_length=255,unique=True,db_index=True, verbose_name='URL категорії')
+    serial_number = models.IntegerField(unique=True, verbose_name='Порядковий номер')
 
     class Meta:
         verbose_name = 'Категорія страви'

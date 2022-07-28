@@ -52,15 +52,12 @@
             {% csrf_token %}
             <span class="title-modal-category"></span>
             <div class="field">
-                <span class="cat_name"><input type="text" placeholder="Ім'я категорії"></span>
-            </div>
-            <div class="field">
-                <span class="cat_number"><input type="number" placeholder="Номер"></span>
+                <span class="cat_name"><input type="text" placeholder="Ім'я категорії" name="cat_name"></span>
             </div>
             <div class="field">
                 <span class="but">
-                    <button class="detail__bagBtn delete-category" type="submit" id="del-category">Видалити</button>
-                    <button class="detail__bagBtn other-category" type="submit"></button>
+                    <button class="detail__bagBtn delete-category" type="submit" id="del-category" value="dish_del" name="modal-button">Видалити</button>
+                    <button class="detail__bagBtn other-category" type="submit" name="modal-button"></button>
                 </span>
             </div>
         </form>
@@ -114,7 +111,7 @@
                                     <p class="detail__description"><textarea name="product-description" id="" cols="30" rows="10" placeholder="Склад страви"></textarea></p>
                                     <p class="detail__price"><input type="number" placeholder="Ціна" name="product-price" required> грн</p>
                                     <div class="buttons">
-                                        <button class="detail__bagBtn delete-menu" type="submit" id="del-menu" name = 'modal-button' value="del">Видалити</button>
+                                        <button class="detail__bagBtn delete-menu" type="submit" id="del-menu" name = 'modal-button' value="dish_del">Видалити</button>
                                         <button class="detail__bagBtn other-menu" type="submit" name = 'modal-button'></button>
                                     </div>
                                 </div>

@@ -62,13 +62,14 @@ main{
 }
 .h-scroller{
     overflow: hidden;
-    width: fit-content;
-    margin: 15px auto 0 auto;
+    width: 100%;
+    margin: 15px 0 0 0;
     
 
 }
 
 .h-scroller__items{
+    justify-content: center;
     padding: 5px 0;
     display: flex;
     flex-wrap: nowrap;
