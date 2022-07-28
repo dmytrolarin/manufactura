@@ -5,6 +5,7 @@ from django.views.generic import TemplateView, ListView
 from django.contrib.auth import authenticate, login
 from order.models import*
 from menu.models import*
+from .utils import MenuMixin
 
 class LoginAdmin(TemplateView):
     template_name = "restaurant_admin/login.html"
@@ -54,27 +55,24 @@ def orders_page(request,status_slug=None):
         
         return redirect('login_admin')
         
-class ShowAllMenu(ListView):
+class ShowAllMenu(TemplateView, MenuMixin):
     '''Для показа всех блюд'''
-    model = Product
+         
     template_name = 'restaurant_admin/menu.html'
-    context_object_name = 'products'
+    def dispatch(self, request):
+        context = {
+            'products':Product.objects.all(),
+            'title':'Редагування меню',
+            'category_selected':0,
+            'path_pref':'../../',
+            'showing_all_menu':True,
+            'categories':categories
+        }
     
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Меню'
-        context['category_selected'] = 0
-        context['path_pref'] = '../../'
-        context['showing_all_menu'] = True
-
-        session_key = self.request.session.session_key
-        if not session_key:
-            self.request.session.cycle_key()
-        
-
-        context['categories'] = categories
-        return context
-
+        if request.method == 'POST':
+            self.change_menu(request)  
+               
+        return render(request, self.template_name, context=context)
 
 
 # Список с категориями, расположеными в правильном порядке
@@ -84,32 +82,30 @@ categories = [
             Category.objects.get(slug='salads'),
             Category.objects.get(slug='main_dish')
         ]
-class ShowCategoryOfDish(ListView):
+class ShowCategoryOfDish(TemplateView, MenuMixin):
     '''Для показа блюд конкретной категории'''
-    model = Product
     template_name = 'restaurant_admin/menu.html'
-    context_object_name = 'products'
+    def dispatch(self, request, cat_slug):
+        cat = Category.objects.get(slug = cat_slug)
+        context = {
+            'products':Product.objects.filter(cat__slug = cat_slug),
+            'category_selected':cat.pk,
+            'title':f'Редагування меню ({cat.name})',
+            'path_pref':'../../../',
+            'categories':categories
+        }
     
-    def get_queryset(self):
-        return Product.objects.filter(cat__slug = self.kwargs['cat_slug'])
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        c = Category.objects.get(slug = self.kwargs['cat_slug'])
-        context['title'] = c.name
-        context['category_selected'] = c.pk
-        context['categories']= categories
-        context['path_pref'] = '../../../'
+        if request.method == 'POST':
+            self.change_menu(request)  
+               
+        return render(request, self.template_name, context=context)
 
 
-        session_key = self.request.session.session_key
-        if not session_key:
-            self.request.session.cycle_key()
-        return context
 
 def redir_login(request):
     return redirect('login_admin')
 
-
+# Функция для изменения статуса заказа
 def set_order_status(request):
     data = request.POST
     order_pk = data.get('order_pk')
@@ -126,5 +122,4 @@ def set_order_status(request):
         order.reason_for_cancel = cancel_reason
     order.status = new_order_status
     order.save()
-
     return HttpResponse(None)

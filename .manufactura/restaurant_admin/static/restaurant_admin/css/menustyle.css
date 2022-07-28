@@ -176,7 +176,12 @@ main{
     justify-content: space-between;
 } 
 
-.product:hover{
+.modal_pr{
+    min-height: 515px;
+    
+}
+
+.product:hover, .modal_pr:hover{
     box-shadow: 0 0  6px 6px grey;  
 }
 
