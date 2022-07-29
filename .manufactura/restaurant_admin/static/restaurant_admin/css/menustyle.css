@@ -61,6 +61,7 @@ main{
     position: fixed;
 }
 .h-scroller{
+    justify-content: center;
     overflow: hidden;
     width: 100%;
     margin: 15px 0 0 0;
@@ -68,8 +69,8 @@ main{
 
 }
 
+
 .h-scroller__items{
-    justify-content: center;
     padding: 5px 0;
     display: flex;
     flex-wrap: nowrap;

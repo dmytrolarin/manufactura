@@ -23,6 +23,7 @@
     </header>
     <main>
     <div class="h-scroller">
+        <div class="h-scroller-wrapper">
         <div class="h-scroller__items">
             {% if category_selected != 0 %}
                 <a href="{% url 'all_menu_for_editing' %}" class="h-scroller__item">Усі страви</a>
@@ -45,6 +46,7 @@
                 {% endif %}
             {% endfor %}
             <div class="add_cat"><a href="#" class="h-scroller__item">+</a></div>
+        </div>
         </div>
     </div>
     <div class="modal-category"></div>
