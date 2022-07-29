@@ -55,6 +55,13 @@
                 <span class="cat_name"><input type="text" placeholder="Ім'я категорії" name="cat_name"></span>
             </div>
             <div class="field">
+                <span class="lab">Розташування</span>
+                <span class="but-location">
+                    <button type="submit"><ion-icon name="arrow-back-outline" class="ic"></ion-icon></button>
+                    <button type="submit"><ion-icon name="arrow-forward-outline" class="ic"></ion-icon></button>
+                </span>
+            </div>
+            <div class="field">
                 <span class="but">
                     <button class="detail__bagBtn delete-category" type="submit" id="del-category" value="dish_del" name="modal-button">Видалити</button>
                     <button class="detail__bagBtn other-category" type="submit" name="modal-button"></button>
@@ -138,5 +145,6 @@
 <script src="{% static 'restaurant_admin/js/modal_add_category.js' %}"></script>
 <script src="{% static 'restaurant_admin/js/modal_edit_category.js' %}"></script>
 <script src="{% static 'restaurant_admin/js/load_image.js' %}"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 {% endblock content %}
-

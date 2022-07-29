@@ -348,6 +348,19 @@ main{
 .field{
     margin-top: 50px;
 }
+.but-location{
+    display: block;
+}
+.lab{
+    font-size: 30px;
+}
+.but-location button{
+    width: 35px;
+    font-size: 35px;
+}
+.but-location button:hover{
+    color: grey;
+}
 .modal__left, .modal__right {
     display: flex;
     justify-content: center;

@@ -11,8 +11,8 @@ const cost_add = document.querySelector('.detail__price input');
 const button_add_menu = document.querySelector('.other-menu');
 modalPrList.forEach((list, index) => {
     const add_menu = list.querySelector('.add-product-symb');
-    const productCatId = list.querySelector('.prod-cat-id').getAttribute('value')
-    add_menu.addEventListener('click', () => {  
+    const productCatId = list.querySelector('.prod-cat-id').getAttribute('value');
+    add_menu.addEventListener('click', () => { 
         modal_add_menu.classList.add('modal-menu--bg');
         modalContent_add_menu.classList.add('modal__content-menu--show');
         title_modal_add_menu.innerText = "Створення страви";
@@ -24,22 +24,18 @@ modalPrList.forEach((list, index) => {
         cost_add.setAttribute('value', "");
         document.getElementById('del-menu').style.display = "none";
         button_add_menu.innerText = "Створити";
-        button_add_menu.setAttribute("value",'dish_add')
-
-        
+        button_add_menu.setAttribute("value",'dish_add');
     });
-})
+});
 closer_add_menu.addEventListener('click', () => {
-    modal_add_menu.classList.remove('modal-menu--bg');
-    modalContent_add_menu.classList.remove('modal__content-menu--show');
+    modal_add_menu.classList.remove('modal-category--bg');
+    modalContent_add_menu.classList.remove('modal__content-category--show');
 });
-
 button_add_menu.addEventListener('click', () => {
-    modal_add_menu.classList.remove('modal-menu--bg');
-    modalContent_add_menu.classList.remove('modal__content-menu--show');
+    modal_add_menu.classList.remove('modal-category--bg');
+    modalContent_add_menu.classList.remove('modal__content-category--show');
 });
-
 modal_add_menu.addEventListener('click', () => {
-    modal_add_menu.classList.remove('modal-menu--bg');
-    modalContent_add_menu.classList.remove('modal__content-menu--show');
+    modal_add_menu.classList.remove('modal-category--bg');
+    modalContent_add_menu.classList.remove('modal__content-category--show');
 });
