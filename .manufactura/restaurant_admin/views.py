@@ -71,13 +71,13 @@ class ShowAllMenu(TemplateView, MenuMixin):
     
         if request.method == 'POST':
             self.change_menu(request)  
+
                
         return render(request, self.template_name, context=context)
 
 
 
 
-print(Category.objects.all())
 class ShowCategoryOfDish(TemplateView, MenuMixin):
     '''Для показа блюд конкретной категории'''
     template_name = 'restaurant_admin/menu.html'
@@ -93,6 +93,8 @@ class ShowCategoryOfDish(TemplateView, MenuMixin):
     
         if request.method == 'POST':
             self.change_menu(request)  
+            if request.POST.get("modal-button") == "cat_del":
+                return redirect('all_menu_for_editing')
                
         return render(request, self.template_name, context=context)
 

@@ -8,7 +8,7 @@ class Product(models.Model):
     composition = models.TextField(blank=True, verbose_name='Склад')
     photo = models.ImageField(upload_to = "photos/menu/",verbose_name='Фото')
     price = models.IntegerField(verbose_name='Ціна')
-    cat = models.ForeignKey('Category', on_delete=models.PROTECT,null=True, verbose_name='Категорія страви')
+    cat = models.ForeignKey('Category', on_delete=models.CASCADE,null=True, verbose_name='Категорія страви')
 
     class Meta:
         verbose_name = 'Страва'
@@ -22,7 +22,7 @@ class Category(models.Model):
     '''Модель для категорий блюд'''
     name = models.CharField(max_length=255, db_index=True,verbose_name='Категорія страви')
     slug = models.SlugField(max_length=255,unique=True,db_index=True, verbose_name='URL категорії')
-    serial_number = models.IntegerField(unique=True, verbose_name='Порядковий номер')
+    serial_number = models.IntegerField(verbose_name='Порядковий номер')
 
     class Meta:
         verbose_name = 'Категорія страви'

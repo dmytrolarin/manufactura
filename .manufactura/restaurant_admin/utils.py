@@ -1,6 +1,7 @@
 from unicodedata import name
 
 from django.db import IntegrityError
+from django.shortcuts import redirect
 from menu.models import Category, Product
 from transliterate import translit
 class MenuMixin:
@@ -47,3 +48,33 @@ class MenuMixin:
                     cat_is_created = True
                 except IntegrityError:
                     cat_slug += '_'
+
+        elif request.POST.get("modal-button") == "cat_edit" or request.POST.get("modal-button") == "cat_move_left" or request.POST.get("modal-button") == "cat_move_right":
+            cat_name = request.POST.get("cat_name")
+            cat_pk = request.POST.get("cat_pk")
+            cat = Category.objects.get(pk = cat_pk)
+            cat.name = cat_name
+            try:
+                if request.POST.get("modal-button") == "cat_move_left":
+                    closest_cat = Category.objects.get(serial_number = cat.serial_number-1)
+                    closest_cat.serial_number = cat.serial_number
+                    closest_cat.save()
+                    cat.serial_number = cat.serial_number-1
+                elif request.POST.get("modal-button") == "cat_move_right":
+                    closest_cat = Category.objects.get(serial_number = cat.serial_number+1)
+                    closest_cat.serial_number = cat.serial_number
+                    closest_cat.save()
+                    cat.serial_number = cat.serial_number+1
+                cat.save()
+            except:
+                None
+
+        elif request.POST.get("modal-button") == "cat_del":
+            cat_pk = request.POST.get("cat_pk")
+            cat = Category.objects.get(pk = cat_pk)
+            cat.delete()
+            for i, cat in enumerate(Category.objects.all(), 0):
+                cat.serial_number = i
+                cat.save()
+
+            

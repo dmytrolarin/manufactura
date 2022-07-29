@@ -353,6 +353,7 @@ main{
 }
 .lab{
     font-size: 30px;
+    font-family: 'Roboto Slab', serif;
 }
 .but-location button{
     width: 35px;

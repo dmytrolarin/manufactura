@@ -32,12 +32,14 @@
             {% for cat in categories %}
                 {% if cat.pk != category_selected %}
                     <div class="edit_cat">
-                        <a href="{{cat.get_absolute_url_for_editing}}" class="h-scroller__item cat-sp">{{cat}}</a>  
+                        <a href="{{cat.get_absolute_url_for_editing}}" class="h-scroller__item cat-sp">{{cat}}</a> 
+                        <p class="category-pk" style="display: none;">{{cat.pk}}</p>  
                         <button class="btn-edit-cat btn-edit "><img src="{{path_pref}}media/photos/icons/pencil-outline.svg" alt=""></button>
                     </div>
                 {% else %}
                     <div class="edit_cat">
                         <a href="#" class="h-scroller__item selected_category cat-sp">{{cat}}</a>
+                        <p class="category-pk" style="display: none;">{{cat.pk}}</p> 
                         <button class="btn-edit-cat btn-edit "><img src="{{path_pref}}media/photos/icons/pencil-outline.svg" alt=""></button>
                     </div>
                 {% endif %}
@@ -50,20 +52,17 @@
         <i class="modal__close-category far fa-times-circle">&times;</i>
         <form action="" method="post" class="cat_form">
             {% csrf_token %}
+            <input type="text" name="cat_pk" class = 'cat_pk' hidden>
             <span class="title-modal-category"></span>
             <div class="field">
                 <span class="cat_name"><input type="text" placeholder="Ім'я категорії" name="cat_name"></span>
             </div>
-            <div class="field">
-                <span class="lab">Розташування</span>
-                <span class="but-location">
-                    <button type="submit"><ion-icon name="arrow-back-outline" class="ic"></ion-icon></button>
-                    <button type="submit"><ion-icon name="arrow-forward-outline" class="ic"></ion-icon></button>
-                </span>
+            <div class="field location">
+
             </div>
             <div class="field">
                 <span class="but">
-                    <button class="detail__bagBtn delete-category" type="submit" id="del-category" value="dish_del" name="modal-button">Видалити</button>
+                    <button class="detail__bagBtn delete-category" type="submit" id="del-category" value="cat_del" name="modal-button">Видалити</button>
                     <button class="detail__bagBtn other-category" type="submit" name="modal-button"></button>
                 </span>
             </div>
@@ -74,6 +73,7 @@
         {% for cat in categories %}
             {% if showing_all_menu %}
                 <p class="category-title">{{cat}}</p> 
+                
             {% endif %}
             <div class="list">
                 {% for product in products %}
