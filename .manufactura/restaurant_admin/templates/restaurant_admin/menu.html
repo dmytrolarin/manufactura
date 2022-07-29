@@ -101,32 +101,6 @@
                             </div>
                         </div>
                     {% endif %}
-                    <div class="modal-menu"></div>
-                    <form id="modal__form" enctype="multipart/form-data" method="post">
-                        {% csrf_token %}
-                        <div class="modal__content-menu">
-                            <i class="modal__close-menu far fa-times-circle">&times;</i>
-                            
-                            <div class="modal__left">
-                                <img src="" alt="" id="image_id" class="load-img" >
-                                <label class="b"><input type="file" id="file_id" name="product-image">Обрати файл</label>
-                            </div>
-                            <div class="modal__right">
-                                <div class="detail">
-                                    <input type="text" hidden class="chosen-pk" name="chosen-pk">
-                                    <input type="text" hidden class="chosen-prod-cat-id" name="chosen-prod-cat-id">
-                                    <span class="title-modal-menu"></span>
-                                    <p class="detail__title" id="product-name" ><input type="text" placeholder="Ім'я страви" name="product-name" required></p>
-                                    <p class="detail__description"><textarea name="product-description" id="" cols="30" rows="10" placeholder="Склад страви"></textarea></p>
-                                    <p class="detail__price"><input type="number" placeholder="Ціна" name="product-price" required> грн</p>
-                                    <div class="buttons">
-                                        <button class="detail__bagBtn delete-menu" type="submit" id="del-menu" name = 'modal-button' value="dish_del">Видалити</button>
-                                        <button class="detail__bagBtn other-menu" type="submit" name = 'modal-button'></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
                 {%endfor%}
                 
                 {% if category_selected == cat.pk or category_selected == 0%}
@@ -139,6 +113,32 @@
                     
                 {% endif %}
             </div>
+            <div class="modal-menu"></div>
+            <form id="modal__form" enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                <div class="modal__content-menu">
+                    <i class="modal__close-menu far fa-times-circle">&times;</i>
+                    
+                    <div class="modal__left">
+                        <img src="" alt="" id="image_id" class="load-img" >
+                        <label class="b"><input type="file" id="file_id" name="product-image">Обрати файл</label>
+                    </div>
+                    <div class="modal__right">
+                        <div class="detail">
+                            <input type="text" hidden class="chosen-pk" name="chosen-pk">
+                            <input type="text" hidden class="chosen-prod-cat-id" name="chosen-prod-cat-id">
+                            <span class="title-modal-menu"></span>
+                            <p class="detail__title" id="product-name" ><input type="text" placeholder="Ім'я страви" name="product-name" required></p>
+                            <p class="detail__description"><textarea name="product-description" id="" cols="30" rows="10" placeholder="Склад страви"></textarea></p>
+                            <p class="detail__price"><input type="number" placeholder="Ціна" name="product-price" required> грн</p>
+                            <div class="buttons">
+                                <button class="detail__bagBtn delete-menu" type="submit" id="del-menu" name = 'modal-button' value="dish_del">Видалити</button>
+                                <button class="detail__bagBtn other-menu" type="submit" name = 'modal-button'></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         {% endfor %}
     </div>  
     </main> 

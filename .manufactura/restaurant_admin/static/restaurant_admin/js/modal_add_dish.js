@@ -18,7 +18,7 @@ modalPrList.forEach((list, index) => {
         title_modal_add_menu.innerText = "Створення страви";
         cat_id_edit.setAttribute('value', productCatId);
         console.log(productCatId);
-        image_add.setAttribute('src', '../../media/photos/template_images/dish.png');
+        image_add.setAttribute('src', '../../../media/photos/template_images/dish.png');
         title_add.setAttribute('value', "");
         composition_add.innerText = "";
         cost_add.setAttribute('value', "");
@@ -28,14 +28,14 @@ modalPrList.forEach((list, index) => {
     });
 });
 closer_add_menu.addEventListener('click', () => {
-    modal_add_menu.classList.remove('modal-category--bg');
-    modalContent_add_menu.classList.remove('modal__content-category--show');
+    modal_add_menu.classList.remove('modal-menu--bg');
+    modalContent_add_menu.classList.remove('modal__content-menu--show');
 });
 button_add_menu.addEventListener('click', () => {
-    modal_add_menu.classList.remove('modal-category--bg');
-    modalContent_add_menu.classList.remove('modal__content-category--show');
+    modal_add_menu.classList.remove('modal-menu--bg');
+    modalContent_add_menu.classList.remove('modal__content-menu--show');
 });
 modal_add_menu.addEventListener('click', () => {
-    modal_add_menu.classList.remove('modal-category--bg');
-    modalContent_add_menu.classList.remove('modal__content-category--show');
+    modal_add_menu.classList.remove('modal-menu--bg');
+    modalContent_add_menu.classList.remove('modal__content-menu--show');
 });
