@@ -22,6 +22,9 @@
         </div>
     </header>
     <main>
+    <div class="scrollup">
+        <ion-icon name="arrow-up-circle-outline"></ion-icon>
+    </div>
     <div class="h-scroller">
         <div class="h-scroller-wrapper">
         <div class="h-scroller__items">
@@ -120,8 +123,8 @@
                     <i class="modal__close-menu far fa-times-circle">&times;</i>
                     
                     <div class="modal__left">
-                        <img src="" alt="" id="image_id" class="load-img" >
-                        <label class="b"><input type="file" id="file_id" name="product-image">Обрати файл</label>
+                        <img src="" alt="" id="image_id" class="load-img">
+                        <div><label class="b"><input type="file" id="file_id" name="product-image">Обрати файл</label></div>
                     </div>
                     <div class="modal__right">
                         <div class="detail">
@@ -147,6 +150,8 @@
 <script src="{% static 'restaurant_admin/js/modal_add_category.js' %}"></script>
 <script src="{% static 'restaurant_admin/js/modal_edit_category.js' %}"></script>
 <script src="{% static 'restaurant_admin/js/load_image.js' %}"></script>
+<script src="{% static 'restaurant_admin/js/jquery-3.6.0.js' %}"></script>
+<script src="{% static 'restaurant_admin/js/scrollup.js' %}"></script>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 {% endblock content %}

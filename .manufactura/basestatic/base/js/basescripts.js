@@ -21,9 +21,10 @@ function burgerMenu(selector_menu, selector_slider) {
 
         if (menu.hasClass('burger-menu_active')) {
             $('body').css('overflow', 'hidden');
+            $('.scrollup').fadeOut();
         } else {
             $('body').css('overflow', 'visible');
-            
+            $('.scrollup').fadeIn();
         }
         
     }

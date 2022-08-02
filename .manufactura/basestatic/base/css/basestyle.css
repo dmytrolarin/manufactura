@@ -115,7 +115,6 @@ header .wrapper{
 }
 
 /* Настройка бургер-меню */
-
 .burger-menu__button{
 	font-size: 25px;
 
@@ -124,7 +123,6 @@ header .wrapper{
 .burger-menu__links{
 	position: fixed;
 	top:0;
-	z-index: 1000;
 	display: flex;
 	flex-flow:column;
 	height: 100%;

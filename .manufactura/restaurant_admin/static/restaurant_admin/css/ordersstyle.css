@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&family=Roboto+Slab:wght@200&display=swap');
 header{
 	background-color: #f4f5f0;
-	height: 10vh;
+	height: 10%;
 	position: fixed;
 	width: 100%;
 	/* border-radius: 0 0 20px 20px; */
