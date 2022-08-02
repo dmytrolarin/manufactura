@@ -7,19 +7,21 @@
 {% block content %}
 <div class="h-scroller">
     <div class="h-scroller__items">
-        {% if category_selected != 0 %}
-            <a href="{% url 'all_menu' %}" class="h-scroller__item">Усі страви</a>
-        {% else %}
-            <a href="#" class="h-scroller__item selected_category">Усі страви</a>
-        {% endif %}
-        
-        {% for cat in categories %}
-            {% if cat.pk != category_selected %}
-                <a href="{{cat.get_absolute_url}}" class="h-scroller__item">{{cat}}</a>
+        <div class="h-src-items-wrapper">
+            {% if category_selected != 0 %}
+                <a href="{% url 'all_menu' %}" class="h-scroller__item">Усі страви</a>
             {% else %}
-                <a href="#" class="h-scroller__item selected_category">{{cat}}</a>
+                <a href="#" class="h-scroller__item selected_category">Усі страви</a>
             {% endif %}
-        {% endfor %}
+            
+            {% for cat in categories %}
+                {% if cat.pk != category_selected %}
+                    <a href="{{cat.get_absolute_url}}" class="h-scroller__item">{{cat}}</a>
+                {% else %}
+                    <a href="#" class="h-scroller__item selected_category">{{cat}}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
         
     </div>
 

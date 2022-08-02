@@ -121,6 +121,7 @@ header .wrapper{
 }
 
 .burger-menu__links{
+	z-index: 1000;
 	position: fixed;
 	top:0;
 	display: flex;

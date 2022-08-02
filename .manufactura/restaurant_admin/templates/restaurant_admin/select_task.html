@@ -1,0 +1,14 @@
+{% extends 'restaurant_admin/base.html' %}
+{% load static %}
+{% block links %}
+    <link rel="stylesheet" href="{% static 'restaurant_admin/css/select_task_style.css' %}">
+{% endblock links %}
+
+{% block content %}
+    <div class="main-block">
+        <h1>Обрати задачу</h1>
+        <p><a href="{% url 'orders' %}" class="button">Керування замовленнями</a></p>
+        <p><a href="{% url 'all_menu_for_editing' %}" class="button">Редагування меню</a></p>
+        <p><a href="{% url 'rest_info_editing' %}" class="button">Редагування інформації про ресторан</a></p>
+    </div>
+{% endblock content %}

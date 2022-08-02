@@ -10,6 +10,7 @@ class AdminAdditionalInfo(models.Model):
     CHOICES_RIGTHS = (
         ('order_management','Керування замовленнями'),
         ('menu_editing','Редагування меню'),
+        ('rest_info_editing','Редагування інфо про ресторан'),
         ('all_rights','Повні права'),
     )
 

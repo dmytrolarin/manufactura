@@ -5,6 +5,10 @@ class RestaurantInfo(models.Model):
     '''Модель для информации о ресторане, которая может изменяться'''
     rest_phone_number = models.IntegerField(verbose_name='Номер телефону ресторану')
     time_working = models.CharField(verbose_name='Час роботи', max_length=255)
+    wifi_name = models.CharField(verbose_name='Wi-Fi', max_length=255, default='-')
+    wifi_passsword = models.CharField(verbose_name='Пароль Wi-Fi', max_length=255,default='-')
+    about_restaurant = models.TextField(verbose_name='Про ресторан',default='-')
+    main_page_video = models.FileField(verbose_name='Відео для головної сторінки', upload_to='videos/',default='-')
 
     def __str__(self):
         return 'Інформація про ресторан'
